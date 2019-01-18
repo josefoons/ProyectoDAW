@@ -41,18 +41,3 @@ p,#textoInfoUsuarioHeader{
     width: 1000px;
     height: auto;
 }
-
-.logo {
-    margin-top: 10px;
-}
-
-.contenidoContent {
-    float: left;
-    margin-left: 100px;
-}
-
-#tablaDuos {
-    height: 700px;
-    width: 1250px;
-    border: 1px solid black;
-}
