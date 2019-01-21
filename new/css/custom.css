@@ -11,11 +11,12 @@
 }
 
 #textoImagenPrincipal{
+    color: white;
     position: absolute;
     height: 100%;
     width: 100%;
-    left: 100px;
-    top: 40px;
+    left: 5%;
+    top: 10%;
 }
 
 #imagenBannerPrincipal{
@@ -23,6 +24,10 @@
     background-size: cover;
 }
 
+#listaUsuarios{
+    width: auto;
+    height: 500px; /* Cambiar a auto mas alante */
+}
 
 /* Zona cuando ya estas logueado */
 #imagenUsuario {
