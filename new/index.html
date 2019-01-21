@@ -112,10 +112,10 @@
         </div>
         <div class="modal-body mx-3">
           <div class="md-form mb-5">
-            <label data-error="wrong" data-success="right" for="orangeForm-name">Usuario</label>
-            <input type="text" id="orangeForm-name" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="orangeForm-pass">Contraseña</label>
-            <input type="password" id="orangeForm-pass" class="form-control validate">
+            <label for="nickLogin">Nick</label>
+            <input type="text" id="nickLogin" class="form-control">
+            <label for="passLogin">Contraseña</label>
+            <input type="password" id="passLogin" class="form-control">
             <div class="modal-footer d-flex justify-content-center">
               <button class="btn btn-success">ADELANTE!</button>
             </div>
@@ -132,14 +132,75 @@
       <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header text-center">
-              <h4 class="modal-title w-100 font-weight-bold">Registrarse</h4>
+              <h4 class="modal-title w-100 font-weight-bold">Registrar</h4>
             </div>
             <div class="modal-body mx-3">
               <div class="md-form mb-5">
-                <label data-error="wrong" data-success="right" for="orangeForm-name">Usuario</label>
-                <input type="text" id="orangeForm-name" class="form-control validate">
-                <label data-error="wrong" data-success="right" for="orangeForm-pass">Contraseña</label>
-                <input type="password" id="orangeForm-pass" class="form-control validate">
+                <label for="nickRegistro">Nick</label>
+                <input type="text" id="nickRegistro" class="form-control">
+
+                <label for="passRegistro">Contraseña</label>
+                <input type="password" id="passRegistro" class="form-control">
+
+                <label for="paisRegistro">Pais</label>
+                <input type="text" id="paisRegistro" class="form-control">
+
+                <label for="idiomaRegistro">Idioma Preferido</label>
+                <select class="form-control" id="idiomaRegistro">
+                    <option>Español</option>
+                    <option>Ingles</option>
+                    <option>Frances</option>
+                    <option>Aleman</option>
+                    <option>Italiano</option>
+                  </select>
+
+                <label for="eloRegistro">Elo</label>
+                <div>
+                    <select id="eloRegistroNombre" class="form-control">
+                      <option selected>ELO</option>
+                      <option value="iron">Hierro</option>
+                      <option value="bronze">Bronce</option>
+                      <option value="silver">Plata</option>
+                      <option value="gold">Oro</option>
+                      <option value="platinum">Platino</option>
+                      <option value="diamond">Diamante</option>
+                      <option value="master">Master</option>
+                      <option value="grandmaster">GrandMaster</option>
+                      <option value="challenger">Challenger</option>
+                    </select>
+                    <select id="eloRegistroLiga" class="form-control">
+                        <option selected>Liga</option>
+                        <option value="1">I</option>
+                        <option value="2">II</option>
+                        <option value="3">III</option>
+                        <option value="4">IV</option>
+                    </select>
+                  </div>
+
+                  <label for="rolPrefRegistro">Rol Preferido</label>
+                  <select id="rolPrefRegistro" class="form-control">
+                      <option selected>Posicion</option>
+                      <option value="top">TopLaner</option>
+                      <option value="jung">Jungla</option>
+                      <option value="mid">MidLaner</option>
+                      <option value="adc">ADCarry</option>
+                      <option value="supp">Support</option>
+                  </select>
+
+                  <label for="rolBuscadoRegistro">Rol Buscado</label>
+                  <select id="rolBuscadoRegistro" class="form-control">
+                      <option selected>Posicion</option>
+                      <option value="top">TopLaner</option>
+                      <option value="jung">Jungla</option>
+                      <option value="mid">MidLaner</option>
+                      <option value="adc">ADCarry</option>
+                      <option value="supp">Support</option>
+                  </select>
+
+                  <label for="paisRegistro">Mensaje</label>
+                  <textarea id="paisRegistro" class="form-control" maxlength="300"></textarea> 
+
+
                 <div class="modal-footer d-flex justify-content-center">
                   <button class="btn btn-success">ADELANTE!</button>
                 </div>
