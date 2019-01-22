@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 22, 2019 at 07:55 PM
--- Server version: 5.7.24-0ubuntu0.18.04.1
--- PHP Version: 7.2.10-0ubuntu0.18.04.1
+-- Servidor: localhost:3306
+-- Tiempo de generación: 22-01-2019 a las 21:06:52
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `proyectoDAW`
+-- Base de datos: `josefons_proyecto`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `elo`
+-- Estructura de tabla para la tabla `elo`
 --
 
 CREATE TABLE `elo` (
@@ -32,10 +34,43 @@ CREATE TABLE `elo` (
   `nombreArchivo` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `elo`
+--
+
+INSERT INTO `elo` (`id`, `nombre`, `nombreArchivo`) VALUES
+(1, 'Hierro 4', 'iron_4'),
+(2, 'Hierro 3', 'iron_3'),
+(3, 'Hierro 2', 'iron_2'),
+(4, 'Hierro 1', 'iron_1'),
+(5, 'Bronce 4', 'bronze_4'),
+(6, 'Bronce 3', 'bronze_3'),
+(7, 'Bronce 2', 'bronze_2'),
+(8, 'Bronce 1', 'bronze_1'),
+(9, 'Plata 4', 'silver_4'),
+(10, 'Plata 3', 'silver_3'),
+(11, 'Plata 2', 'silver_2'),
+(12, 'Plata 1', 'silver_1'),
+(13, 'Gold 4', 'gold_4'),
+(14, 'Gold 3', 'gold_3'),
+(15, 'Gold 2', 'gold_2'),
+(16, 'Gold 1', 'gold_1'),
+(17, 'Platino 4', 'platinum_4'),
+(18, 'Platino 3', 'platinum_3'),
+(19, 'Platino 2', 'platinum_2'),
+(20, 'Platino 1', 'platinum_1'),
+(21, 'Diamante 4', 'diamond_4'),
+(22, 'Diamante 3', 'diamond_3'),
+(23, 'Diamante 2', 'diamond_2'),
+(24, 'Diamante 1', 'diamond_1'),
+(25, 'Master', 'master_1'),
+(26, 'GrandMaster', 'grandmaster_1'),
+(27, 'Challenger', 'challenger_1');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `idioma`
+-- Estructura de tabla para la tabla `idioma`
 --
 
 CREATE TABLE `idioma` (
@@ -44,7 +79,7 @@ CREATE TABLE `idioma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Dumping data for table `idioma`
+-- Volcado de datos para la tabla `idioma`
 --
 
 INSERT INTO `idioma` (`id`, `nombre`) VALUES
@@ -187,7 +222,7 @@ INSERT INTO `idioma` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pais`
+-- Estructura de tabla para la tabla `pais`
 --
 
 CREATE TABLE `pais` (
@@ -196,7 +231,7 @@ CREATE TABLE `pais` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pais`
+-- Volcado de datos para la tabla `pais`
 --
 
 INSERT INTO `pais` (`id`, `nombre`) VALUES
@@ -454,7 +489,7 @@ INSERT INTO `pais` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `region`
+-- Estructura de tabla para la tabla `region`
 --
 
 CREATE TABLE `region` (
@@ -464,7 +499,7 @@ CREATE TABLE `region` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `region`
+-- Volcado de datos para la tabla `region`
 --
 
 INSERT INTO `region` (`id`, `codigoRegion`, `nombreRegion`) VALUES
@@ -485,7 +520,7 @@ INSERT INTO `region` (`id`, `codigoRegion`, `nombreRegion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -504,68 +539,74 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `elo`
+-- Indices de la tabla `elo`
 --
 ALTER TABLE `elo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `idioma`
+-- Indices de la tabla `idioma`
 --
 ALTER TABLE `idioma`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pais`
+-- Indices de la tabla `pais`
 --
 ALTER TABLE `pais`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `region`
+-- Indices de la tabla `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `elo`
+-- AUTO_INCREMENT de la tabla `elo`
 --
 ALTER TABLE `elo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
 --
--- AUTO_INCREMENT for table `idioma`
+-- AUTO_INCREMENT de la tabla `idioma`
 --
 ALTER TABLE `idioma`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+
 --
--- AUTO_INCREMENT for table `pais`
+-- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
+
 --
--- AUTO_INCREMENT for table `region`
+-- AUTO_INCREMENT de la tabla `region`
 --
 ALTER TABLE `region`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
