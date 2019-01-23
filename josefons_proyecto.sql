@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 22-01-2019 a las 21:06:52
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.2.7
+-- Host: localhost:3306
+-- Generation Time: Jan 23, 2019 at 08:45 PM
+-- Server version: 5.7.24-0ubuntu0.18.04.1
+-- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `josefons_proyecto`
+-- Database: `proyectoDAW`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `elo`
+-- Table structure for table `elo`
 --
 
 CREATE TABLE `elo` (
@@ -35,7 +33,7 @@ CREATE TABLE `elo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `elo`
+-- Dumping data for table `elo`
 --
 
 INSERT INTO `elo` (`id`, `nombre`, `nombreArchivo`) VALUES
@@ -70,7 +68,7 @@ INSERT INTO `elo` (`id`, `nombre`, `nombreArchivo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `idioma`
+-- Table structure for table `idioma`
 --
 
 CREATE TABLE `idioma` (
@@ -79,7 +77,7 @@ CREATE TABLE `idioma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Volcado de datos para la tabla `idioma`
+-- Dumping data for table `idioma`
 --
 
 INSERT INTO `idioma` (`id`, `nombre`) VALUES
@@ -222,274 +220,275 @@ INSERT INTO `idioma` (`id`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pais`
+-- Table structure for table `pais`
 --
 
 CREATE TABLE `pais` (
   `id` int(5) NOT NULL,
-  `nombre` varchar(45) NOT NULL DEFAULT ''
+  `codigoPais` char(2) NOT NULL DEFAULT '',
+  `nombrePais` varchar(45) NOT NULL DEFAULT ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `pais`
+-- Dumping data for table `pais`
 --
 
-INSERT INTO `pais` (`id`, `nombre`) VALUES
-(1, 'Andorra'),
-(2, 'United Arab Emirates'),
-(3, 'Afghanistan'),
-(4, 'Antigua and Barbuda'),
-(5, 'Anguilla'),
-(6, 'Albania'),
-(7, 'Armenia'),
-(8, 'Angola'),
-(9, 'Antarctica'),
-(10, 'Argentina'),
-(11, 'American Samoa'),
-(12, 'Austria'),
-(13, 'Australia'),
-(14, 'Aruba'),
-(15, 'Åland'),
-(16, 'Azerbaijan'),
-(17, 'Bosnia and Herzegovina'),
-(18, 'Barbados'),
-(19, 'Bangladesh'),
-(20, 'Belgium'),
-(21, 'Burkina Faso'),
-(22, 'Bulgaria'),
-(23, 'Bahrain'),
-(24, 'Burundi'),
-(25, 'Benin'),
-(26, 'Saint Barthélemy'),
-(27, 'Bermuda'),
-(28, 'Brunei'),
-(29, 'Bolivia'),
-(30, 'Bonaire'),
-(31, 'Brazil'),
-(32, 'Bahamas'),
-(33, 'Bhutan'),
-(34, 'Bouvet Island'),
-(35, 'Botswana'),
-(36, 'Belarus'),
-(37, 'Belize'),
-(38, 'Canada'),
-(39, 'Cocos [Keeling] Islands'),
-(40, 'Democratic Republic of the Congo'),
-(41, 'Central African Republic'),
-(42, 'Republic of the Congo'),
-(43, 'Switzerland'),
-(44, 'Ivory Coast'),
-(45, 'Cook Islands'),
-(46, 'Chile'),
-(47, 'Cameroon'),
-(48, 'China'),
-(49, 'Colombia'),
-(50, 'Costa Rica'),
-(51, 'Cuba'),
-(52, 'Cape Verde'),
-(53, 'Curacao'),
-(54, 'Christmas Island'),
-(55, 'Cyprus'),
-(56, 'Czechia'),
-(57, 'Germany'),
-(58, 'Djibouti'),
-(59, 'Denmark'),
-(60, 'Dominica'),
-(61, 'Dominican Republic'),
-(62, 'Algeria'),
-(63, 'Ecuador'),
-(64, 'Estonia'),
-(65, 'Egypt'),
-(66, 'Western Sahara'),
-(67, 'Eritrea'),
-(68, 'Spain'),
-(69, 'Ethiopia'),
-(70, 'Finland'),
-(71, 'Fiji'),
-(72, 'Falkland Islands'),
-(73, 'Micronesia'),
-(74, 'Faroe Islands'),
-(75, 'France'),
-(76, 'Gabon'),
-(77, 'United Kingdom'),
-(78, 'Grenada'),
-(79, 'Georgia'),
-(80, 'French Guiana'),
-(81, 'Guernsey'),
-(82, 'Ghana'),
-(83, 'Gibraltar'),
-(84, 'Greenland'),
-(85, 'Gambia'),
-(86, 'Guinea'),
-(87, 'Guadeloupe'),
-(88, 'Equatorial Guinea'),
-(89, 'Greece'),
-(90, 'South Georgia and the South Sandwich Islands'),
-(91, 'Guatemala'),
-(92, 'Guam'),
-(93, 'Guinea-Bissau'),
-(94, 'Guyana'),
-(95, 'Hong Kong'),
-(96, 'Heard Island and McDonald Islands'),
-(97, 'Honduras'),
-(98, 'Croatia'),
-(99, 'Haiti'),
-(100, 'Hungary'),
-(101, 'Indonesia'),
-(102, 'Ireland'),
-(103, 'Israel'),
-(104, 'Isle of Man'),
-(105, 'India'),
-(106, 'British Indian Ocean Territory'),
-(107, 'Iraq'),
-(108, 'Iran'),
-(109, 'Iceland'),
-(110, 'Italy'),
-(111, 'Jersey'),
-(112, 'Jamaica'),
-(113, 'Jordan'),
-(114, 'Japan'),
-(115, 'Kenya'),
-(116, 'Kyrgyzstan'),
-(117, 'Cambodia'),
-(118, 'Kiribati'),
-(119, 'Comoros'),
-(120, 'Saint Kitts and Nevis'),
-(121, 'North Korea'),
-(122, 'South Korea'),
-(123, 'Kuwait'),
-(124, 'Cayman Islands'),
-(125, 'Kazakhstan'),
-(126, 'Laos'),
-(127, 'Lebanon'),
-(128, 'Saint Lucia'),
-(129, 'Liechtenstein'),
-(130, 'Sri Lanka'),
-(131, 'Liberia'),
-(132, 'Lesotho'),
-(133, 'Lithuania'),
-(134, 'Luxembourg'),
-(135, 'Latvia'),
-(136, 'Libya'),
-(137, 'Morocco'),
-(138, 'Monaco'),
-(139, 'Moldova'),
-(140, 'Montenegro'),
-(141, 'Saint Martin'),
-(142, 'Madagascar'),
-(143, 'Marshall Islands'),
-(144, 'Macedonia'),
-(145, 'Mali'),
-(146, 'Myanmar [Burma]'),
-(147, 'Mongolia'),
-(148, 'Macao'),
-(149, 'Northern Mariana Islands'),
-(150, 'Martinique'),
-(151, 'Mauritania'),
-(152, 'Montserrat'),
-(153, 'Malta'),
-(154, 'Mauritius'),
-(155, 'Maldives'),
-(156, 'Malawi'),
-(157, 'Mexico'),
-(158, 'Malaysia'),
-(159, 'Mozambique'),
-(160, 'Namibia'),
-(161, 'New Caledonia'),
-(162, 'Niger'),
-(163, 'Norfolk Island'),
-(164, 'Nigeria'),
-(165, 'Nicaragua'),
-(166, 'Netherlands'),
-(167, 'Norway'),
-(168, 'Nepal'),
-(169, 'Nauru'),
-(170, 'Niue'),
-(171, 'New Zealand'),
-(172, 'Oman'),
-(173, 'Panama'),
-(174, 'Peru'),
-(175, 'French Polynesia'),
-(176, 'Papua New Guinea'),
-(177, 'Philippines'),
-(178, 'Pakistan'),
-(179, 'Poland'),
-(180, 'Saint Pierre and Miquelon'),
-(181, 'Pitcairn Islands'),
-(182, 'Puerto Rico'),
-(183, 'Palestine'),
-(184, 'Portugal'),
-(185, 'Palau'),
-(186, 'Paraguay'),
-(187, 'Qatar'),
-(188, 'Réunion'),
-(189, 'Romania'),
-(190, 'Serbia'),
-(191, 'Russia'),
-(192, 'Rwanda'),
-(193, 'Saudi Arabia'),
-(194, 'Solomon Islands'),
-(195, 'Seychelles'),
-(196, 'Sudan'),
-(197, 'Sweden'),
-(198, 'Singapore'),
-(199, 'Saint Helena'),
-(200, 'Slovenia'),
-(201, 'Svalbard and Jan Mayen'),
-(202, 'Slovakia'),
-(203, 'Sierra Leone'),
-(204, 'San Marino'),
-(205, 'Senegal'),
-(206, 'Somalia'),
-(207, 'Suriname'),
-(208, 'South Sudan'),
-(209, 'São Tomé and Príncipe'),
-(210, 'El Salvador'),
-(211, 'Sint Maarten'),
-(212, 'Syria'),
-(213, 'Swaziland'),
-(214, 'Turks and Caicos Islands'),
-(215, 'Chad'),
-(216, 'French Southern Territories'),
-(217, 'Togo'),
-(218, 'Thailand'),
-(219, 'Tajikistan'),
-(220, 'Tokelau'),
-(221, 'East Timor'),
-(222, 'Turkmenistan'),
-(223, 'Tunisia'),
-(224, 'Tonga'),
-(225, 'Turkey'),
-(226, 'Trinidad and Tobago'),
-(227, 'Tuvalu'),
-(228, 'Taiwan'),
-(229, 'Tanzania'),
-(230, 'Ukraine'),
-(231, 'Uganda'),
-(232, 'U.S. Minor Outlying Islands'),
-(233, 'United States'),
-(234, 'Uruguay'),
-(235, 'Uzbekistan'),
-(236, 'Vatican City'),
-(237, 'Saint Vincent and the Grenadines'),
-(238, 'Venezuela'),
-(239, 'British Virgin Islands'),
-(240, 'U.S. Virgin Islands'),
-(241, 'Vietnam'),
-(242, 'Vanuatu'),
-(243, 'Wallis and Futuna'),
-(244, 'Samoa'),
-(245, 'Kosovo'),
-(246, 'Yemen'),
-(247, 'Mayotte'),
-(248, 'South Africa'),
-(249, 'Zambia'),
-(250, 'Zimbabwe');
+INSERT INTO `pais` (`id`, `codigoPais`, `nombrePais`) VALUES
+(1, 'AF', 'Afghanistan'),
+(2, 'AL', 'Albania'),
+(3, 'DZ', 'Algeria'),
+(4, 'AS', 'American Samoa'),
+(5, 'AD', 'Andorra'),
+(6, 'AO', 'Angola'),
+(7, 'AI', 'Anguilla'),
+(8, 'AQ', 'Antarctica'),
+(9, 'AG', 'Antigua and Barbuda'),
+(10, 'AR', 'Argentina'),
+(11, 'AM', 'Armenia'),
+(12, 'AW', 'Aruba'),
+(13, 'AU', 'Australia'),
+(14, 'AT', 'Austria'),
+(15, 'AZ', 'Azerbaijan'),
+(16, 'BS', 'Bahamas'),
+(17, 'BH', 'Bahrain'),
+(18, 'BD', 'Bangladesh'),
+(19, 'BB', 'Barbados'),
+(20, 'BY', 'Belarus'),
+(21, 'BE', 'Belgium'),
+(22, 'BZ', 'Belize'),
+(23, 'BJ', 'Benin'),
+(24, 'BM', 'Bermuda'),
+(25, 'BT', 'Bhutan'),
+(26, 'BO', 'Bolivia'),
+(27, 'BQ', 'Bonaire'),
+(28, 'BA', 'Bosnia and Herzegovina'),
+(29, 'BW', 'Botswana'),
+(30, 'BV', 'Bouvet Island'),
+(31, 'BR', 'Brazil'),
+(32, 'IO', 'British Indian Ocean Territory'),
+(33, 'VG', 'British Virgin Islands'),
+(34, 'BN', 'Brunei'),
+(35, 'BG', 'Bulgaria'),
+(36, 'BF', 'Burkina Faso'),
+(37, 'BI', 'Burundi'),
+(38, 'KH', 'Cambodia'),
+(39, 'CM', 'Cameroon'),
+(40, 'CA', 'Canada'),
+(41, 'CV', 'Cape Verde'),
+(42, 'KY', 'Cayman Islands'),
+(43, 'CF', 'Central African Republic'),
+(44, 'TD', 'Chad'),
+(45, 'CL', 'Chile'),
+(46, 'CN', 'China'),
+(47, 'CX', 'Christmas Island'),
+(48, 'CC', 'Cocos [Keeling] Islands'),
+(49, 'CO', 'Colombia'),
+(50, 'KM', 'Comoros'),
+(51, 'CK', 'Cook Islands'),
+(52, 'CR', 'Costa Rica'),
+(53, 'HR', 'Croatia'),
+(54, 'CU', 'Cuba'),
+(55, 'CW', 'Curacao'),
+(56, 'CY', 'Cyprus'),
+(57, 'CZ', 'Czechia'),
+(58, 'CD', 'Democratic Republic of the Congo'),
+(59, 'DK', 'Denmark'),
+(60, 'DJ', 'Djibouti'),
+(61, 'DM', 'Dominica'),
+(62, 'DO', 'Dominican Republic'),
+(63, 'TL', 'East Timor'),
+(64, 'EC', 'Ecuador'),
+(65, 'EG', 'Egypt'),
+(66, 'SV', 'El Salvador'),
+(67, 'GQ', 'Equatorial Guinea'),
+(68, 'ER', 'Eritrea'),
+(69, 'EE', 'Estonia'),
+(70, 'ET', 'Ethiopia'),
+(71, 'FK', 'Falkland Islands'),
+(72, 'FO', 'Faroe Islands'),
+(73, 'FJ', 'Fiji'),
+(74, 'FI', 'Finland'),
+(75, 'FR', 'France'),
+(76, 'GF', 'French Guiana'),
+(77, 'PF', 'French Polynesia'),
+(78, 'TF', 'French Southern Territories'),
+(79, 'GA', 'Gabon'),
+(80, 'GM', 'Gambia'),
+(81, 'GE', 'Georgia'),
+(82, 'DE', 'Germany'),
+(83, 'GH', 'Ghana'),
+(84, 'GI', 'Gibraltar'),
+(85, 'GR', 'Greece'),
+(86, 'GL', 'Greenland'),
+(87, 'GD', 'Grenada'),
+(88, 'GP', 'Guadeloupe'),
+(89, 'GU', 'Guam'),
+(90, 'GT', 'Guatemala'),
+(91, 'GG', 'Guernsey'),
+(92, 'GN', 'Guinea'),
+(93, 'GW', 'Guinea-Bissau'),
+(94, 'GY', 'Guyana'),
+(95, 'HT', 'Haiti'),
+(96, 'HM', 'Heard Island and McDonald Islands'),
+(97, 'HN', 'Honduras'),
+(98, 'HK', 'Hong Kong'),
+(99, 'HU', 'Hungary'),
+(100, 'IS', 'Iceland'),
+(101, 'IN', 'India'),
+(102, 'ID', 'Indonesia'),
+(103, 'IR', 'Iran'),
+(104, 'IQ', 'Iraq'),
+(105, 'IE', 'Ireland'),
+(106, 'IM', 'Isle of Man'),
+(107, 'IL', 'Israel'),
+(108, 'IT', 'Italy'),
+(109, 'CI', 'Ivory Coast'),
+(110, 'JM', 'Jamaica'),
+(111, 'JP', 'Japan'),
+(112, 'JE', 'Jersey'),
+(113, 'JO', 'Jordan'),
+(114, 'KZ', 'Kazakhstan'),
+(115, 'KE', 'Kenya'),
+(116, 'KI', 'Kiribati'),
+(117, 'XK', 'Kosovo'),
+(118, 'KW', 'Kuwait'),
+(119, 'KG', 'Kyrgyzstan'),
+(120, 'LA', 'Laos'),
+(121, 'LV', 'Latvia'),
+(122, 'LB', 'Lebanon'),
+(123, 'LS', 'Lesotho'),
+(124, 'LR', 'Liberia'),
+(125, 'LY', 'Libya'),
+(126, 'LI', 'Liechtenstein'),
+(127, 'LT', 'Lithuania'),
+(128, 'LU', 'Luxembourg'),
+(129, 'MO', 'Macao'),
+(130, 'MK', 'Macedonia'),
+(131, 'MG', 'Madagascar'),
+(132, 'MW', 'Malawi'),
+(133, 'MY', 'Malaysia'),
+(134, 'MV', 'Maldives'),
+(135, 'ML', 'Mali'),
+(136, 'MT', 'Malta'),
+(137, 'MH', 'Marshall Islands'),
+(138, 'MQ', 'Martinique'),
+(139, 'MR', 'Mauritania'),
+(140, 'MU', 'Mauritius'),
+(141, 'YT', 'Mayotte'),
+(142, 'MX', 'Mexico'),
+(143, 'FM', 'Micronesia'),
+(144, 'MD', 'Moldova'),
+(145, 'MC', 'Monaco'),
+(146, 'MN', 'Mongolia'),
+(147, 'ME', 'Montenegro'),
+(148, 'MS', 'Montserrat'),
+(149, 'MA', 'Morocco'),
+(150, 'MZ', 'Mozambique'),
+(151, 'MM', 'Myanmar [Burma]'),
+(152, 'NA', 'Namibia'),
+(153, 'NR', 'Nauru'),
+(154, 'NP', 'Nepal'),
+(155, 'NL', 'Netherlands'),
+(156, 'NC', 'New Caledonia'),
+(157, 'NZ', 'New Zealand'),
+(158, 'NI', 'Nicaragua'),
+(159, 'NE', 'Niger'),
+(160, 'NG', 'Nigeria'),
+(161, 'NU', 'Niue'),
+(162, 'NF', 'Norfolk Island'),
+(163, 'KP', 'North Korea'),
+(164, 'MP', 'Northern Mariana Islands'),
+(165, 'NO', 'Norway'),
+(166, 'OM', 'Oman'),
+(167, 'PK', 'Pakistan'),
+(168, 'PW', 'Palau'),
+(169, 'PS', 'Palestine'),
+(170, 'PA', 'Panama'),
+(171, 'PG', 'Papua New Guinea'),
+(172, 'PY', 'Paraguay'),
+(173, 'PE', 'Peru'),
+(174, 'PH', 'Philippines'),
+(175, 'PN', 'Pitcairn Islands'),
+(176, 'PL', 'Poland'),
+(177, 'PT', 'Portugal'),
+(178, 'PR', 'Puerto Rico'),
+(179, 'QA', 'Qatar'),
+(180, 'CG', 'Republic of the Congo'),
+(181, 'RO', 'Romania'),
+(182, 'RU', 'Russia'),
+(183, 'RW', 'Rwanda'),
+(184, 'RE', 'Réunion'),
+(185, 'BL', 'Saint Barthélemy'),
+(186, 'SH', 'Saint Helena'),
+(187, 'KN', 'Saint Kitts and Nevis'),
+(188, 'LC', 'Saint Lucia'),
+(189, 'MF', 'Saint Martin'),
+(190, 'PM', 'Saint Pierre and Miquelon'),
+(191, 'VC', 'Saint Vincent and the Grenadines'),
+(192, 'WS', 'Samoa'),
+(193, 'SM', 'San Marino'),
+(194, 'SA', 'Saudi Arabia'),
+(195, 'SN', 'Senegal'),
+(196, 'RS', 'Serbia'),
+(197, 'SC', 'Seychelles'),
+(198, 'SL', 'Sierra Leone'),
+(199, 'SG', 'Singapore'),
+(200, 'SX', 'Sint Maarten'),
+(201, 'SK', 'Slovakia'),
+(202, 'SI', 'Slovenia'),
+(203, 'SB', 'Solomon Islands'),
+(204, 'SO', 'Somalia'),
+(205, 'ZA', 'South Africa'),
+(206, 'GS', 'South Georgia and the South Sandwich Islands'),
+(207, 'KR', 'South Korea'),
+(208, 'SS', 'South Sudan'),
+(209, 'ES', 'Spain'),
+(210, 'LK', 'Sri Lanka'),
+(211, 'SD', 'Sudan'),
+(212, 'SR', 'Suriname'),
+(213, 'SJ', 'Svalbard and Jan Mayen'),
+(214, 'SZ', 'Swaziland'),
+(215, 'SE', 'Sweden'),
+(216, 'CH', 'Switzerland'),
+(217, 'SY', 'Syria'),
+(218, 'ST', 'São Tomé and Príncipe'),
+(219, 'TW', 'Taiwan'),
+(220, 'TJ', 'Tajikistan'),
+(221, 'TZ', 'Tanzania'),
+(222, 'TH', 'Thailand'),
+(223, 'TG', 'Togo'),
+(224, 'TK', 'Tokelau'),
+(225, 'TO', 'Tonga'),
+(226, 'TT', 'Trinidad and Tobago'),
+(227, 'TN', 'Tunisia'),
+(228, 'TR', 'Turkey'),
+(229, 'TM', 'Turkmenistan'),
+(230, 'TC', 'Turks and Caicos Islands'),
+(231, 'TV', 'Tuvalu'),
+(232, 'UM', 'U.S. Minor Outlying Islands'),
+(233, 'VI', 'U.S. Virgin Islands'),
+(234, 'UG', 'Uganda'),
+(235, 'UA', 'Ukraine'),
+(236, 'AE', 'United Arab Emirates'),
+(237, 'GB', 'United Kingdom'),
+(238, 'US', 'United States'),
+(239, 'UY', 'Uruguay'),
+(240, 'UZ', 'Uzbekistan'),
+(241, 'VU', 'Vanuatu'),
+(242, 'VA', 'Vatican City'),
+(243, 'VE', 'Venezuela'),
+(244, 'VN', 'Vietnam'),
+(245, 'WF', 'Wallis and Futuna'),
+(246, 'EH', 'Western Sahara'),
+(247, 'YE', 'Yemen'),
+(248, 'ZM', 'Zambia'),
+(249, 'ZW', 'Zimbabwe'),
+(250, 'AX', 'Åland');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `region`
+-- Table structure for table `region`
 --
 
 CREATE TABLE `region` (
@@ -499,7 +498,7 @@ CREATE TABLE `region` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `region`
+-- Dumping data for table `region`
 --
 
 INSERT INTO `region` (`id`, `codigoRegion`, `nombreRegion`) VALUES
@@ -520,7 +519,7 @@ INSERT INTO `region` (`id`, `codigoRegion`, `nombreRegion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Table structure for table `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -539,74 +538,68 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `elo`
+-- Indexes for table `elo`
 --
 ALTER TABLE `elo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `idioma`
+-- Indexes for table `idioma`
 --
 ALTER TABLE `idioma`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `pais`
+-- Indexes for table `pais`
 --
 ALTER TABLE `pais`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `region`
+-- Indexes for table `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `elo`
+-- AUTO_INCREMENT for table `elo`
 --
 ALTER TABLE `elo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
 --
--- AUTO_INCREMENT de la tabla `idioma`
+-- AUTO_INCREMENT for table `idioma`
 --
 ALTER TABLE `idioma`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
-
 --
--- AUTO_INCREMENT de la tabla `pais`
+-- AUTO_INCREMENT for table `pais`
 --
 ALTER TABLE `pais`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
-
 --
--- AUTO_INCREMENT de la tabla `region`
+-- AUTO_INCREMENT for table `region`
 --
 ALTER TABLE `region`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
 --
--- AUTO_INCREMENT de la tabla `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
