@@ -2,19 +2,6 @@ body {
     padding-top: 54px;
 }
 
-@media (min-width: 992px) {
-    body {
-        padding-top: 56px;
-    }
-}
-
-#zonaUsuario {
-    height: 50px;
-    width: 400px;
-    background-color: red;
-    position: relative;
-}
-
 #logo {
     height: 60px;
     width: auto;
@@ -40,7 +27,7 @@ body {
     /* Cambiar a auto mas alante */
 }
 
-.carousel-item {
+.bannerPrincipal {
     height: 65vh;
     min-height: 300px;
     background: no-repeat center center scroll;
@@ -50,7 +37,6 @@ body {
     background-size: cover;
 }
 
-
 #bannerHeimer {
     width: auto;
     max-width: 100%;
@@ -59,29 +45,21 @@ body {
 
 /* Zona cuando ya estas logueado */
 
-#imagenUsuario {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border: 1px solid black;
-    top: 5px;
-    left: 5px;
-    float: left;
-}
-
-#cuadroInfo {
-    position: absolute;
-    width: 345px;
-    height: 40px;
-    border: 1px solid black;
-    top: 5px;
-    right: 5px;
-}
-
 #textoUsuario {
     position: absolute;
-    width: 345px;
-    height: 40px;
-    left: 20%;
-    top: 5px;
+    left: 10px;
+    color: white;
+}
+
+#zonaUsuario {
+    height: 50px;
+    width: auto;
+    position: relative;
+}
+
+#cambiarInformacion {
+    position: absolute;
+    right: 0;
+    height: 50px;
+    width: auto;
 }
