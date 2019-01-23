@@ -24,9 +24,9 @@ body {
     color: white;
     position: absolute;
     height: 100%;
-    width: 100%;
-    left: 5%;
-    top: 10%;
+    width: auto;
+    right: 5%;
+    top: 50%;
 }
 
 #imagenBannerPrincipal {
