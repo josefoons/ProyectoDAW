@@ -11,7 +11,7 @@ function cargar(){
     
 }
 
-var ip = "localhost";
+var ruta = "http://localhost/ProyectoDAW/";
 
 function login() {
     
@@ -26,7 +26,7 @@ function login() {
         }
     };
    
-    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/login.php?correo=" + correo + "&password=" + contra, true);
+    xhttp.open("GET", ruta + "php/login.php?correo=" + correo + "&password=" + contra, true);
     xhttp.send();
     
 }
@@ -54,7 +54,7 @@ function registro() {
             }
         };
 
-        xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/registro.php?nick=" + nick + "&password=" + password + "&mail=" + mail + "&pais=" + pais + "&idioma=" + idioma + "&elo=" + elo + "&rolPreferido=" + rolPreferido + "&rolBuscado=" + rolBuscado + "&region=" + region + "&mensaje=" + mensaje , true);
+        xhttp.open("GET", ruta + "php/registro.php?nick=" + nick + "&password=" + password + "&mail=" + mail + "&pais=" + pais + "&idioma=" + idioma + "&elo=" + elo + "&rolPreferido=" + rolPreferido + "&rolBuscado=" + rolBuscado + "&region=" + region + "&mensaje=" + mensaje , true);
         xhttp.send();
         
 }
@@ -71,7 +71,7 @@ function cargarRegion() {
         }
     };
    
-    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/cargarRegiones.php", true);
+    xhttp.open("GET", ruta + "/ProyectoDAW/php/cargarRegiones.php", true);
     xhttp.send();
 
 }
@@ -88,7 +88,7 @@ function cargarElo() {
         }
     };
    
-    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/cargarElo.php", true);
+    xhttp.open("GET", ruta + "/ProyectoDAW/php/cargarElo.php", true);
     xhttp.send();
 
 }
@@ -108,7 +108,7 @@ function cargarRol() {
         }
     };
    
-    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/cargarRoles.php", true);
+    xhttp.open("GET", ruta + "/ProyectoDAW/php/cargarRoles.php", true);
     xhttp.send();
 
 }
@@ -126,7 +126,7 @@ function cargarPaises() {
         }
     };
    
-    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/cargarPaises.php", true);
+    xhttp.open("GET", ruta + "/ProyectoDAW/php/cargarPaises.php", true);
     xhttp.send();
 
 }
@@ -143,7 +143,7 @@ function cargarIdioma() {
         }
     };
    
-    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/cargarIdiomas.php", true);
+    xhttp.open("GET", ruta + "/ProyectoDAW/php/cargarIdiomas.php", true);
     xhttp.send();
 
 }
