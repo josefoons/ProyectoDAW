@@ -2,27 +2,45 @@ window.addEventListener("load", cargar, false);
 function cargar(){
 
     document.getElementById("boton-login").addEventListener("click", login);
+    document.getElementById("paisRegistro").addEventListener("load", cargarPaises);
     
 }
 
 var ip = "localhost";
+var xmlPaises = "";
+
+function cargarPaises() {
+    
+    var xhttp = new XMLHttpRequest();
+   
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            xmlPaises = this.responseText;
+            document.getElementById("paisRegistro").innerHTML = document.getElementById("paisRegistro").innerHTML + xmlPaises;
+        }
+    };
+   
+    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/cargarPaises.php", true);
+    xhttp.send();
+
+}
 
 function login() {
     
-        var correo = document.getElementById("emailLogin").value;
-        var contra = document.getElementById("passLogin").value;
-       
-        var xhttp = new XMLHttpRequest();
-       
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText);
-            }
-        };
-       
-        xhttp.open("GET", "http://" + ip + "/php/login.php?correo=" + correo + "&password=" + contra, true);
-        xhttp.send();
-        
+    var correo = document.getElementById("emailLogin").value;
+    var contra = document.getElementById("passLogin").value;
+   
+    var xhttp = new XMLHttpRequest();
+   
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+        }
+    };
+   
+    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/login.php?correo=" + correo + "&password=" + contra, true);
+    xhttp.send();
+    
 }
 
 function registro() {
