@@ -1,6 +1,7 @@
 <?php
     include("conexion.php");
     
+    /* nick password mail pais idioma elo rolPreferido rolBuscado region mensaje */
     
     $nick = $_GET['nick'];
     $password = md5($_GET['password']);

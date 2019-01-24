@@ -12,6 +12,52 @@ function cargar(){
 
 var ip = "localhost";
 
+function login() {
+    
+    var correo = document.getElementById("emailLogin").value;
+    var contra = document.getElementById("passLogin").value;
+   
+    var xhttp = new XMLHttpRequest();
+   
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+        }
+    };
+   
+    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/login.php?correo=" + correo + "&password=" + contra, true);
+    xhttp.send();
+    
+}
+
+function registro() {
+    
+       
+        var nick = document.getElementById("nickRegistro").value;
+        var password = document.getElementById("passRegistro").value;
+        var mail = document.getElementById("mailRegistro").value;
+        var pais = document.getElementById("paisRegistro").value;
+        var idioma = document.getElementById("idiomaRegistro").value;
+        var elo = document.getElementById("eloRegistro").value;
+        var rolPreferido = document.getElementById("rolPrefRegistro").value;
+        var rolBuscado = document.getElementById("rolBuscadoRegistro").value;
+        var region = document.getElementById("regionRegistro").value;
+        var mensaje = document.getElementById("paisRegistro").value;
+
+       
+        var xhttp = new XMLHttpRequest();
+       
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+            }
+        };
+
+        xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/registro.php?nick=" + nick + "&password=" + password + "&mail=" + mail + "&pais=" + pais + "&idioma=" + idioma + "&elo=" + elo + "&rolPreferido=" + rolPreferido + "&rolBuscado=" + rolBuscado + "&region=" + region + "&mensaje=" + mensaje , true);
+        xhttp.send();
+        
+}
+
 function cargarRegion() {
     
     document.getElementById("regionRegistro").innerHTML = "<option selected>Selecciona</option>";
@@ -99,45 +145,4 @@ function cargarIdioma() {
     xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/cargarIdiomas.php", true);
     xhttp.send();
 
-}
-
-function login() {
-    
-    var correo = document.getElementById("emailLogin").value;
-    var contra = document.getElementById("passLogin").value;
-   
-    var xhttp = new XMLHttpRequest();
-   
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            alert(this.responseText);
-        }
-    };
-   
-    xhttp.open("GET", "http://" + ip + "/ProyectoDAW/php/login.php?correo=" + correo + "&password=" + contra, true);
-    xhttp.send();
-    
-}
-
-function registro() {
-    
-       
-        var correoR = document.getElementById("correoRegistro").value;
-        var nombreR = document.getElementById("nombreRegistro").value;
-        var dniR = document.getElementById("dniRegistro").value;
-        var apellidosR = document.getElementById("apellidosRegistro").value;
-        var telefonoR = document.getElementById("telefonoRegistro").value;
-        var passwordR = document.getElementById("passwordRegistro").value;
-       
-        var xhttp = new XMLHttpRequest();
-       
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("fallosRegistro").innerHTML = this.responseText;
-            }
-        };
-       
-        xhttp.open("GET", "http://" + ip + ":8080/Diego/registro.php?correo=" + correoR + "&nombre=" + nombreR + "&dni=" + dniR + "&apellidos=" + apellidosR + "&telefono=" + telefonoR + "&password=" + passwordR, true);
-        xhttp.send();
-        
 }
