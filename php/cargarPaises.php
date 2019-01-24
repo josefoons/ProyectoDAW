@@ -15,4 +15,6 @@ while ($fila = mysqli_fetch_array($result)) {
 
 }
 
+echo $xmlDevolver;
+
 ?>
