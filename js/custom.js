@@ -2,6 +2,7 @@ window.addEventListener("load", cargar, false);
 function cargar(){
 
     document.getElementById("boton-login").addEventListener("click", login);
+    document.getElementById("boton-registro").addEventListener("click", registro);
     document.getElementById("registro").addEventListener("click", cargarPaises);
     document.getElementById("registro").addEventListener("click", cargarIdioma);
     document.getElementById("registro").addEventListener("click", cargarRol);

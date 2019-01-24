@@ -11,7 +11,7 @@ while ($fila = mysqli_fetch_array($result)) {
     $codigo = $fila["codigoRol"];
     $nombre = $fila["rolNombre"];
 
-    $xmlDevolver = $xmlDevolver . "<option id=" . $codigo . ">" . $nombre . "</option>";
+    $xmlDevolver = $xmlDevolver . "<option value=" . $codigo . ">" . $nombre . "</option>";
 
 }
 
