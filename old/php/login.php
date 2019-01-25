@@ -4,7 +4,7 @@ include("conexion.php");
 
 $correo = $_GET['correo'];
 $password = $_GET['password'];
-$consulta = "SELECT mail,password FROM usuario WHERE mail='$correo';";
+$consulta = "SELECT * FROM usuario WHERE mail='$correo';";
 $result = mysqli_query($conn, $consulta);
 $tamanyo = $result->num_rows;
 
@@ -13,21 +13,23 @@ if($tamanyo > 0){
      
         if ($fila["password"] === md5($password) && $fila["mail"] === $correo) {
             echo "Bienvenido";
+            include("crearSesion.php");
         }
        
         if ($fila["password"] != md5($password)){
-            echo '<p>'. "Contraseña mal introducida." .'</p>';
+            echo "Contraseña mal introducida";
         }
        
         if ($fila["mail"] != $correo){
-            echo '<p>'. "Correo mal introducido." .'</p>';
+            echo "Correo mal introducido.";
         }
    
     }
 } else {
     echo "Usuario no existe.";
 }
-   
+
+ 
 mysqli_close($conn);
                             
 ?>
