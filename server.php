@@ -57,7 +57,7 @@ if (isset($_POST['registroButton'])) {
 
         //INSERT INTO usuario (nick,password,mail,pais,idioma,elo,rolPreferido,rolBuscado,region,mensaje,rolWeb) VALUES ('$nick','$password','$mail','$pais','$idioma','$elo','$rolPreferido','$rolBuscado','$region','$mensaje',0);
         $query = "INSERT INTO usuario (nick,password,mail,pais,idioma,elo,rolPreferido,rolBuscado,region,mensaje,rolWeb)
-  			  VALUES('$nick','$password','$mail','$pais','$idioma','$elo','$rolPreferido','$rolBuscado','$region','$mensaje',0)";
+  			  VALUES('$nick','$pass','$mail','$pais','$idioma','$elo','$rolPreferido','$rolBuscado','$region','$mensaje',0)";
         mysqli_query($db, $query);
         header('location: index.php');
 
@@ -78,25 +78,27 @@ if (isset($_POST['boton-login'])) {
 //TERMINAR LOGIN
 
     if (count($errors) == 0) {
-        $password = md5($passLogin);
-        $query = "SELECT * FROM usuario WHERE mail='$emailLogin'";
+        $passwordCrypt = md5($passLogin);
+        $query = "SELECT * FROM usuario WHERE mail='$emailLogin' AND password='$passwordCrypt';";
         $results = mysqli_query($db, $query);
         if (mysqli_num_rows($results) == 1) {
-            while ($fila = mysqli_fetch_array($result)) {
-
-                //RELLENAR ARRAY DE INFO DE USUARIO
-                $infoUsuario = array(
-                  "nick" => $fila["nick"],
-                  "email" => $fila["email"],
-                  "id"   => $fila["id"],
-                  "rolWeb"  => $fila["rolWeb"],
-                  "estado" => "You are now logged in"
-              );
+            while ($fila = mysqli_fetch_array($results)) {
+                $_SESSION['nick'] = $fila["nick"];
+                $_SESSION['email'] = $fila["email"];
+                $_SESSION['id'] = $fila["id"];
+                $_SESSION['rolWeb'] = $fila["rolWeb"];
+                $_SESSION['estado'] = $fila["rolWeb"];
             }
-            $_SESSION['sesionToal'] = $infoUsuario;
-            header('location: index.php');
+
+            if($_SESSION['rolWeb'] == 0){
+                header('location: zonaUsuario.php');
+            } elseif ($_SESSION['rolWeb'] == 1) {
+                header('location: zonaAdmin.php');
+            }
+            
         } else {
             array_push($errors, "Wrong username/password combination");
         }
     }
+
 }

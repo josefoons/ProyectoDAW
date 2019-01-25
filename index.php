@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,7 +26,8 @@
 
   <!-- Custom styles for this template -->
   <link href="css/custom.css" rel="stylesheet">
-  <script src="js/custom.js"></script>
+  <!-- <script src="js/index.js"></script> -->
+
 
 </head>
 
@@ -37,8 +42,20 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <button type="button" id="login" class="btn btn-info" onclick="window.location='login.php';">ENTRAR</button>
-            <button type="button" id="registro" class="btn btn-info" onclick="window.location='registro.php';">REGISTRARSE</button>
+            <?php
+              if(!$_SESSION) {
+              ?>
+                <button type="button" id="login" class="btn btn-info" onclick="window.location='login.php';">ENTRAR</button>
+                <button type="button" id="registro" class="btn btn-info" onclick="window.location='registro.php';">REGISTRARSE</button>
+              <?php
+              } else {
+              ?>
+                <button type="button" id="login" class="btn btn-info" onclick="window.location='logout.php';">SALIR</button>
+              <?php  
+              }
+              ?>
+            <!-- <button type="button" id="login" class="btn btn-info" onclick="window.location='login.php';">ENTRAR</button>
+            <button type="button" id="registro" class="btn btn-info" onclick="window.location='registro.php';">REGISTRARSE</button> -->
           </li>
         </ul>
       </div>
@@ -59,7 +76,7 @@
   <div class="container">
     <hr>
     <div class="row">
-      <div class="col-lg mb-4">
+      <div class="col-lg mb-4"  style="height: 500px;"> <!-- Quitar este style -->
         <div class="card h-100">
           <h4 class="card-header">Lista de Usuarios</h4>
           <div class="card-body" id="listaUsuarios">
@@ -91,30 +108,6 @@
       <p class="m-0 text-center text-white">Copyright &copy; Jose Fons</p>
     </div>
   </footer>
-
-  <!-- Aqui va el modal de Check -->
-
-  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header text-center">
-          <h4 class="modal-title w-100 font-weight-bold">Iniciar Sesion</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
-        </div>
-        <div class="modal-body mx-3">
-          <div class="md-form mb-5">
-            <label for="emailLogin">Correo</label>
-            <input type="text" id="emailLogin" class="form-control">
-            <label for="passLogin">Contraseña</label>
-            <input type="password" id="passLogin" class="form-control">
-            <div class="modal-footer d-flex justify-content-center">
-              <button class="btn btn-success" id="boton-login">ADELANTE!</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 
 </html>
