@@ -6,9 +6,9 @@ if(!isset($_SESSION['nick'])){
     <?php
 } elseif($_SESSION['nick'] != "") {
     ?>
-        <p class="textoSaludoUsuario">Hola, <?php echo $_SESSION['nick']; ?>.</p>
+        <div style="color: white; margin-right: 10px; line-height: 25px;"><p style="margin-top: 5px;">Hola, <?php echo $_SESSION['nick']; ?>.</p><div>
         <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>
-        <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php';">PERFIL</button>
+        <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php?id=<?php echo $_SESSION['id'] ?>';">PERFIL</button>
     <?php
         if($_SESSION['rolWeb'] == 1){
             ?>

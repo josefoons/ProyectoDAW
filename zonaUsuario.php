@@ -5,14 +5,6 @@ if($_SESSION['nick'] == ""){
   header("Location: index.php");
 } 
 
-// if(!isset($_SESSION)) {
-//   header("Location: index.php");
-// } else {
-//   if($_SESSION['rolWeb'] != 0 || $_SESSION['rolWeb'] != 1){
-//     header('location: index.php');
-//   }
-// }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,7 +29,7 @@ if($_SESSION['nick'] == ""){
 
 
   <link href="css/custom.css" rel="stylesheet">
-  <link href="css/general.css" rel="stylesheet">
+  <link href="css/panelUsuario.css" rel="stylesheet">
 
 </head>
 
@@ -75,11 +67,12 @@ if($_SESSION['nick'] == ""){
   <div class="container">
     <hr>
     <div class="row">
-      <div class="col-lg mb-4"  style="height: 500px;"> <!-- Quitar este style -->
+      <div class="col-lg mb-6"  style="height: 400px;"> <!-- Quitar este style -->
         <div class="card h-100">
-          <h4 class="card-header">Panel Usuario</h4>
-          <div class="card-body" id="listaUsuarios">
-            <p class="card-text">Usuario</p>
+          <h4 class="card-header">Perfil de <?php echo strtoupper ($_SESSION['nick']) ?></h4>
+          <div class="card-body" id="panelUsuarioGeneral">
+              <div id="info"></div>
+              <div id="rango"></div>
           </div>
         </div>
       </div>

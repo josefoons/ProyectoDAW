@@ -1,27 +1,15 @@
 <?php
 session_start();
 
-// initializing variables
-$username = "";
-$email = "";
 $errors = array();
 
-// connect to the database
-// connect to the database
-//$servidorDB = "localhost";
-//$usuarioDB = "josefons_web";
-//$passwordDB = "DawDaw1!";
-//$baseDeDatos = "josefons_proyecto";
-//$db = mysqli_connect($servidorDB, $usuarioDB, $passwordDB, $baseDeDatos);
-
 include('php/conexion.php');
-
 $db = $conn;
 
 // REGISTER USER
 if (isset($_POST['registroButton'])) {
 
-    // receive all input values from the form
+    // LEER DEL FORMULARIO
     $nick = mysqli_real_escape_string($db, $_POST['nickRegistro']);
     $password = mysqli_real_escape_string($db, $_POST['passRegistro']);
     $mail = mysqli_real_escape_string($db, $_POST['mailRegistro']);
@@ -33,39 +21,55 @@ if (isset($_POST['registroButton'])) {
     $region = mysqli_real_escape_string($db, $_POST['regionRegistro']);
     $mensaje = mysqli_real_escape_string($db, $_POST['mensajeRegistro']);
 
-    // form validation: ensure that the form is correctly filled ...
-    // by adding (array_push()) corresponding error unto $errors array
-    if (empty($nick)) {array_push($errors, "Username is required");}
-    if (empty($mail)) {array_push($errors, "Email is required");}
-    if (empty($password)) {array_push($errors, "Password is required");}
-    if (empty($mensaje)) {array_push($errors, "Message is required");}
+    // ERRORES
+    if (empty($nick)) {array_push($errors, "Nick REQUERIDO. ");}
+    if (empty($mail)) {array_push($errors, "Correo REQUERIDO. ");}
+    if (empty($password)) {array_push($errors, "Contraseña REQUERIDA. ");}
+    if (empty($mensaje)) {array_push($errors, "Mensaje REQUERIDO. ");}
 
-    // first check the database to make sure
-    // a user does not already exist with the same username and/or email
+    //Comprobar contraseña sigue lo necesario:
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $number    = preg_match('@[0-9]@', $password);
+    if(!$uppercase || !$lowercase || !$number || strlen($password) < 8){
+        array_push($errors, "Debe contener 8 caracteres, un numero, y al menos una mayuscula y minuscula.  ");
+    }
+
+    // Mirar si no existe el usuario en la base de datos.
     $user_check_query = "SELECT * FROM usuario WHERE nick='$nick' OR mail='$mail' LIMIT 1";
     $result = mysqli_query($db, $user_check_query);
     $user = mysqli_fetch_assoc($result);
 
     if ($user) { // if user exists
         if ($user['nick'] === $nick) {
-            array_push($errors, "Username already exists");
+            array_push($errors, "Usuario ya existe. ");
         }
 
         if ($user['mail'] === $mail) {
-            array_push($errors, "email already exists");
+            array_push($errors, "Correo ya existe. ");
         }
     }
 
-    // Finally, register user if there are no errors in the form
+    // Si no hay errores, finalmente metemos el usuario en la db
     if (count($errors) == 0) {
-        $pass = md5($password); //encrypt the password before saving in the database
-
-        //INSERT INTO usuario (nick,password,mail,pais,idioma,elo,rolPreferido,rolBuscado,region,mensaje,rolWeb) VALUES ('$nick','$password','$mail','$pais','$idioma','$elo','$rolPreferido','$rolBuscado','$region','$mensaje',0);
+        $pass = md5($password); // encriptamos la contraseña
         $query = "INSERT INTO usuario (nick,password,mail,pais,idioma,elo,rolPreferido,rolBuscado,region,mensaje,rolWeb)
   			  VALUES('$nick','$pass','$mail','$pais','$idioma','$elo','$rolPreferido','$rolBuscado','$region','$mensaje',0)";
         mysqli_query($db, $query);
-        header('location: index.php');
 
+        //CREAMOS LA SESION
+        $_SESSION['nick'] = $nick;
+        $_SESSION['email'] = $mail;
+        $_SESSION['rolWeb'] = 0;
+        $_SESSION['estado'] = "OK";
+
+        $query = "SELECT * FROM usuario WHERE mail='$mail' AND password='$pass';";
+        $results = mysqli_query($db, $query);
+        while ($fila = mysqli_fetch_array($results)) {
+            $_SESSION['id'] = $fila["id"];
+        }
+
+        header('location: index.php');
     }
 }
 
@@ -75,13 +79,13 @@ if (isset($_POST['boton-login'])) {
     $passLogin = mysqli_real_escape_string($db, $_POST['passLogin']);
 
     if (empty($emailLogin)) {
-        array_push($errors, "Email is required");
+        array_push($errors, "Correo REQUERIDO. ");
     }
     if (empty($passLogin)) {
-        array_push($errors, "Password is required");
+        array_push($errors, "Contraseña REQUERIDA. ");
     }
-//TERMINAR LOGIN
 
+    //TERMINAR LOGIN
     if (count($errors) == 0) {
         $passwordCrypt = md5($passLogin);
         $query = "SELECT * FROM usuario WHERE mail='$emailLogin' AND password='$passwordCrypt';";
@@ -102,8 +106,7 @@ if (isset($_POST['boton-login'])) {
             }
             
         } else {
-            array_push($errors, "Wrong username/password combination");
+            array_push($errors, "Mala convinacion de correo/contraseña.");
         }
     }
-
 }

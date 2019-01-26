@@ -1,0 +1,36 @@
+#panelUsuarioGeneral {
+    position: relative;
+    background-color: red;
+}
+
+/* #rango{
+    position: absolute;
+    width: 30%;
+    overflow: hidden;
+    background: #4679BD;
+}
+#rango:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+} */
+
+#rango{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 50%;
+    right: 72%;
+    background: #4679BD;
+}
+
+#info{
+    position: absolute;
+    overflow: hidden;
+    background: green;
+    right: 10px;
+    top: 10px;
+    bottom: 10px;
+    left: 30%;
+}
+
