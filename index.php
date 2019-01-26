@@ -23,10 +23,8 @@ session_start();
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
 
-
-  <!-- Custom styles for this template -->
   <link href="css/custom.css" rel="stylesheet">
-  <!-- <script src="js/index.js"></script> -->
+  <link href="css/general.css" rel="stylesheet">
 
 
 </head>
@@ -41,6 +39,15 @@ session_start();
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <?php
+            if($_SESSION) {
+              ?>
+                <div class="saludoUsuario">
+                  <p class="textoSaludoUsuario">Hola, <?php echo $_SESSION['nick']; ?>.</p>
+                </div>
+              <?php
+            }
+          ?>
           <li class="nav-item">
             <?php
               if(!$_SESSION) {
@@ -49,8 +56,17 @@ session_start();
                 <button type="button" id="registro" class="btn btn-info" onclick="window.location='registro.php';">REGISTRARSE</button>
               <?php
               } else {
+                ?>
+                <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>
+                <?php
+                if($_SESSION['rolWeb'] == 1){
+                  ?>
+                  <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
+                  <?php
+                }
               ?>
-                <button type="button" id="login" class="btn btn-info" onclick="window.location='logout.php';">SALIR</button>
+                <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php';">PERFIL</button>
+                <button type="button" id="salir_boton" class="btn btn-info" onclick="window.location='logout.php';">SALIR</button>
               <?php  
               }
               ?>

@@ -37,6 +37,8 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <button type="button" id="login" class="btn btn-info" onclick="window.location='login.php';">ENTRAR</button>
+            <button type="button" id="registro" class="btn btn-info" onclick="window.location='registro.php';">REGISTRARSE</button>
           </li>
         </ul>
       </div>

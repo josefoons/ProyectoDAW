@@ -1,10 +1,14 @@
 <?php
-
 session_start();
-
-if($_SESSION['rolWeb'] == 0){
+if(!isset($_SESSION)) {
+  header("Location: index.php");
+} else {
+  if($_SESSION['rolWeb'] != 1){
     header('location: index.php');
+  }
 }
+
+
 
 ?>
 
@@ -32,6 +36,7 @@ if($_SESSION['rolWeb'] == 0){
 
   <!-- Custom styles for this template -->
   <link href="css/custom.css" rel="stylesheet">
+  <link href="css/general.css" rel="stylesheet">
 
 </head>
 
@@ -45,7 +50,21 @@ if($_SESSION['rolWeb'] == 0){
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <h1>ZONA ADMIN</h1>
+        <div class="saludoUsuario">
+            <p class="textoSaludoUsuario">Hola, <?php echo $_SESSION['nick']; ?>.</p>
+          </div>
+        <li class="nav-item">
+            <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>
+              <?php
+                if(isset($_SESSION)) {          
+                  ?>
+                    <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
+                    <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php';">PERFIL</button>
+                    <button type="button" id="exit_button" class="btn btn-info" onclick="window.location='logout.php';">SALIR</button>
+                  <?php
+                }
+              ?>
+          </li>
         </ul>
       </div>
     </div>

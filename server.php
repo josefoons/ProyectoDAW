@@ -92,7 +92,7 @@ if (isset($_POST['boton-login'])) {
                 $_SESSION['email'] = $fila["email"];
                 $_SESSION['id'] = $fila["id"];
                 $_SESSION['rolWeb'] = $fila["rolWeb"];
-                $_SESSION['estado'] = $fila["rolWeb"];
+                $_SESSION['estado'] = "OK";
             }
 
             if($_SESSION['rolWeb'] == 0){
