@@ -1,5 +1,12 @@
 # ProyectoDAW
 ## Por hacer:
+- En la barra de arriba, cambiar tantos botones por un desplegable.
+
+    Hola, USARIO (Flechita Hacia abajo)
+      - PERFIL
+      - PANEL (IF rolWeb == 1)
+      - SALIR
+      
 - Panel de administrador
   - Crear/Borra Administradores
   - Buscar en base de datos desde el panel usuarios y borrarlos.
