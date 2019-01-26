@@ -7,11 +7,16 @@ $email = "";
 $errors = array();
 
 // connect to the database
-$servidorDB = "localhost";
-$usuarioDB = "daw";
-$passwordDB = "daw";
-$baseDeDatos = "proyectoDAW";
-$db = mysqli_connect($servidorDB, $usuarioDB, $passwordDB, $baseDeDatos);
+// connect to the database
+//$servidorDB = "localhost";
+//$usuarioDB = "josefons_web";
+//$passwordDB = "DawDaw1!";
+//$baseDeDatos = "josefons_proyecto";
+//$db = mysqli_connect($servidorDB, $usuarioDB, $passwordDB, $baseDeDatos);
+
+include('php/conexion.php');
+
+$db = $conn;
 
 // REGISTER USER
 if (isset($_POST['registroButton'])) {
