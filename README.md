@@ -1,5 +1,4 @@
 # ProyectoDAW
-Por hacer:
 - Panel de administrador
   - Crear/Borra Administradores
   - Buscar en base de datos desde el panel usuarios y borrarlos.
