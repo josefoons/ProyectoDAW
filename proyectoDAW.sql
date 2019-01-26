@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 24, 2019 at 06:59 PM
--- Server version: 5.7.24-0ubuntu0.18.04.1
--- PHP Version: 7.2.10-0ubuntu0.18.04.1
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 26-01-2019 a las 01:55:41
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `proyectoDAW`
+-- Base de datos: `proyectodaw`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `elo`
+-- Estructura de tabla para la tabla `elo`
 --
 
 CREATE TABLE `elo` (
@@ -33,7 +35,7 @@ CREATE TABLE `elo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `elo`
+-- Volcado de datos para la tabla `elo`
 --
 
 INSERT INTO `elo` (`id`, `nombre`, `nombreArchivo`) VALUES
@@ -68,7 +70,7 @@ INSERT INTO `elo` (`id`, `nombre`, `nombreArchivo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `idioma`
+-- Estructura de tabla para la tabla `idioma`
 --
 
 CREATE TABLE `idioma` (
@@ -78,7 +80,7 @@ CREATE TABLE `idioma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `idioma`
+-- Volcado de datos para la tabla `idioma`
 --
 
 INSERT INTO `idioma` (`id`, `codigoIdioma`, `nombreIdioma`) VALUES
@@ -93,7 +95,7 @@ INSERT INTO `idioma` (`id`, `codigoIdioma`, `nombreIdioma`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pais`
+-- Estructura de tabla para la tabla `pais`
 --
 
 CREATE TABLE `pais` (
@@ -103,7 +105,7 @@ CREATE TABLE `pais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pais`
+-- Volcado de datos para la tabla `pais`
 --
 
 INSERT INTO `pais` (`id`, `codigoPais`, `nombrePais`) VALUES
@@ -118,7 +120,7 @@ INSERT INTO `pais` (`id`, `codigoPais`, `nombrePais`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `region`
+-- Estructura de tabla para la tabla `region`
 --
 
 CREATE TABLE `region` (
@@ -128,7 +130,7 @@ CREATE TABLE `region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `region`
+-- Volcado de datos para la tabla `region`
 --
 
 INSERT INTO `region` (`id`, `codigoRegion`, `nombreRegion`) VALUES
@@ -149,7 +151,7 @@ INSERT INTO `region` (`id`, `codigoRegion`, `nombreRegion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rol`
+-- Estructura de tabla para la tabla `rol`
 --
 
 CREATE TABLE `rol` (
@@ -159,7 +161,7 @@ CREATE TABLE `rol` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `rol`
+-- Volcado de datos para la tabla `rol`
 --
 
 INSERT INTO `rol` (`id`, `codigoRol`, `rolNombre`) VALUES
@@ -172,13 +174,33 @@ INSERT INTO `rol` (`id`, `codigoRol`, `rolNombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `rolweb`
+--
+
+CREATE TABLE `rolweb` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(64) NOT NULL,
+  `descripcion` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `rolweb`
+--
+
+INSERT INTO `rolweb` (`id`, `nombre`, `descripcion`) VALUES
+(0, 'Usuario', 'Usuario normal sin permisos'),
+(1, 'Administrador', 'Permisos de administrador');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `nick` varchar(64) CHARACTER SET latin1 NOT NULL,
-  `password` binary(16) NOT NULL,
+  `password` char(64) NOT NULL,
   `mail` varchar(100) CHARACTER SET latin1 NOT NULL,
   `pais` char(10) NOT NULL,
   `idioma` char(5) NOT NULL,
@@ -191,48 +213,56 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `nick`, `password`, `mail`, `pais`, `idioma`, `elo`, `rolPreferido`, `rolBuscado`, `region`, `mensaje`, `rolWeb`) VALUES
-(1, 'straxy', 0x35bc8cec895861697a0243c1304c7789, 'admin@josefons.es', 'ES', 'ESP', 'grandmaster_1', 'TOP', 'JUNG', 'EUW', 'asdfadf', 1);
+(5, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@josefons.es', 'CN', 'DE', 'bronze_1', 'ADC', 'ADC', 'BR', 'pass: admin', 1),
+(6, 'usuario', 'f8032d5cae3de20fcec887f395ec9a6a', 'usuario@josefons.es', 'CN', 'DE', 'bronze_1', 'ADC', 'ADC', 'BR', 'pass: usuario', 0),
+(7, 'straxy', '35bc8cec895861697a0243c1304c7789', 'straxy@josefons.es', 'CN', 'DE', 'bronze_1', 'ADC', 'ADC', 'BR', 'pass: patata', 0);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `elo`
+-- Indices de la tabla `elo`
 --
 ALTER TABLE `elo`
   ADD PRIMARY KEY (`nombreArchivo`);
 
 --
--- Indexes for table `idioma`
+-- Indices de la tabla `idioma`
 --
 ALTER TABLE `idioma`
   ADD PRIMARY KEY (`codigoIdioma`);
 
 --
--- Indexes for table `pais`
+-- Indices de la tabla `pais`
 --
 ALTER TABLE `pais`
   ADD PRIMARY KEY (`codigoPais`);
 
 --
--- Indexes for table `region`
+-- Indices de la tabla `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`codigoRegion`);
 
 --
--- Indexes for table `rol`
+-- Indices de la tabla `rol`
 --
 ALTER TABLE `rol`
   ADD PRIMARY KEY (`codigoRol`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `rolweb`
+--
+ALTER TABLE `rolweb`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`),
@@ -241,23 +271,25 @@ ALTER TABLE `usuario`
   ADD KEY `idioma` (`idioma`),
   ADD KEY `rolBuscado` (`rolBuscado`),
   ADD KEY `rolPreferido` (`rolPreferido`),
-  ADD KEY `elo` (`elo`);
+  ADD KEY `elo` (`elo`),
+  ADD KEY `rolWeb` (`rolWeb`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `usuario`
+-- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `elo` FOREIGN KEY (`elo`) REFERENCES `elo` (`nombreArchivo`),
@@ -265,7 +297,9 @@ ALTER TABLE `usuario`
   ADD CONSTRAINT `pais` FOREIGN KEY (`pais`) REFERENCES `pais` (`codigoPais`),
   ADD CONSTRAINT `region` FOREIGN KEY (`region`) REFERENCES `region` (`codigoRegion`),
   ADD CONSTRAINT `rolBuscado` FOREIGN KEY (`rolBuscado`) REFERENCES `rol` (`codigoRol`),
-  ADD CONSTRAINT `rolPreferido` FOREIGN KEY (`rolPreferido`) REFERENCES `rol` (`codigoRol`);
+  ADD CONSTRAINT `rolPreferido` FOREIGN KEY (`rolPreferido`) REFERENCES `rol` (`codigoRol`),
+  ADD CONSTRAINT `rolWeb` FOREIGN KEY (`rolWeb`) REFERENCES `rolweb` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
