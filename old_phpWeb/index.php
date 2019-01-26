@@ -39,10 +39,37 @@ session_start();
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <?php
+            if($_SESSION) {
+              ?>
+                <div class="saludoUsuario">
+                  <p class="textoSaludoUsuario">Hola, <?php echo $_SESSION['nick']; ?>.</p>
+                </div>
+              <?php
+            }
+          ?>
           <li class="nav-item">
             <?php
-              include('php/menu.php');
-            ?>
+              if(!$_SESSION) {
+              ?>
+                <button type="button" id="login" class="btn btn-info" onclick="window.location='login.php';">ENTRAR</button>
+                <button type="button" id="registro" class="btn btn-info" onclick="window.location='registro.php';">REGISTRARSE</button>
+              <?php
+              } else {
+                ?>
+                <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>
+                <?php
+                if($_SESSION['rolWeb'] == 1){
+                  ?>
+                  <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
+                  <?php
+                }
+              ?>
+                <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php';">PERFIL</button>
+                <button type="button" id="salir_boton" class="btn btn-info" onclick="window.location='php/logout.php';">SALIR</button>
+              <?php  
+              }
+              ?>
           </li>
         </ul>
       </div>

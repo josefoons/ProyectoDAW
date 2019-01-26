@@ -1,7 +1,19 @@
 <?php
 session_start();
-?>
 
+if($_SESSION['nick'] == ""){
+  header("Location: index.php");
+} 
+
+// if(!isset($_SESSION)) {
+//   header("Location: index.php");
+// } else {
+//   if($_SESSION['rolWeb'] != 0 || $_SESSION['rolWeb'] != 1){
+//     header('location: index.php');
+//   }
+// }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,27 +35,41 @@ session_start();
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
 
+
   <link href="css/custom.css" rel="stylesheet">
   <link href="css/general.css" rel="stylesheet">
-
 
 </head>
 
 <body>
   <nav class="navbar  navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href=""><img id="logo" src="img/logo.png" /></a>
+      <a class="navbar-brand" href="index.php"><img id="logo" src="img/logo.png" /></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+          <div class="saludoUsuario">
+            <p class="textoSaludoUsuario">Hola, <?php echo $_SESSION['nick']; ?>.</p>
+          </div>
           <li class="nav-item">
-            <?php
-              include('php/menu.php');
-            ?>
-          </li>
+            <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>
+              <?php
+                if(isset($_SESSION)) {
+                  if($_SESSION['rolWeb'] == 1) {
+                    ?>
+                    <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
+                    <?php
+                  }
+                  ?>
+                  <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php';">PERFIL</button>
+                  <?php
+                }
+              ?>
+            <button type="button" id="exit_button" class="btn btn-info" onclick="window.location='php/logout.php';">SALIR</button>
+          </li>          
         </ul>
       </div>
     </div>
@@ -53,7 +79,7 @@ session_start();
       <div>
         <div class="bannerPrincipal active" id="imagenBannerPrincipal">
           <div>
-            <h1 id="textoImagenPrincipal">¿Buscas duo? Esta es tu Web</h1>
+            <h1 id="textoImagenPrincipal">Zona Usuario</h1>
           </div>
         </div>
       </div>
@@ -65,9 +91,9 @@ session_start();
     <div class="row">
       <div class="col-lg mb-4"  style="height: 500px;"> <!-- Quitar este style -->
         <div class="card h-100">
-          <h4 class="card-header">Lista de Usuarios</h4>
+          <h4 class="card-header">Panel Usuario</h4>
           <div class="card-body" id="listaUsuarios">
-            <p class="card-text">LISTA PROXIMA</p>
+            <p class="card-text">Usuario</p>
           </div>
         </div>
       </div>
@@ -96,5 +122,4 @@ session_start();
     </div>
   </footer>
 </body>
-
 </html>

@@ -1,4 +1,4 @@
-<?php include 'php/server.php'; ?>
+<?php include 'php/server.php'?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -64,6 +64,9 @@
         <div class="card h-100">
           <h4 class="card-header">Formulario de Registro</h4>
           <div class="card-body" id="listaUsuarios">
+            <!-- Aqui form registro -->
+
+            <div class="modal-body mx-3">
           <div class="md-form mb-5">
           <form method="post" action="registro.php">
             <?php include 'php/errors.php';?>
@@ -115,6 +118,7 @@
               <button class="btn btn-success" type="submit" name="registroButton" id="boton-registro">ADELANTE!</button>
             </div>
             </form>
+          </div>
         </div>
 
           </div>

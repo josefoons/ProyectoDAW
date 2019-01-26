@@ -50,20 +50,10 @@ if(!isset($_SESSION)) {
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-        <div class="saludoUsuario">
-            <p class="textoSaludoUsuario">Hola, <?php echo $_SESSION['nick']; ?>.</p>
-          </div>
-        <li class="nav-item">
-            <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>
-              <?php
-                if(isset($_SESSION)) {          
-                  ?>
-                    <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
-                    <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php';">PERFIL</button>
-                    <button type="button" id="exit_button" class="btn btn-info" onclick="window.location='logout.php';">SALIR</button>
-                  <?php
-                }
-              ?>
+          <li class="nav-item">
+            <?php
+                include('php/menu.php');
+            ?>
           </li>
         </ul>
       </div>

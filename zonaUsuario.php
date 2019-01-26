@@ -51,24 +51,10 @@ if($_SESSION['nick'] == ""){
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <div class="saludoUsuario">
-            <p class="textoSaludoUsuario">Hola, <?php echo $_SESSION['nick']; ?>.</p>
-          </div>
           <li class="nav-item">
-            <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>
-              <?php
-                if(isset($_SESSION)) {
-                  if($_SESSION['rolWeb'] == 1) {
-                    ?>
-                    <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
-                    <?php
-                  }
-                  ?>
-                  <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php';">PERFIL</button>
-                  <?php
-                }
-              ?>
-            <button type="button" id="exit_button" class="btn btn-info" onclick="window.location='logout.php';">SALIR</button>
+            <?php
+                include('php/menu.php');
+            ?>
           </li>          
         </ul>
       </div>

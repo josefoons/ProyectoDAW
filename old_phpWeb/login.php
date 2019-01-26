@@ -1,7 +1,4 @@
-<?php
-session_start();
-?>
-
+<?php include 'php/server.php'?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,16 +20,16 @@ session_start();
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
 
-  <link href="css/custom.css" rel="stylesheet">
-  <link href="css/general.css" rel="stylesheet">
 
+  <!-- Custom styles for this template -->
+  <link href="css/custom.css" rel="stylesheet">
 
 </head>
 
 <body>
   <nav class="navbar  navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href=""><img id="logo" src="img/logo.png" /></a>
+      <a class="navbar-brand" href="index.php"><img id="logo" src="img/logo.png" /></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,9 +37,8 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <?php
-              include('php/menu.php');
-            ?>
+            <button type="button" id="login" class="btn btn-info" onclick="window.location='login.php';">ENTRAR</button>
+            <button type="button" id="registro" class="btn btn-info" onclick="window.location='registro.php';">REGISTRARSE</button>
           </li>
         </ul>
       </div>
@@ -53,7 +49,7 @@ session_start();
       <div>
         <div class="bannerPrincipal active" id="imagenBannerPrincipal">
           <div>
-            <h1 id="textoImagenPrincipal">¿Buscas duo? Esta es tu Web</h1>
+            <h1 id="textoImagenPrincipal">Login</h1>
           </div>
         </div>
       </div>
@@ -63,11 +59,28 @@ session_start();
   <div class="container">
     <hr>
     <div class="row">
-      <div class="col-lg mb-4"  style="height: 500px;"> <!-- Quitar este style -->
+      <div class="col-lg mb-4">
         <div class="card h-100">
-          <h4 class="card-header">Lista de Usuarios</h4>
+          <h4 class="card-header">Formulario de Logueo</h4>
           <div class="card-body" id="listaUsuarios">
-            <p class="card-text">LISTA PROXIMA</p>
+            <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+                <form method="post" action="login.php">
+                    <?php include 'php/errors.php';?>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <label for="emailLogin">Correo</label>
+                            <input type="text" name="emailLogin" id="emailLogin" class="form-control">
+                            <label for="passLogin">Contraseña</label>
+                            <input type="password" name="passLogin" id="passLogin" class="form-control">
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button class="btn btn-success" name="boton-login" id="boton-login">ADELANTE!</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
           </div>
         </div>
       </div>
@@ -95,6 +108,8 @@ session_start();
       <p class="m-0 text-center text-white">Copyright &copy; Jose Fons</p>
     </div>
   </footer>
+  </div>
+
 </body>
 
 </html>

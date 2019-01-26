@@ -1,5 +1,6 @@
 # ProyectoDAW
 ## Por hacer:
+- Hacer que el usuario logueado no pueda entrar al login.php y registro.php
 - En la barra de arriba, cambiar tantos botones por un desplegable.
 
     Hola, USARIO (Flechita Hacia abajo)
@@ -12,6 +13,8 @@
   - Buscar en base de datos desde el panel usuarios y borrarlos.
 - Panel de usuario
   - Modificar datos
+- Traducir codigo de error en el registro
+- Hacer que la contraseña siga un patron (8 caracteres y es mierdas)
   
  
 ## Posibles ideas:
