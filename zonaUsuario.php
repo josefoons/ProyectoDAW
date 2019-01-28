@@ -30,6 +30,7 @@ if($_SESSION['nick'] == ""){
 
   <link href="css/custom.css" rel="stylesheet">
   <link href="css/panelUsuario.css" rel="stylesheet">
+  <script src="js/zonaUsuario.js"></script>
 
 </head>
 
@@ -67,12 +68,30 @@ if($_SESSION['nick'] == ""){
   <div class="container">
     <hr>
     <div class="row">
-      <div class="col-lg mb-6"  style="height: 400px;"> <!-- Quitar este style -->
+      <div class="col-lg mb-6">
         <div class="card h-100">
           <h4 class="card-header">Perfil de <?php echo strtoupper ($_SESSION['nick']) ?></h4>
           <div class="card-body" id="panelUsuarioGeneral">
-              <div id="info"></div>
-              <div id="rango"></div>
+              <div id="rango">
+                <img id="rangoImagen" src="">
+              </div>
+              <div id="linea"></div>
+              <div id="info">
+              <form>
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                  <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                  </div>
+                </div>
+              </form>
+              </div>
           </div>
         </div>
       </div>
