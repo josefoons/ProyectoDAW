@@ -24,6 +24,16 @@ function obtenerDatos() {
 }
 
 function colocarDatos() {
+
+    console.log(infoUsuario[0]);
     document.getElementById("rangoImagen").src = "img/ranks/" + infoUsuario[0].elo + ".png";
+    document.getElementById("nickPerfil").value = infoUsuario[0].nick;
+    document.getElementById("mailPerfil").value = infoUsuario[0].mail;
+    document.getElementById("paisPerfil").value = infoUsuario[0].pais;
+    document.getElementById("idiomaPerfil").value = infoUsuario[0].idioma;
+    document.getElementById("rolPrefePerfil").value = infoUsuario[0].rolPreferido;
+    document.getElementById("rolBuscadoPerfil").value = infoUsuario[0].rolBuscado;
+    document.getElementById("regionPerfil").value = infoUsuario[0].region;
+    document.getElementById("mensajePerfil").value = infoUsuario[0].mensaje;
 }
 

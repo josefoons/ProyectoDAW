@@ -77,17 +77,60 @@ if($_SESSION['nick'] == ""){
               </div>
               <div id="linea"></div>
               <div id="info">
-              <form>
+              <form>                
                 <div class="form-group row">
-                  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                  <label for="nickPerfil" class="col-sm-2 col-form-label">Nick</label>
                   <div class="col-sm-10">
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+                    <input type="text" readonly class="form-control" id="nickPerfil" value="">
                   </div>
                 </div>
+
                 <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                  <label for="mailPerfil" class="col-sm-2 col-form-label">Correo</label>
                   <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="text" readonly class="form-control" id="mailPerfil" value="">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="paisPerfil" class="col-sm-2 col-form-label">Pais</label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control" id="paisPerfil" value="">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="idiomaPerfil" class="col-sm-2 col-form-label">Idioma Usado</label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control" id="idiomaPerfil" value="">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="rolPrefePerfil" class="col-sm-2 col-form-label">Rol Preferido</label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control" id="rolPrefePerfil" value="">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="rolBuscadoPerfil" class="col-sm-2 col-form-label">Rol Buscado</label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control" id="rolBuscadoPerfil" value="">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="regionPerfil" class="col-sm-2 col-form-label">Region</label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control" id="regionPerfil" value="">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="mensajePerfil" class="col-sm-2 col-form-label">Mensaje</label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control" id="mensajePerfil" value="">
                   </div>
                 </div>
               </form>
@@ -121,3 +164,4 @@ if($_SESSION['nick'] == ""){
   </footer>
 </body>
 </html>
+

@@ -37,7 +37,6 @@ if(!isset($_SESSION)) {
   <!-- Custom styles for this template -->
   <link href="css/custom.css" rel="stylesheet">
   <link href="css/general.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -76,9 +75,40 @@ if(!isset($_SESSION)) {
     <div class="row">
       <div class="col-lg mb-4"  style="height: 500px;"> <!-- Quitar este style -->
         <div class="card h-100">
-          <h4 class="card-header">Controles de Usuario</h4>
-          <div class="card-body" id="listaUsuarios">
-            <p class="card-text">Usuario</p>
+          <h4 class="card-header">Panel control de <?php echo strtoupper ($_SESSION['nick']) ?></h4>
+          <div class="card-body" id="zonaAdmin">
+          <!-- TAB -->
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#CrearAdmin" role="tab" aria-controls="home" aria-selected="true">Crear Admins</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Usuarios" role="tab" aria-controls="profile" aria-selected="false">Ver Usuarios</a>
+              </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="CrearAdmin" role="tabpanel" aria-labelledby="home-tab">
+                Admins
+
+
+
+
+              </div>
+              <div class="tab-pane fade" id="Usuarios" role="tabpanel" aria-labelledby="profile-tab">
+                Usuarios
+
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+          <!-- /TAB -->
           </div>
         </div>
       </div>

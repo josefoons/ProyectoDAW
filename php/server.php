@@ -32,7 +32,7 @@ if (isset($_POST['registroButton'])) {
     $lowercase = preg_match('@[a-z]@', $password);
     $number    = preg_match('@[0-9]@', $password);
     if(!$uppercase || !$lowercase || !$number || strlen($password) < 8){
-        array_push($errors, "Debe contener 8 caracteres, un numero, y al menos una mayuscula y minuscula.  ");
+        array_push($errors, "Debe contener 8 caracteres, un numero, y al menos una mayuscula y minuscula.");
     }
 
     // Mirar si no existe el usuario en la base de datos.
