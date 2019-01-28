@@ -1,7 +1,7 @@
 <?php include 'php/server.php'; ?>
 <?php
 if(!isset($_SESSION['nick'])){
-    //
+    //REGISTRO LIBRE
 } elseif($_SESSION['nick'] != "") {
   header('location: index.php');
 }

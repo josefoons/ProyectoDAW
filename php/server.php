@@ -53,8 +53,8 @@ if (isset($_POST['registroButton'])) {
     // Si no hay errores, finalmente metemos el usuario en la db
     if (count($errors) == 0) {
         $pass = md5($password); // encriptamos la contraseña
-        $query = "INSERT INTO usuario (nick,password,mail,pais,idioma,elo,rolPreferido,rolBuscado,region,mensaje,rolWeb)
-  			  VALUES('$nick','$pass','$mail','$pais','$idioma','$elo','$rolPreferido','$rolBuscado','$region','$mensaje',0)";
+        $query = "INSERT INTO usuario (id,nick,password,mail,pais,idioma,elo,rolPreferido,rolBuscado,region,mensaje,rolWeb)
+  			  VALUES(DEFAULT,'$nick','$pass','$mail','$pais','$idioma','$elo','$rolPreferido','$rolBuscado','$region','$mensaje',0)";
         mysqli_query($db, $query);
 
         //CREAMOS LA SESION

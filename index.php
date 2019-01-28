@@ -25,8 +25,6 @@ session_start();
 
   <link href="css/custom.css" rel="stylesheet">
   <link href="css/general.css" rel="stylesheet">
-
-
 </head>
 
 <body>

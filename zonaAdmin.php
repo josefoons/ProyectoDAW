@@ -96,16 +96,12 @@ if(!isset($_SESSION)) {
 
               </div>
               <div class="tab-pane fade" id="Usuarios" role="tabpanel" aria-labelledby="profile-tab">
-                Usuarios
-
-
-
-
-
-
-
-
-
+              <br>
+                <form class="form-horizontal" role="form">
+                  <div class="col-sm-12">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                  </div>
+                </form>
               </div>
             </div>
           <!-- /TAB -->
