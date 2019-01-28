@@ -7,8 +7,8 @@
   - Buscar en base de datos desde el panel usuarios y borrarlos.
 - Panel de usuario
   - Modificar datos
-- Traducir codigo de error en el registro
-- Hacer que la contraseña siga un patron (8 caracteres y es mierdas)
+- Traducir codigo de error en el registro (Hecho)
+- Hacer que la contraseña siga un patron (8 caracteres y es mierdas) (Hecho)
 - Poner lista de usuarios en el index de busqueda.
   
  
