@@ -89,7 +89,9 @@ if(!isset($_SESSION)) {
 
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="CrearAdmin" role="tabpanel" aria-labelledby="home-tab">
+                <br>
                 Admins
+                
 
 
 
@@ -99,7 +101,7 @@ if(!isset($_SESSION)) {
               <br>
                 <form class="form-horizontal" role="form">
                   <div class="col-sm-12">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="text" class="form-control" id="inputPassword" placeholder="Buscar Usuario">
                   </div>
                 </form>
               </div>
