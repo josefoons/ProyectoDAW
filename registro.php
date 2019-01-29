@@ -1,5 +1,4 @@
-<?php include 'php/server.php'; ?>
-<?php
+<?php include 'php/server.php';
 if(!isset($_SESSION['nick'])){
     //REGISTRO LIBRE
 } elseif($_SESSION['nick'] != "") {
