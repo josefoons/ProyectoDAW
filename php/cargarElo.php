@@ -2,7 +2,7 @@
 
 include("conexion.php");
 
-$consulta = "SELECT * FROM elo;";
+$consulta = "SELECT * FROM elo ORDER BY id;";
 $result = mysqli_query($conn, $consulta);
 $xmlDevolver = "";
 
