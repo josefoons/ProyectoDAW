@@ -22,7 +22,7 @@ function cargarRegion() {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "php/cargarRegiones.php", true);
+    xhttp.open("GET", "http://" + ip + "vista/php/cargarRegiones.php", true);
     xhttp.send();
 
 }
@@ -39,7 +39,7 @@ function cargarElo() {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "php/cargarElo.php", true);
+    xhttp.open("GET", "http://" + ip + "vista/php/cargarElo.php", true);
     xhttp.send();
 
 }
@@ -57,7 +57,7 @@ function cargarRol() {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "php/cargarRoles.php", true);
+    xhttp.open("GET", "http://" + ip + "vista/php/cargarRoles.php", true);
     xhttp.send();
 
 }
@@ -74,7 +74,7 @@ function cargarPaises() {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "php/cargarPaises.php", true);
+    xhttp.open("GET", "http://" + ip + "vista/php/cargarPaises.php", true);
     xhttp.send();
 
 }
@@ -90,7 +90,7 @@ function cargarIdioma() {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "php/cargarIdiomas.php", true);
+    xhttp.open("GET", "http://" + ip + "vista/php/cargarIdiomas.php", true);
     xhttp.send();
 
 }
