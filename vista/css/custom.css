@@ -1,0 +1,71 @@
+body {
+    padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+#logo {
+    height: 60px;
+    width: auto;
+}
+
+#textoImagenPrincipal {
+    color: white;
+    position: absolute;
+    height: 100%;
+    width: auto;
+    right: 5%;
+    top: 50%;
+}
+
+#imagenBannerPrincipal {
+    background: url("../img/banner_principal.jpg");
+    background-size: cover;
+}
+
+#listaUsuarios {
+    width: auto;
+    height: auto;
+    /* Cambiar a auto mas alante */
+}
+
+.bannerPrincipal {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#bannerHeimer {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Zona cuando ya estas logueado */
+
+#textoUsuario {
+    position: absolute;
+    left: 10px;
+    color: white;
+}
+
+#zonaUsuario {
+    height: 50px;
+    width: auto;
+    position: relative;
+}
+
+#cambiarInformacion {
+    position: absolute;
+    right: 0;
+    height: 50px;
+    width: auto;
+}
