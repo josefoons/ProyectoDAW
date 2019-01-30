@@ -19,14 +19,14 @@ function obtenerDatos() {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "php/cargarInfoUsuario.php?id=" + id, true);
+    xhttp.open("GET", "http://" + ip + "vista/php/cargarInfoUsuario.php?id=" + id, true);
     xhttp.send();
 }
 
 function colocarDatos() {
 
     console.log(infoUsuario[0]);
-    document.getElementById("rangoImagen").src = "img/ranks/" + infoUsuario[0].elo + ".png";
+    document.getElementById("rangoImagen").src = "vista/img/ranks/" + infoUsuario[0].elo + ".png";
     document.getElementById("nickPerfil").value = infoUsuario[0].nick;
     document.getElementById("mailPerfil").value = infoUsuario[0].mail;
     document.getElementById("paisPerfil").value = infoUsuario[0].pais;

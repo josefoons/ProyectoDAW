@@ -4,7 +4,7 @@ function cargar() {
     document.getElementById("lupaBuscar").addEventListener("click", limpiar);
 }
 
-var ip = "localhost/ProyectoDAW/";
+
 
 function limpiar(){
     document.getElementById("colocarUsuario").innerHTML = "";
@@ -21,7 +21,7 @@ function buscarUsuario() {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "php/buscarUsuario.php?nombre=" + nombre, true);
+    xhttp.open("GET", "http://" + ip + "vista/php/buscarUsuario.php?nombre=" + nombre, true);
     xhttp.send();
 }
 
@@ -52,7 +52,7 @@ function borrarUsuario(boton) {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "php/borrarUsuarioAdmin.php?dato=" + id, true);
+    xhttp.open("GET", "http://" + ip + "vista/php/borrarUsuarioAdmin.php?dato=" + id, true);
     xhttp.send();
 }
 
@@ -74,6 +74,6 @@ function crearAdmin(boton) {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "php/editarAdmin.php?id=" + array[0]+"&rango=" + array[1], true);
+    xhttp.open("GET", "http://" + ip + "vista/php/editarAdmin.php?id=" + array[0]+"&rango=" + array[1], true);
     xhttp.send();
 }

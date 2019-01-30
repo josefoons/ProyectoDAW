@@ -7,8 +7,6 @@ function cargar() {
     cargarRol();
 }
 
-//localhost/ProyectoDAW/ --- josefons.es
-var ip = "localhost/ProyectoDAW/";
 
   
 function cargarRegion() {
