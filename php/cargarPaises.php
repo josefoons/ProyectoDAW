@@ -2,7 +2,7 @@
 
 include("conexion.php");
 
-$consulta = "SELECT * FROM pais;";
+$consulta = "SELECT * FROM pais ORDER BY id;";
 $result = mysqli_query($conn, $consulta);
 $xmlDevolver = "";
 

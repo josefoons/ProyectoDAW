@@ -2,7 +2,7 @@
 
 include("conexion.php");
 
-$consulta = "SELECT * FROM region;";
+$consulta = "SELECT * FROM region ORDER BY id;";
 $result = mysqli_query($conn, $consulta);
 $xmlDevolver = "";
 

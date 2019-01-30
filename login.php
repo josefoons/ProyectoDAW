@@ -1,6 +1,5 @@
-<?php include 'php/server.php'; ?>
+<?php include 'php/server.php'; 
 
-<?php
 if(!isset($_SESSION['nick'])){
     //
 } elseif($_SESSION['nick'] != "") {
