@@ -3,8 +3,12 @@ session_start();
 
 $errors = array();
 
-include('php/conexion.php');
-$db = $conn;
+require_once("conexionNEW.php");
+$miconexion = new Conexion();
+$db = $miconexion->getConexion();
+//include('php/conexion.php');
+//$db = $conn;
+
 
 // REGISTER USER
 if (isset($_POST['registroButton'])) {
