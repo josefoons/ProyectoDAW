@@ -15,7 +15,3 @@
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
 
 https://owlcation.com/stem/Simple-search-PHP-MySQL
-
-----------------
-errores no modelo. controlador
-logout controlador
