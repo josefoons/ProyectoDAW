@@ -18,6 +18,7 @@
 
 ## Posibles Ideas
 - Comentarios en los perfiles (Añadir tabla a la base de datos)
+- Si soy el usuario dueño del perfil, puedo ocultar comentario 
 
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
 
