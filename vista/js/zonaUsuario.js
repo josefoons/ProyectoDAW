@@ -18,7 +18,7 @@ function obtenerDatos() {
         }
     };
 
-    xhttp.open("GET", "http://" + ip + "vista/php/cargarInfoUsuario.php?id=" + id, true);
+    xhttp.open("GET",  ip + "cargarInfoUsuario.php?id=" + id, true);
     xhttp.send();
 }
 
