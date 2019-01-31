@@ -26,8 +26,7 @@ if (limpiar() == "registro.php" || limpiar() == "login.php") {
 }
 
 if (limpiar() == "zonaUsuario.php") {
-    //session_start();
-    if (/* $_SESSION['nick'] == "" */empty($_SESSION)) {
+    if(!isset($_GET['id'])){
         header("Location: index.php");
     }
 }

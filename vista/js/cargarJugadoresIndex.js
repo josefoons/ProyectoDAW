@@ -22,7 +22,7 @@ function cargarJugadores() {
 
 function colocarUsuarios(informacionUsuarios) {
     var campo = document.getElementById("listaUsuarios");
-    //nick,pais,idioma,elo,rolPreferido,rolBuscado,region
+    
     for(var k in informacionUsuarios) {
 
         if(informacionUsuarios[k].region == "KR"){
@@ -35,7 +35,7 @@ function colocarUsuarios(informacionUsuarios) {
             + "<td>" + informacionUsuarios[k].rolPreferido + "</td>"
             + "<td>" + informacionUsuarios[k].rolBuscado + "</td>"
             + "<td>" + informacionUsuarios[k].region + "</td>"
-            + " <td><a target='_blank' href='http://www.op.gg/summoner/userName=" + informacionUsuarios[k].nick + "'><img style='height: 35px;' src='vista/img/opgg_icon.png'></a><td>"
+            + " <td><a target='_blank' href='http://www.op.gg/summoner/userName=" + informacionUsuarios[k].nick + "'><img style='height: 35px;' src='vista/img/opgg_icon.png'></a>  <a href='zonaUsuario.php?id=" + informacionUsuarios[k].id + "' class='btn btn-light'><i class='fa fa-user' aria-hidden='true'></i></a><td>"
             + "</tr>";
         } else {
             campo.innerHTML = campo.innerHTML + 
@@ -47,7 +47,7 @@ function colocarUsuarios(informacionUsuarios) {
             + "<td>" + informacionUsuarios[k].rolPreferido + "</td>"
             + "<td>" + informacionUsuarios[k].rolBuscado + "</td>"
             + "<td>" + informacionUsuarios[k].region + "</td>"
-            + " <td><a target='_blank' href='http://" + informacionUsuarios[k].region + ".op.gg/summoner/userName=" + informacionUsuarios[k].nick + "'><img style='height: 35px;' src='vista/img/opgg_icon.png'></a><td>"
+            + " <td><a target='_blank' href='http://" + informacionUsuarios[k].region + ".op.gg/summoner/userName=" + informacionUsuarios[k].nick + "'><img style='height: 35px;' src='vista/img/opgg_icon.png'></a>  <a href='zonaUsuario.php?id=" + informacionUsuarios[k].id + "' class='btn btn-light'><i class='fa fa-user' aria-hidden='true'></i></a><td>"
             + "</tr>";
         }
         //console.log(k, informacionUsuarios[k]);

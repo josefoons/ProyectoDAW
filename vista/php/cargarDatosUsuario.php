@@ -3,7 +3,7 @@ require_once("conexionNEW.php");
 $miconexion = new Conexion();
 $conn = $miconexion->getConexion();
 
-$result = mysqli_query($conn, "SELECT nick,pais,idioma,elo,rolPreferido,rolBuscado,region FROM usuario WHERE nick NOT LIKE 'admin';");
+$result = mysqli_query($conn, "SELECT id,nick,pais,idioma,elo,rolPreferido,rolBuscado,region FROM usuario WHERE nick NOT LIKE 'admin';");
 
 $data = array();
 
