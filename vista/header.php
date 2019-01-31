@@ -35,6 +35,12 @@
         <?php
     }
 
+    if(limpiar() == "index.php"){
+        ?>
+        <script src="vista/js/cargarJugadoresIndex.js"></script>
+        <?php
+    }
+
     if(limpiar() == "zonaUsuario.php"){
         ?>
         <link href="vista/css/panelUsuario.css" rel="stylesheet">
