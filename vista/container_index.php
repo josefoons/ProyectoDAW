@@ -4,8 +4,29 @@
             <div class="col-lg mb-4" style="height: 400px;">
                 <div class="card h-100">
                     <h4 class="card-header">Lista de Usuarios</h4>
-                    <div class="card-body" id="listaUsuarios" style=" overflow: auto;"></div>
+                    <div class="card-body"  style="overflow: auto;">
+<!--                         <ul id="listaUsuarios" class="list-group">
+                            <li class="list-group-item">First item</li>
+                        </ul>  -->
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nick</th>
+                                        <th>Pais</th>
+                                        <th>Idioma</th>
+                                        <th>Elo</th>
+                                        <th>Rol Preferido</th>
+                                        <th>Rol Buscado</th>
+                                        <th>Region</th>
+                                        <th>OP.GG</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listaUsuarios">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
