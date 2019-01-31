@@ -24,6 +24,20 @@
             return $rolWeb;
         }
 
+        public function getNick($id){
+            $conn = $this->getConexion();
+            $consulta = "SELECT nick FROM usuario WHERE id='$id'";
+            $result = mysqli_query($conn, $consulta);
+
+            while ($fila = mysqli_fetch_array($result)) {
+                
+                $nick = $fila[0];
+
+            }
+
+            return $nick;
+        }
+
     }
 
 /*     $miconexion = new Conexion();

@@ -4,8 +4,8 @@ include "php/funcionLimpiar.php";
 include "php/conexionNEW.php";
 
 if (limpiar() == "zonaAdmin.php") {
-    session_start();
-    if (!isset($_SESSION)) {
+    //session_start();
+    if (/* !isset($_SESSION) */ empty($_SESSION)) {
         header("Location: index.php");
     } else {
         $conex = new Conexion();
@@ -26,8 +26,8 @@ if (limpiar() == "registro.php" || limpiar() == "login.php") {
 }
 
 if (limpiar() == "zonaUsuario.php") {
-    session_start();
-    if ($_SESSION['nick'] == "") {
+    //session_start();
+    if (/* $_SESSION['nick'] == "" */empty($_SESSION)) {
         header("Location: index.php");
     }
 }

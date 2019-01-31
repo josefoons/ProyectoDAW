@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "vista/head.php";
 include_once "vista/header.php";
 include_once "vista/nav.php";

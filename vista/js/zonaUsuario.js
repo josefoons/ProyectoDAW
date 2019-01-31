@@ -6,7 +6,6 @@ function cargar() {
 var link = window.location.href;
 var arrayLink = link.split("=");
 var id = arrayLink[1];
-var ip = "localhost/ProyectoDAW/";
 var infoUsuario = "";
 
 function obtenerDatos() {
@@ -27,6 +26,7 @@ function colocarDatos() {
 
     console.log(infoUsuario[0]);
     document.getElementById("rangoImagen").src = "vista/img/ranks/" + infoUsuario[0].elo + ".png";
+    document.getElementById("nickPerfilHeader").innerText = infoUsuario[0].nick;
     document.getElementById("nickPerfil").value = infoUsuario[0].nick;
     document.getElementById("mailPerfil").value = infoUsuario[0].mail;
     document.getElementById("paisPerfil").value = infoUsuario[0].pais;

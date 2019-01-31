@@ -3,9 +3,7 @@
         <div class="row">
             <div class="col-lg mb-6">
                 <div class="card h-100">
-                    <h4 class="card-header">Perfil de
-                        <?php echo strtoupper ($_SESSION['nick']) ?>
-                    </h4>
+                    <h4 class="card-header">Perfil de <span id="nickPerfilHeader"></span></h4>
                     <div class="card-body" id="panelUsuarioGeneral">
                         <div id="rango">
                             <img id="rangoImagen" src="">
