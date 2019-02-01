@@ -19,7 +19,7 @@
                                         <th>Rol Preferido</th>
                                         <th>Rol Buscado</th>
                                         <th>Region</th>
-                                        <th>OP.GG</th>
+                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody id="listaUsuarios">

@@ -34,6 +34,12 @@
                 <h1 id="textoImagenPrincipal">Zona Usuario</h1>
                <?php 
             }
+
+            if(limpiar() == "reportar.php"){
+               ?>
+                <h1 id="textoImagenPrincipal">Reportar Usuario</h1>
+               <?php 
+            }
           ?>
           </div>
         </div>

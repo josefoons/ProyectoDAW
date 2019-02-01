@@ -1,7 +1,7 @@
 # ProyectoDAW
 
 ## Por hacer:
-  - Modificar datos
+  - Modificar datos (REPARAR CONTRASEÑA)
   - Cambiar los "banners_inferiores" por algo mejor, eso es basura
   - Mejorar el footer.
 

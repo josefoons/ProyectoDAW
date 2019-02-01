@@ -7,6 +7,9 @@ var link = window.location.href;
 var arrayLink = link.split("=");
 var id = arrayLink[1];
 var infoUsuario = "";
+var elo = "";
+var oldPass = "";
+
 
 function obtenerDatos() {
     var xhttp = new XMLHttpRequest();
@@ -18,13 +21,13 @@ function obtenerDatos() {
         }
     };
 
-    xhttp.open("GET",  ip + "cargarInfoUsuario.php?id=" + id, true);
+    xhttp.open("GET", ip + "cargarInfoUsuario.php?id=" + id, true);
     xhttp.send();
 }
 
 function colocarDatos() {
 
-    console.log(infoUsuario[0]);
+    //console.log(infoUsuario[0]);
     document.getElementById("rangoImagen").src = "vista/img/ranks/" + infoUsuario[0].elo + ".png";
     document.getElementById("nickPerfilHeader").innerText = infoUsuario[0].nick;
     document.getElementById("nickPerfil").value = infoUsuario[0].nick;
@@ -35,5 +38,125 @@ function colocarDatos() {
     document.getElementById("rolBuscadoPerfil").value = infoUsuario[0].rolBuscado;
     document.getElementById("regionPerfil").value = infoUsuario[0].region;
     document.getElementById("mensajePerfil").value = infoUsuario[0].mensaje;
+}
+
+/* CAMBIOS EN EL PERFIL */
+
+
+function editarBoton() {
+    let botonInciar = document.getElementById("botonEditarDatos");
+
+    if (botonInciar.value == "cambiar") {
+        abrirCampos(botonInciar);
+        botonInciar.value = "finalizar";
+    } else {
+        bloquearCampos(botonInciar);
+        botonInciar.value = "cambiar";
+    }
+}
+
+function bloquearCampos() {
+    document.getElementById("mensajePerfil").readOnly = true;
+    document.getElementById("mailPerfil").readOnly = true;
+    actualizarDatos();
+    document.getElementById("listadoPaises").innerHTML = "";
+}
+
+function abrirCampos() {
+    document.getElementById("alertaConfirmacion").innerHTML = "";
+    document.getElementById("mensajePerfil").readOnly = false;
+    document.getElementById("mailPerfil").readOnly = false;
+    cargarElo();
+}
+
+function actualizarDatos() {
+    var xhttp = new XMLHttpRequest();
+
+    let mensaje = document.getElementById("mensajePerfil").value;
+    let mail = document.getElementById("mailPerfil").value;
+    elo = document.getElementById("nuevoEloPerfil").value;
+
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (this.responseText == "OK") {
+                activarAlerta("si");
+            } else {
+                if (this.responseText == "ERROR") {
+                    activarAlerta("no");
+                }
+            }
+        }
+    };
+
+    if (elo == "igual") {
+        elo = infoUsuario[0].elo;
+        xhttp.open("GET", ip + "actualizarDatosPerfil.php?mensaje=" + mensaje + "&mail=" + mail + "&elo=" + elo + "&id=" + id, true);
+    } else {
+        xhttp.open("GET", ip + "actualizarDatosPerfil.php?mensaje=" + mensaje + "&mail=" + mail + "&elo=" + elo + "&id=" + id, true);
+    }
+    xhttp.send();
+}
+
+function activarAlerta(respuesta) {
+    let alerta = document.getElementById("alertaConfirmacion");
+
+    if (respuesta == "si") {
+        alerta.innerHTML = "<div class='alert alert-success' role='alert'> Datos actualizados correctamente! </div>";
+        document.getElementById("rangoImagen").src = "vista/img/ranks/" + elo + ".png";
+    } else {
+        alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Error al actualizar datos! </div>";
+    }
+}
+
+
+function cargarElo() {
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var xmlRol = this.responseText;
+            let zonaElo = document.getElementById("listadoPaises");
+            zonaElo.innerHTML = "<div class='form-group'><select class='form-control' id='nuevoEloPerfil'><option value='igual' selected>Selecciona</option>" + xmlRol + "</select></div>";
+        }
+    };
+
+    xhttp.open("GET", ip + "cargarElo.php", true);
+    xhttp.send();
+}
+
+function actualizarPass() {
+
+    let alerta = document.getElementById("notificacionPassword");
+    let antigua = document.getElementById("oldPassword").value;
+    let nueva = document.getElementById("newPassword").value;
+    let nueva2 = document.getElementById("newPassword_2").value;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+/*             switch (this.responseText) {
+                case "NO-IGUALES":
+                    alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Contraseñas diferentes! </div>";
+                    break;
+                case "NO-IGUAL-ANTIGUA":
+                    alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Contraseña antigua no es correcta! </div>";
+                    break;
+
+                case "ERROR-ACTUALIZAR":
+                    alerta.innerHTML = "<div class='alert alert-danger' role='alert'> No se puede actualizar! </div>";
+                    break;
+
+                case "OK":
+                    alerta.innerHTML = "<div class='alert alert-success' role='alert'> Contraseña actualizada correctamente! </div>";
+                    break;                    
+            } */
+        }
+    };
+
+    xhttp.open("GET", ip + "actualizarPass.php?id=" + id + "&antigua=" + antigua + "&nueva=" + nueva + "&nueva_other=" + nueva2, true);
+    xhttp.send();
 }
 
