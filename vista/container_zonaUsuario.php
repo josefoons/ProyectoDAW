@@ -13,7 +13,7 @@
                                 if(!empty($_SESSION) && $_SESSION['id'] == $_GET['id']){
                                     ?>
                                     <center><button id="botonEditarDatos" onclick="editarBoton()" type="button" class="btn btn-secondary" value="cambiar">CAMBIAR DATOS</button></center><br>
-                                    <center><button id="botonEditarDatos" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#cambiarPasswordModal">CAMBIAR PASSWORD</button></center>
+                                    <center><button id="botonEditarPassword" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#cambiarPasswordModal">CAMBIAR PASSWORD</button></center>
                                     <?php
                                 }
                             ?>
@@ -95,11 +95,6 @@
       </div>
         <div class="modal-body">
             <div id="notificacionPassword"></div>
-            <div class="form-group">
-                <label for="oldPassword">Antigua Contraseña</label>
-                <input type="password" class="form-control" id="oldPassword" required>
-            </div>
-
             <div class="form-group">
                 <label for="newPassword">Nueva Contraseña</label>
                 <input type="password" class="form-control" id="newPassword" required>

@@ -1,6 +1,11 @@
 window.addEventListener("load", cargar, false);
 function cargar() {
     obtenerDatos();
+    document.getElementById("botonEditarPassword").addEventListener("click", function limpiarCampos() {
+        document.getElementById("notificacionPassword").innerHTML = "";
+        document.getElementById("newPassword").value = "";
+        document.getElementById("newPassword_2").value = "";
+    });
 }
 
 var link = window.location.href;
@@ -129,34 +134,33 @@ function cargarElo() {
 function actualizarPass() {
 
     let alerta = document.getElementById("notificacionPassword");
-    let antigua = document.getElementById("oldPassword").value;
     let nueva = document.getElementById("newPassword").value;
     let nueva2 = document.getElementById("newPassword_2").value;
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            alert(this.responseText);
-/*             switch (this.responseText) {
-                case "NO-IGUALES":
-                    alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Contraseñas diferentes! </div>";
-                    break;
-                case "NO-IGUAL-ANTIGUA":
-                    alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Contraseña antigua no es correcta! </div>";
-                    break;
+    if(nueva != nueva2 || nueva == "" || nueva2 == ""){
+        alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Error en contraseñas! </div>";
+    } else {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                //alert(this.responseText);
+                switch (this.responseText) {   
+                    case "ERROR-ACTUALIZAR":
+                        alerta.innerHTML = "<div class='alert alert-danger' role='alert'> No se puede actualizar! </div>";
+                        break;
+    
+                    case "OK":
+                        alerta.innerHTML = "<div class='alert alert-success' role='alert'> Contraseña actualizada correctamente! </div>";
+                        break;                    
+                } 
 
-                case "ERROR-ACTUALIZAR":
-                    alerta.innerHTML = "<div class='alert alert-danger' role='alert'> No se puede actualizar! </div>";
-                    break;
+            }
+        };
+    
+        xhttp.open("GET", ip + "actualizarPass.php?id=" + id + "&nueva=" + nueva, true);
+        xhttp.send();
+    }
 
-                case "OK":
-                    alerta.innerHTML = "<div class='alert alert-success' role='alert'> Contraseña actualizada correctamente! </div>";
-                    break;                    
-            } */
-        }
-    };
 
-    xhttp.open("GET", ip + "actualizarPass.php?id=" + id + "&antigua=" + antigua + "&nueva=" + nueva + "&nueva_other=" + nueva2, true);
-    xhttp.send();
 }
 
