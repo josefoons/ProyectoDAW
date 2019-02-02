@@ -6,8 +6,7 @@ $errors = array();
 require_once("conexionNEW.php");
 $miconexion = new Conexion();
 $db = $miconexion->getConexion();
-//include('php/conexion.php');
-//$db = $conn;
+
 
 
 // REGISTER USER

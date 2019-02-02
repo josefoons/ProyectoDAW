@@ -1,1 +1,3 @@
-var ip = "http://localhost/ProyectoDAW/vista/php/";
+// localhost/ProyectoDAW
+// josefons.es
+var ip = "http://localhost/ProyectoDAW/vista/ajax/";
