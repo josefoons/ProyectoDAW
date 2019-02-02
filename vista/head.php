@@ -26,7 +26,7 @@ if (limpiar() == "registro.php" || limpiar() == "login.php") {
 }
 
 if (limpiar() == "zonaUsuario.php") {
-    if(!empty($_SESSION)){
+    if(empty($_SESSION)){
         header("Location: index.php");
     }
 }
