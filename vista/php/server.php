@@ -3,10 +3,10 @@
 
 $errors = array();
 
-require_once("conexionNEW.php");
+require_once "conexionNEW.php";
+require_once "../../modelo/claseUsuario.php";
 $miconexion = new Conexion();
 $db = $miconexion->getConexion();
-
 
 
 // REGISTER USER

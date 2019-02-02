@@ -1,9 +1,10 @@
 # ProyectoDAW
 
 ## Por hacer:
-  - Modificar datos (REPARAR CONTRASEÑA)
+  - Modificar datos (REPARAR CONTRASEÑA, añadir peticion antigua)
   - Cambiar los "banners_inferiores" por algo mejor, eso es basura
   - Mejorar el footer.
+  - Adaptar todo de variables de sesion, clase de usuario
 
 ## Terminado:
 - Hacer que el usuario logueado no pueda entrar al login.php y registro.php (Hecho)
