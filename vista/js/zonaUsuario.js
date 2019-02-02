@@ -134,11 +134,14 @@ function cargarElo() {
 function actualizarPass() {
 
     let alerta = document.getElementById("notificacionPassword");
+    let old = document.getElementById("oldPassword").value;
     let nueva = document.getElementById("newPassword").value;
     let nueva2 = document.getElementById("newPassword_2").value;
+    
+    //alert(old + "  " + nueva + "   " + nueva2);
 
     if(nueva != nueva2 || nueva == "" || nueva2 == ""){
-        alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Error en contraseñas! </div>";
+        alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Error en contraseñas nuevas! </div>";
     } else {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -151,13 +154,17 @@ function actualizarPass() {
     
                     case "OK":
                         alerta.innerHTML = "<div class='alert alert-success' role='alert'> Contraseña actualizada correctamente! </div>";
-                        break;                    
+                        break;   
+                    
+                    case "DIREFENTE-ANTIGUA":
+                        alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Contraseña actual no correcta! </div>";
+                        break;
                 } 
 
             }
         };
     
-        xhttp.open("GET", ip + "actualizarPass.php?id=" + id + "&nueva=" + nueva, true);
+        xhttp.open("GET", ip + "actualizarPass.php?id=" + id + "&nueva=" + nueva + "&old=" + old, true);
         xhttp.send();
     }
 

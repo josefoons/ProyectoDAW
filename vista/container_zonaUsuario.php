@@ -96,6 +96,11 @@
         <div class="modal-body">
             <div id="notificacionPassword"></div>
             <div class="form-group">
+                <label for="oldPassword">Actual Contraseña</label>
+                <input type="password" class="form-control" id="oldPassword" required>
+            </div>
+
+            <div class="form-group">
                 <label for="newPassword">Nueva Contraseña</label>
                 <input type="password" class="form-control" id="newPassword" required>
             </div>
