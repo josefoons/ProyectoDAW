@@ -68,6 +68,7 @@ function bloquearCampos() {
 }
 
 function abrirCampos() {
+    obtenerDatos();
     document.getElementById("alertaConfirmacion").innerHTML = "";
     document.getElementById("mensajePerfil").readOnly = false;
     document.getElementById("mailPerfil").readOnly = false;
