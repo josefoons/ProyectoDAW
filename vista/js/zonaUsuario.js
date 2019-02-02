@@ -1,10 +1,12 @@
 window.addEventListener("load", cargar, false);
+
 function cargar() {
     obtenerDatos();
     document.getElementById("botonEditarPassword").addEventListener("click", function limpiarCampos() {
         document.getElementById("notificacionPassword").innerHTML = "";
         document.getElementById("newPassword").value = "";
         document.getElementById("newPassword_2").value = "";
+        document.getElementById("oldPassword").value = "";
     });
 }
 
@@ -138,37 +140,38 @@ function actualizarPass() {
     let old = document.getElementById("oldPassword").value;
     let nueva = document.getElementById("newPassword").value;
     let nueva2 = document.getElementById("newPassword_2").value;
-    
-    //alert(old + "  " + nueva + "   " + nueva2);
 
-    if(nueva != nueva2 || nueva == "" || nueva2 == ""){
+    if (nueva != nueva2 || nueva == "" || nueva2 == "") {
         alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Error en contraseñas nuevas! </div>";
     } else {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 //alert(this.responseText);
-                switch (this.responseText) {   
+                switch (this.responseText) {
                     case "ERROR-ACTUALIZAR":
                         alerta.innerHTML = "<div class='alert alert-danger' role='alert'> No se puede actualizar! </div>";
                         break;
-    
+
                     case "OK":
                         alerta.innerHTML = "<div class='alert alert-success' role='alert'> Contraseña actualizada correctamente! </div>";
-                        break;   
-                    
+                        break;
+
                     case "DIREFENTE-ANTIGUA":
                         alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Contraseña actual no correcta! </div>";
                         break;
-                } 
+                        
+                    case "NO-CUMPLE":
+                        alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Debe contener 8 caracteres, un numero, y al menos una mayuscula y minuscula! </div>";
+                        break;
+                }
 
             }
         };
-    
+
         xhttp.open("GET", ip + "actualizarPass.php?id=" + id + "&nueva=" + nueva + "&old=" + old, true);
         xhttp.send();
     }
 
 
 }
-
