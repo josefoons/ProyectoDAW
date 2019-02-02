@@ -1,14 +1,17 @@
 <?php
 //session_start();
 require_once("modelo/conexionNEW.php");
+require_once("modelo/claseUsuario.php");
 $miconexion = new Conexion();
+
 if(empty($_SESSION)){
     ?>
         <button type="button" id="login" class="btn btn-info" onclick="window.location='login.php';">ENTRAR</button>
         <button type="button" id="registro" class="btn btn-info" onclick="window.location='registro.php';">REGISTRARSE</button>
     <?php
-} elseif($_SESSION['nick'] != "") {
-    $rolWeb = $miconexion->getRolWeb($_SESSION['nick']);
+} else/*if( $_SESSION['nick'] != ""  )*/ {
+    $usuario = unserialize($_SESSION['claseUsuario']);
+    $rolWeb = $miconexion->getRolWeb($usuario->getNick());
     ?>
         <div style="color: white; margin-right: 10px; line-height: 25px;"><p style="margin-top: 5px;">Hola, <?php echo $_SESSION['nick']; ?>.</p><div>
         <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>

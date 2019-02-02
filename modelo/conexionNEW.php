@@ -24,6 +24,18 @@
             return $rolWeb;
         }
 
+        public function buscar($busqueda, $campo, $valor){
+            $conn = $this->getConexion();
+            $consulta = "SELECT '$busqueda' FROM usuario WHERE '$campo'='$valor'";
+            $result = mysqli_query($conn, $consulta);
+
+            while ($fila = mysqli_fetch_array($result)) {
+                
+                return $fila[0];
+
+            }
+        }
+
         public function getNick($id){
             $conn = $this->getConexion();
             $consulta = "SELECT nick FROM usuario WHERE id='$id'";

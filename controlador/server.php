@@ -75,7 +75,7 @@ if (isset($_POST['registroButton'])) {
         while ($fila = mysqli_fetch_array($results)) {
             $_SESSION['id'] = $fila["id"];
             $usuarioNuevo = new Usuario($fila["id"], $nick, $mail, $pais, $idioma, $elo, $rolPreferido, $rolBuscado, $region, $mensaje, 0);
-            $_SESSION["claseUsuario"] = $usuarioNuevo;
+            $_SESSION["claseUsuario"] = serialize($usuarioNuevo);
         }
 
         header('location: index.php');
@@ -106,6 +106,19 @@ if (isset($_POST['boton-login'])) {
                 $_SESSION['id'] = $fila["id"];
                 $_SESSION['rolWeb'] = $fila["rolWeb"];
                 $_SESSION['estado'] = "OK";
+
+                // PRUEBA CLASE
+
+                $pais = mysqli_real_escape_string($db, $_POST['paisRegistro']);
+                $idioma = mysqli_real_escape_string($db, $_POST['idiomaRegistro']);
+                $elo = mysqli_real_escape_string($db, $_POST['eloRegistro']);
+                $rolPreferido = mysqli_real_escape_string($db, $_POST['rolPrefRegistro']);
+                $rolBuscado = mysqli_real_escape_string($db, $_POST['rolBuscadoRegistro']);
+                $region = mysqli_real_escape_string($db, $_POST['regionRegistro']);
+                $mensaje = mysqli_real_escape_string($db, $_POST['mensajeRegistro']);
+
+                $usuarioNuevo = new Usuario($fila["id"], $fila["nick"], $fila["mail"], $fila["pais"], $fila["idioma"], $fila["elo"], $fila["rolPreferido"], $fila["rolBuscado"], $fila["region"], $fila["mensaje"], $fila["rolWeb"]);
+                $_SESSION["claseUsuario"] = serialize($usuarioNuevo);
             }
 
             if($_SESSION['rolWeb'] == 0){
@@ -113,6 +126,8 @@ if (isset($_POST['boton-login'])) {
             } elseif ($_SESSION['rolWeb'] == 1) {
                 header('location: zonaAdmin.php');
             }
+
+
             
         } else {
             array_push($errors, "Mala convinacion de correo/contraseña.");
