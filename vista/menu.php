@@ -15,7 +15,7 @@ if(empty($_SESSION)){
     ?>
         <div style="color: white; margin-right: 10px; line-height: 25px;"><p style="margin-top: 5px;">Hola, <?php echo /* $_SESSION['nick'] */ $usuario->getNick(); ?>.</p><div>
         <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>
-        <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php?id=<?php echo $_SESSION['id'] ?>';">PERFIL</button>
+        <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php?id=<?php echo $usuario->getId() ?>';">PERFIL</button>
     <?php
         if($rolWeb == 1){
             ?>
