@@ -1,7 +1,7 @@
 # ProyectoDAW
 
 ## Por hacer:
-  - Modificar datos (REPARAR CONTRASEÑA, añadir peticion antigua)
+  - Modificar datos (Añadir mas campos para modificar)
   - Cambiar los "banners_inferiores" por algo mejor, eso es basura
   - Mejorar el footer.
   - Adaptar todo de variables de sesion, clase de usuario
@@ -17,9 +17,7 @@
 - Poner lista de usuarios en el index de busqueda. (Hecho)
 - Organizar las carpetas en vistas (Cosas con html) y controlador (utiles de php)
 
-## Posibles Ideas
-- Comentarios en los perfiles (Añadir tabla a la base de datos)
-- Si soy el usuario dueño del perfil, puedo ocultar comentario 
+## Posibles Ideas 
 
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
 
