@@ -1,7 +1,7 @@
 <?php
 
 include "php/funcionLimpiar.php";
-include "php/conexionNEW.php";
+include "modelo/conexionNEW.php";
 
 if (limpiar() == "zonaAdmin.php") {
     //session_start();
@@ -17,7 +17,7 @@ if (limpiar() == "zonaAdmin.php") {
 }
 
 if (limpiar() == "registro.php" || limpiar() == "login.php") {
-    include 'php/server.php';
+    include 'controlador/server.php';
     if (!isset($_SESSION['nick'])) {
         //
     } elseif ($_SESSION['nick'] != "") {

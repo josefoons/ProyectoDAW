@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../php/conexionNEW.php");
+require_once("../../modelo/conexionNEW.php");
 $miconexion = new Conexion();
 $conn = $miconexion->getConexion();
 $id = $_GET['id'];

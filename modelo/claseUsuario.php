@@ -1,5 +1,5 @@
 <?php
-    class Conexion{
+    class Usuario{
         private $id;
         private $nick;
         private $mail;

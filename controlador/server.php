@@ -3,8 +3,9 @@
 
 $errors = array();
 
-require_once "conexionNEW.php";
-//require_once "../../modelo/claseUsuario.php";
+require_once "modelo/conexionNEW.php";
+require_once "modelo/claseUsuario.php";
+
 $miconexion = new Conexion();
 $db = $miconexion->getConexion();
 
@@ -60,6 +61,9 @@ if (isset($_POST['registroButton'])) {
   			  VALUES(DEFAULT,'$nick','$pass','$mail','$pais','$idioma','$elo','$rolPreferido','$rolBuscado','$region','$mensaje',0)";
         mysqli_query($db, $query);
 
+        
+
+
         //CREAMOS LA SESION
         $_SESSION['nick'] = $nick;
         $_SESSION['email'] = $mail;
@@ -70,6 +74,8 @@ if (isset($_POST['registroButton'])) {
         $results = mysqli_query($db, $query);
         while ($fila = mysqli_fetch_array($results)) {
             $_SESSION['id'] = $fila["id"];
+            $usuarioNuevo = new Usuario($fila["id"], $nick, $mail, $pais, $idioma, $elo, $rolPreferido, $rolBuscado, $region, $mensaje, 0);
+            $_SESSION["claseUsuario"] = $usuarioNuevo;
         }
 
         header('location: index.php');

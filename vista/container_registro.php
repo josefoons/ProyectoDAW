@@ -7,7 +7,7 @@
                     <div class="card-body">
                         <div class="md-form mb-5">
                             <form method="post" action="registro.php">
-                                <?php include 'php/errors.php';?>
+                                <?php require_once 'controlador/errors.php';?>
                                 <label for="nickRegistro">Nick</label>
                                 <input type="text" size="20" id="nickRegistro" name="nickRegistro" class="form-control"
                                     required>

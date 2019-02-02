@@ -1,6 +1,6 @@
 <?php
 //session_start();
-require_once("conexionNEW.php");
+require_once("modelo/conexionNEW.php");
 $miconexion = new Conexion();
 if(empty($_SESSION)){
     ?>
@@ -20,7 +20,7 @@ if(empty($_SESSION)){
             <?php
         }
     ?>
-        <button type="button" id="salir_boton" class="btn btn-info" onclick="window.location='vista/php/logout.php';">SALIR</button>
+        <button type="button" id="salir_boton" class="btn btn-info" onclick="window.location='controlador/logout.php';">SALIR</button>
     <?php
 }
 ?>

@@ -10,7 +10,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <?php
-              require 'php/menu.php';
+              require 'menu.php';
             ?>
           </li>
         </ul>

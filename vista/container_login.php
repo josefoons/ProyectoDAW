@@ -7,7 +7,7 @@
                     <div class="card-body">
                         <div class="md-form mb-5">
                             <form method="post" action="login.php">
-                                <?php include 'php/errors.php';?>
+                                <?php require_once 'controlador/errors.php';?>
                                 <div class="modal-body mx-3">
                                     <div class="md-form mb-5">
                                         <label for="emailLogin">Correo</label>
