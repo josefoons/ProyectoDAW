@@ -3,7 +3,7 @@
         <div class="row">
           <div class="col-lg mb-4"  style="height: 500px;"> 
             <div class="card h-100">
-              <h4 class="card-header">Panel control de <?php echo strtoupper ($_SESSION['nick']) ?></h4>
+              <h4 class="card-header">Panel control de <?php echo strtoupper (/* $_SESSION['nick'] */ $usuario->getNick()) ?></h4>
               <div class="card-body" id="zonaAdmin">
                 <div class="input-group">
                   <input type="text" class="form-control" id="inputNombreUsuarios" placeholder="Buscar Usuario">

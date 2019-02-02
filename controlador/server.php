@@ -61,9 +61,6 @@ if (isset($_POST['registroButton'])) {
   			  VALUES(DEFAULT,'$nick','$pass','$mail','$pais','$idioma','$elo','$rolPreferido','$rolBuscado','$region','$mensaje',0)";
         mysqli_query($db, $query);
 
-        
-
-
         //CREAMOS LA SESION
         $_SESSION['nick'] = $nick;
         $_SESSION['email'] = $mail;
@@ -127,8 +124,6 @@ if (isset($_POST['boton-login'])) {
                 header('location: zonaAdmin.php');
             }
 
-
-            
         } else {
             array_push($errors, "Mala convinacion de correo/contraseña.");
         }
