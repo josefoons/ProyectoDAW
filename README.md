@@ -18,7 +18,7 @@
 - Organizar las carpetas en vistas (Cosas con html) y controlador (utiles de php)
 
 ## Posibles Ideas 
-
+- Mensajes privados
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
 
 https://owlcation.com/stem/Simple-search-PHP-MySQL
