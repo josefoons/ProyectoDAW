@@ -18,6 +18,8 @@ if (limpiar() == "zonaAdmin.php") {
     }
 }
 
+//isset($_GET["id"])
+
 if (limpiar() == "registro.php" || limpiar() == "login.php") {
     include 'controlador/server.php';
     if (!empty($_SESSION)) {
@@ -26,9 +28,21 @@ if (limpiar() == "registro.php" || limpiar() == "login.php") {
 }
 
 if (limpiar() == "zonaUsuario.php") {
-    if(empty($_SESSION) && $_GET['id'] == ""){
+    if(!isset($_GET["id"]) || $_GET['id'] == ""){
         header("Location: index.php");
     }
 }
+
+if (limpiar() == "enviarMensaje.php") {
+    if(empty($_SESSION)){
+        header("Location: index.php");
+    }
+}
+
+if (limpiar() == "leerMensaje.php") {
+    if(empty($_SESSION) && !isset($_GET["id"]) || $_GET['id'] == ""){
+        header("Location: index.php");
+    }
+} 
 
 ?>
