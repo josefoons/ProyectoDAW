@@ -44,7 +44,7 @@ function listarMensajes(mensajes) {
                     + "<td class='col-md-2'>" + this.responseText + "</td>"
                     + "<td>" + mensajes[k].titulo + "</td>"
                     + "<td class='col-md-1'>NO</td>"
-                    + "<td class='col-md-1'><button type='button' onclick='mostrarMensaje("+ mensajes[k].titulo +")' class='btn btn-light' data-toggle='modal' data-target='.bd-example-modal-lg'><i class='fa fa-eye' aria-hidden='true'></i></button><td>"
+                    + "<td class='col-md-1'><button type='button' onclick='mostrarMensaje("+ mensajes[k].id +")' class='btn btn-light' data-toggle='modal' data-target='.bd-example-modal-lg'><i class='fa fa-eye' aria-hidden='true'></i></button><td>"
                     + "</tr>";
                 } else {
                     campo.innerHTML = campo.innerHTML +
@@ -52,7 +52,7 @@ function listarMensajes(mensajes) {
                     + "<td class='col-md-2'>" + this.responseText + "</td>"
                     + "<td>" + mensajes[k].titulo + "</td>"
                     + "<td class='col-md-1'>SI</td>"
-                    + "<td class='col-md-1'><button onclick='mostrarMensaje("+ mensajes[k].titulo +")' type='button' class='btn btn-light' data-toggle='modal' data-target='.bd-example-modal-lg'><i class='fa fa-eye' aria-hidden='true'></i></button><td>"
+                    + "<td class='col-md-1'><button onclick='mostrarMensaje("+ mensajes[k].id +")' type='button' class='btn btn-light' data-toggle='modal' data-target='.bd-example-modal-lg'><i class='fa fa-eye' aria-hidden='true'></i></button><td>"
                     + "</tr>";
                 }
             }
@@ -63,6 +63,16 @@ function listarMensajes(mensajes) {
     }
 }
 
-function mostrarMensaje(id) {
-    
+function mostrarMensaje(idMensaje) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let mensaje = JSON.parse(this.responseText);
+            document.getElementById("tituloMensaje").innerHTML = mensaje[0].titulo;
+            document.getElementById("cuerpoMensaje").innerHTML = mensaje[0].mensaje;
+        }
+    };
+
+    xhttp.open("GET", ip + "verMensaje.php?id=" + idMensaje, true);
+    xhttp.send();
 }
