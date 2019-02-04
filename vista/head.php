@@ -34,12 +34,12 @@ if (limpiar() == "zonaUsuario.php") {
 }
 
 if (limpiar() == "enviarMensaje.php") {
-    if(empty($_SESSION)){
+    if(empty($_SESSION) && !isset($_GET["idEmisor"]) || $_GET['idEmisor'] == "" || !isset($_GET["idReceptor"]) || $_GET['idReceptor'] == ""){
         header("Location: index.php");
     }
 }
 
-if (limpiar() == "leerMensaje.php") {
+if (limpiar() == "listarMensaje.php") {
     if(empty($_SESSION) && !isset($_GET["id"]) || $_GET['id'] == ""){
         header("Location: index.php");
     }

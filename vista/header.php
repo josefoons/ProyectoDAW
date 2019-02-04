@@ -48,6 +48,18 @@
         <?php
     }
 
+    if(limpiar() == "enviarMensaje.php"){
+        ?>
+        <script src="vista/js/enviarMensaje.js"></script>
+        <?php
+    }
+
+    if(limpiar() == "listarMensaje.php"){
+        ?>
+        <script src="vista/js/listarMensaje.js"></script>
+        <?php
+    }
+
 ?>
 
 </head>

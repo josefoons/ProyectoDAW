@@ -13,7 +13,14 @@
                                 if(!empty($_SESSION) && $_SESSION['id'] == $_GET['id']){
                                     ?>
                                     <center><button id="botonEditarDatos" onclick="editarBoton()" type="button" class="btn btn-secondary" value="cambiar">CAMBIAR DATOS</button></center><br>
-                                    <center><button id="botonEditarPassword" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#cambiarPasswordModal">CAMBIAR PASSWORD</button></center>
+                                    <center><button id="botonEditarPassword" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#cambiarPasswordModal">CAMBIAR PASSWORD</button></center><br>
+                                    <center><a id="leerMensaje" href="leerMensaje.php?id=<?php echo $_GET['id'] ?>" class="btn btn-secondary"><i class="fa fa-envelope" aria-hidden="true"></i> LEER MAIL</a></center>
+                                    <?php
+                                }
+
+                                if(!empty($_SESSION) && $_SESSION['id'] != $_GET['id']){
+                                    ?>
+                                    <center><a id="enviarCorreo" href="enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>" class="btn btn-secondary"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</a></center><br>
                                     <?php
                                 }
                             ?>

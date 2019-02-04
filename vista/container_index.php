@@ -5,9 +5,6 @@
                 <div class="card h-100">
                     <h4 class="card-header">Lista de Usuarios</h4>
                     <div class="card-body"  style="overflow: auto;">
-<!--                         <ul id="listaUsuarios" class="list-group">
-                            <li class="list-group-item">First item</li>
-                        </ul>  -->
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
