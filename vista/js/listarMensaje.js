@@ -25,7 +25,7 @@ function cargarMensajes() {
         }
     };
 
-    xhttp.open("GET", ip + "listarMensaje.php?id=" + id, true);
+    xhttp.open("GET", ip + "mensajes/listarMensaje.php?id=" + id, true);
     xhttp.send();
 }
 
@@ -47,7 +47,7 @@ function listarMensajes(mensajes) {
             }
         };
     
-        xhttp.open("GET", ip + "getNick.php?id=" + idEm, true);
+        xhttp.open("GET", ip + "mensajes/getNick.php?id=" + idEm, true);
         xhttp.send();
     }
 }
@@ -63,7 +63,7 @@ function mostrarMensaje(idMensaje) {
         }
     };
 
-    xhttp.open("GET", ip + "verMensaje.php?id=" + idMensaje, true);
+    xhttp.open("GET", ip + "mensajes/verMensaje.php?id=" + idMensaje, true);
     xhttp.send();
 }
 
@@ -75,7 +75,7 @@ function borrarMensaje(boton) {
         }
     };
 
-    xhttp.open("GET", ip + "borrarMensaje.php?id=" + boton, true);
+    xhttp.open("GET", ip + "mensajes/borrarMensaje.php?id=" + boton, true);
     xhttp.send();
 }
 
@@ -88,6 +88,6 @@ function botonResponder(idMensaje) {
         }
     };
 
-    xhttp.open("GET", ip + "responderMensaje.php?id=" + idMensaje, true);
+    xhttp.open("GET", ip + "mensajes/responderMensaje.php?id=" + idMensaje, true);
     xhttp.send();
 }

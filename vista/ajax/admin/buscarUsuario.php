@@ -1,12 +1,10 @@
 <?php
-
-require_once("../../modelo/conexionNEW.php");
+require_once("../../../modelo/conexionNEW.php");
 $miconexion = new Conexion();
 $conn = $miconexion->getConexion();
 
-$id = $_GET['id'];
-
-$result = mysqli_query($conn, "SELECT id,idEmisor,titulo,fecha FROM mensajesPrivados WHERE idReceptor='$id';");
+$trozo = $_GET['nombre'];
+$result = mysqli_query($conn, "SELECT id,nick,mail,mensaje,rolWeb FROM usuario WHERE nick LIKE '$trozo%'");
 
 $data = array();
 

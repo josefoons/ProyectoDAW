@@ -40,7 +40,7 @@ function obtenerNombre(id, campo) {
         }
     };
 
-    xhttp.open("GET", ip + "getNick.php?id=" + id, true);
+    xhttp.open("GET", ip + "mensajes/getNick.php?id=" + id, true);
     xhttp.send();
 }
 
@@ -68,6 +68,6 @@ function enviarMensaje() {
         }
     };
 
-    xhttp.open("GET", ip + "enviarMensaje.php?emisor=" + emisor + "&receptor=" + receptor + "&mensaje=" + mensaje + "&titulo=" + titulo, true);
+    xhttp.open("GET", ip + "mensajes/enviarMensaje.php?emisor=" + emisor + "&receptor=" + receptor + "&mensaje=" + mensaje + "&titulo=" + titulo, true);
     xhttp.send();
 }

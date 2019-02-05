@@ -15,7 +15,7 @@ function cargarJugadores() {
         }
     };
 
-    xhttp.open("GET", ip + "cargarDatosUsuario.php", true);
+    xhttp.open("GET", ip + "index/cargarDatosUsuario.php", true);
     xhttp.send();
 }
 

@@ -28,7 +28,7 @@ function obtenerDatos() {
         }
     };
 
-    xhttp.open("GET", ip + "cargarInfoUsuario.php?id=" + id, true);
+    xhttp.open("GET", ip + "usuario/cargarInfoUsuario.php?id=" + id, true);
     xhttp.send();
 }
 
@@ -99,9 +99,9 @@ function actualizarDatos() {
 
     if (elo == "igual") {
         elo = infoUsuario[0].elo;
-        xhttp.open("GET", ip + "actualizarDatosPerfil.php?mensaje=" + mensaje + "&mail=" + mail + "&elo=" + elo + "&id=" + id, true);
+        xhttp.open("GET", ip + "usuario/actualizarDatosPerfil.php?mensaje=" + mensaje + "&mail=" + mail + "&elo=" + elo + "&id=" + id, true);
     } else {
-        xhttp.open("GET", ip + "actualizarDatosPerfil.php?mensaje=" + mensaje + "&mail=" + mail + "&elo=" + elo + "&id=" + id, true);
+        xhttp.open("GET", ip + "usuario/actualizarDatosPerfil.php?mensaje=" + mensaje + "&mail=" + mail + "&elo=" + elo + "&id=" + id, true);
     }
     xhttp.send();
 }
@@ -130,7 +130,7 @@ function cargarElo() {
         }
     };
 
-    xhttp.open("GET", ip + "cargarElo.php", true);
+    xhttp.open("GET", ip + "registro/cargarElo.php", true);
     xhttp.send();
 }
 
@@ -169,7 +169,7 @@ function actualizarPass() {
             }
         };
 
-        xhttp.open("GET", ip + "actualizarPass.php?id=" + id + "&nueva=" + nueva + "&old=" + old, true);
+        xhttp.open("GET", ip + "usuario/actualizarPass.php?id=" + id + "&nueva=" + nueva + "&old=" + old, true);
         xhttp.send();
     }
 

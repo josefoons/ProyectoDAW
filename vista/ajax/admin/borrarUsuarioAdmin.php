@@ -1,6 +1,6 @@
 <?php
 
-require_once("../../modelo/conexionNEW.php");
+require_once("../../../modelo/conexionNEW.php");
 $miconexion = new Conexion();
 $conn = $miconexion->getConexion();
 
