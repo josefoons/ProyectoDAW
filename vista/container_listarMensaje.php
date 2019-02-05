@@ -12,6 +12,7 @@
                                     <tr>
                                         <th class="col-md-2">DE</th>
                                         <th>Titulo</th>
+                                        <th class="col-md-2">Fecha</th>
                                         <th class="col-md-2">Opciones</th>
                                         <th></th>
                                     </tr>

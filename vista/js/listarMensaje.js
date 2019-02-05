@@ -41,6 +41,7 @@ function listarMensajes(mensajes) {
                 "<tr>"
                 + "<td>" + this.responseText + "</td>"
                 + "<td>" + mensajes[k].titulo + "</td>"
+                + "<td>" + mensajes[k].fecha + "</td>"
                 + "<td><button onclick='mostrarMensaje("+ mensajes[k].id +")' type='button' class='btn btn-light' data-toggle='modal' data-target='.bd-example-modal-lg'><i class='fa fa-eye' aria-hidden='true'></i></button>     <button onclick='borrarMensaje(" + mensajes[k].id + ")' type='button' class='btn btn-danger'><i class='fa fa-trash' aria-hidden='true'></i></button><td>"
                 + "</tr>";
             }
