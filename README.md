@@ -20,7 +20,7 @@
 - Modificar datos (Hecho)
 
 ## Posibles Ideas 
-- NADA
+  - Like / dislike
 
 ## LINKS
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
