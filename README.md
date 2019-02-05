@@ -1,7 +1,6 @@
 # ProyectoDAW
 
 ## Por hacer:
-  - Modificar datos (Añadir mas campos para modificar)
   - Cambiar los "banners_inferiores" por algo mejor, eso es basura
   - Mejorar el footer.
     - (OPCIONAL) Poner en el panel de admin que se puedan añadir "banners" de webs (Nombre, link e imagen)
@@ -17,9 +16,11 @@
 - Poner lista de usuarios en el index de busqueda. (Hecho)
 - Organizar las carpetas en vistas (Cosas con html) y controlador (utiles de php) (Hecho)
 - Adaptar todo de variables de sesion, clase de usuario (Hecho)
+- Mensajes privados (Hecho)
+- Modificar datos (Hecho)
 
 ## Posibles Ideas 
-- Mensajes privados
+- NADA
 
 ## LINKS
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
