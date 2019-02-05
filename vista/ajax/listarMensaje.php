@@ -6,7 +6,7 @@ $conn = $miconexion->getConexion();
 
 $id = $_GET['id'];
 
-$result = mysqli_query($conn, "SELECT id,idEmisor,titulo,leido FROM mensajesPrivados WHERE idReceptor='$id';");
+$result = mysqli_query($conn, "SELECT id,idEmisor,titulo FROM mensajesPrivados WHERE idReceptor='$id';");
 
 $data = array();
 

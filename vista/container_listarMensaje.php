@@ -5,15 +5,15 @@
                 <div class="card h-100">
                     <h4 class="card-header">Lista de mensajes</h4>
                     <div class="card-body">
+                        <div id="alertas"></div>
                         <div class="table-responsive">
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
                                         <th class="col-md-2">DE</th>
                                         <th>Titulo</th>
-                                        <th class="col-md-1">Leido</th>
-                                        <th class="col-md-1">Opciones</th>
-                                        <th></th> <!-- <- Esto es raro, falla algo -->
+                                        <th class="col-md-2">Opciones</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody id="listaMensajes">
@@ -42,7 +42,7 @@
             
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Responder</button>
+            <a type="button" href="" id="botonResponder" class="btn btn-primary">Responder</a>
         </div>
       </div>
   </div>
