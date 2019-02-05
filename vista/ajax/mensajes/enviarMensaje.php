@@ -12,7 +12,7 @@ $titulo = $_GET['titulo'];
 $mensaje2 = mysqli_real_escape_string($conn, $mensaje);
 $titulo2 = mysqli_real_escape_string($conn, $titulo);
 
-$query = "INSERT INTO mensajesPrivados (id, idEmisor, idReceptor, titulo, mensaje, fecha, leido) VALUES (DEFAULT, '$emisor', '$receptor', '$titulo2', '$mensaje2', DEFAULT, 1)";
+$query = "INSERT INTO mensajesPrivados (id, idEmisor, idReceptor, titulo, mensaje, fecha) VALUES (DEFAULT, '$emisor', '$receptor', '$titulo2', '$mensaje2', DEFAULT)";
 if(mysqli_query($conn, $query)){ 
     echo "OK";
 } else { 
