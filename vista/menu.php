@@ -19,7 +19,14 @@ if(empty($_SESSION)){
     <?php
         if($rolWeb == 1){
             ?>
-                <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
+                <!-- <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button> -->
+                <div class="btn-group">
+                    <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
+                    <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="noticias.php">Noticias</a>
+                    </div>
+                </div>
             <?php
         }
     ?>
