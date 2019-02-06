@@ -26,3 +26,7 @@ http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mys
 https://owlcation.com/stem/Simple-search-PHP-MySQL
 
 http://www.webestools.com/scripts_tutorials-code-source-15-personal-message-system-in-php-mysql-pm-system-private-message-discussion.html
+
+
+## Cosas usadas
+Github, JSON, MVC, POO, Bootstrap, HTML, CSS, Grid, Responsive, AJAX, PHP, MYSQL, JS
