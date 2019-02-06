@@ -50,32 +50,20 @@ function colocarDatos() {
 /* CAMBIOS EN EL PERFIL */
 
 
-function editarBoton() {
-    let botonInciar = document.getElementById("botonEditarDatos");
-
-    if (botonInciar.value == "cambiar") {
-        abrirCampos();
-        botonInciar.value = "finalizar";
-    } else {
-        //bloquearCampos(botonInciar);
-        botonInciar.value = "cambiar";
-    }
-}
-
 function bloquearCampos() {
     document.getElementById("mensajePerfil").readOnly = true;
     document.getElementById("mailPerfil").readOnly = true;
-    actualizarDatos();
     document.getElementById("listadoPaises").innerHTML = "";
     document.getElementById("zonaBotonEliminar").innerHTML = "";
+    actualizarDatos();
 }
 
 function abrirCampos() {
     obtenerDatos();
+    cargarElo();
     document.getElementById("alertaConfirmacion").innerHTML = "";
     document.getElementById("mensajePerfil").readOnly = false;
     document.getElementById("mailPerfil").readOnly = false;
-    cargarElo();
     document.getElementById("zonaBotonEliminar").innerHTML = "<button onclick='bloquearCampos()' type='button' class='btn btn-success'>GUARDAR</button>";
 }
 
@@ -128,7 +116,7 @@ function cargarElo() {
         if (this.readyState == 4 && this.status == 200) {
             var xmlRol = this.responseText;
             let zonaElo = document.getElementById("listadoPaises");
-            zonaElo.innerHTML = "<div class='form-group'><select class='form-control' id='nuevoEloPerfil'><option value='igual' selected>Selecciona</option>" + xmlRol + "</select></div>";
+            zonaElo.innerHTML = "<div class='form-group'><select class='form-control' style='width: 93%' id='nuevoEloPerfil'><option value='igual' selected>Selecciona</option>" + xmlRol + "</select></div>";
         }
     };
 
