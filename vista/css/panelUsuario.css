@@ -50,3 +50,7 @@
     grid-area: i;
     padding: 10px;
 }
+
+.btn {
+    margin-bottom: 5px; 
+}

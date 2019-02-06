@@ -67,6 +67,7 @@ function bloquearCampos() {
     document.getElementById("mailPerfil").readOnly = true;
     actualizarDatos();
     document.getElementById("listadoPaises").innerHTML = "";
+    document.getElementById("botonEditarDatos").innerHTML = "CAMBIAR DATOS";
 }
 
 function abrirCampos() {
@@ -74,6 +75,7 @@ function abrirCampos() {
     document.getElementById("alertaConfirmacion").innerHTML = "";
     document.getElementById("mensajePerfil").readOnly = false;
     document.getElementById("mailPerfil").readOnly = false;
+    document.getElementById("botonEditarDatos").innerHTML = "FINALIZAR";
     cargarElo();
 }
 
