@@ -54,10 +54,10 @@ function editarBoton() {
     let botonInciar = document.getElementById("botonEditarDatos");
 
     if (botonInciar.value == "cambiar") {
-        abrirCampos(botonInciar);
+        abrirCampos();
         botonInciar.value = "finalizar";
     } else {
-        bloquearCampos(botonInciar);
+        //bloquearCampos(botonInciar);
         botonInciar.value = "cambiar";
     }
 }
@@ -67,7 +67,7 @@ function bloquearCampos() {
     document.getElementById("mailPerfil").readOnly = true;
     actualizarDatos();
     document.getElementById("listadoPaises").innerHTML = "";
-    document.getElementById("botonEditarDatos").innerHTML = "CAMBIAR DATOS";
+    document.getElementById("zonaBotonEliminar").innerHTML = "";
 }
 
 function abrirCampos() {
@@ -75,8 +75,8 @@ function abrirCampos() {
     document.getElementById("alertaConfirmacion").innerHTML = "";
     document.getElementById("mensajePerfil").readOnly = false;
     document.getElementById("mailPerfil").readOnly = false;
-    document.getElementById("botonEditarDatos").innerHTML = "FINALIZAR";
     cargarElo();
+    document.getElementById("zonaBotonEliminar").innerHTML = "<button onclick='bloquearCampos()' type='button' class='btn btn-success'>GUARDAR</button>";
 }
 
 function actualizarDatos() {

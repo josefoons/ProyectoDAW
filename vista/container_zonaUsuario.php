@@ -10,19 +10,33 @@
                             <img id="rangoImagen" src="">
                             <div id="listadoPaises"></div>
                             <?php
-                                if(!empty($_SESSION) && $_SESSION['id'] == $_GET['id']){
-                                    ?>
-                                    <center><button id="botonEditarDatos" onclick="editarBoton()" type="button" class="btn btn-secondary" value="cambiar">CAMBIAR DATOS</button></center>
-                                    <center><button id="botonEditarPassword" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#cambiarPasswordModal">CAMBIAR PASSWORD</button></center>
-                                    <center><a id="leerMensaje" href="listarMensaje.php?id=<?php echo $_GET['id'] ?>" class="btn btn-secondary"><i class="fa fa-envelope" aria-hidden="true"></i> LEER MAIL</a></center>
+                            if(!empty($_SESSION)){
+                            ?>
+                            <center>
+                                <div id="zonaBotonEliminar"></div>
+                                <div class="btn-group">
+                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gear"></i> OPCIONES</button>
+                                <div class="dropdown-menu">
                                     <?php
-                                }
+                                    if(!empty($_SESSION) && $_SESSION['id'] == $_GET['id']){
+                                        ?>
+                                        <button id="botonEditarDatos" onclick="editarBoton()" type="button" class="dropdown-item" value="cambiar">CAMBIAR DATOS</button>
+                                        <button id="botonEditarPassword" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambiarPasswordModal">CAMBIAR PASSWORD</button>
+                                        <a id="leerMensaje" href="listarMensaje.php?id=<?php echo $_GET['id'] ?>" class="dropdown-item"><i class="fa fa-envelope" aria-hidden="true"></i> LEER MAIL</a>
+                                        <?php
+                                    }
 
-                                if(!empty($_SESSION) && $_SESSION['id'] != $_GET['id']){
+                                    if(!empty($_SESSION) && $_SESSION['id'] != $_GET['id']){
                                     ?>
-                                    <center><a id="enviarCorreo" href="enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>" class="btn btn-secondary"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</a></center><br>
+                                        <a id="enviarCorreo" href="enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>" class="dropdown-item"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</a>
                                     <?php
-                                }
+                                    }
+                                    ?>
+                                </div>
+                                </div>
+                            </center>
+                            <?php
+                            }
                             ?>
                         </div>
                         <div id="linea"></div>
