@@ -31,7 +31,8 @@ function cargarMensajes() {
 
 function listarMensajes(mensajes) {
     let campo = document.getElementById("listaMensajes");
-    
+    campo.innerHTML = "";
+
     for(var k in mensajes) {
         var idEm = mensajes[k].idEmisor;
         var xhttp = new XMLHttpRequest();
@@ -71,7 +72,17 @@ function borrarMensaje(boton) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            location.reload(); 
+            //location.reload(); 
+            console.log(this.responseText);
+            if(this.responseText == "OK"){
+                document.getElementById("alertas").innerHTML = "<div class='alert alert-success' role='alert'> Borrado correctamente! </div>";
+            } else {
+                document.getElementById("alertas").innerHTML = "<div class='alert alert-danger' role='alert'> ERROR DESCONOCIDO! </div>";
+            }
+            cargarMensajes();
+            setTimeout(function() {
+                document.getElementById("alertas").innerHTML = "";
+              }, 2000);
         }
     };
 

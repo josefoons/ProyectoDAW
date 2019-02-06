@@ -63,8 +63,11 @@ function enviarMensaje() {
 
             document.getElementById("enviarMensaje").disabled = true;
             setTimeout(function() {
-                window.location.href = ip + "../../index.php";
-              }, 3000);
+                //window.location.href = ip + "../../index.php";
+                document.getElementById("titulo").value = "";
+                document.getElementById("mensaje").value = "";
+                document.getElementById("areaAlerta").innerHTML = "";
+              }, 2000);
         }
     };
 
