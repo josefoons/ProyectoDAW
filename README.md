@@ -2,8 +2,6 @@
 
 ## Por hacer:
   - Cambiar los "banners_inferiores" por algo mejor, eso es basura
-  - Mejorar el footer.
-    - (OPCIONAL) Poner en el panel de admin que se puedan añadir "banners" de webs (Nombre, link e imagen)
 
 ## Terminado:
 - Hacer que el usuario logueado no pueda entrar al login.php y registro.php (Hecho)
