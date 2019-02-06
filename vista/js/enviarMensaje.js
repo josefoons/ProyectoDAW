@@ -2,6 +2,7 @@ window.addEventListener("load", cargar, false);
 function cargar() {
     cargarDatos();
     document.getElementById("enviarMensaje").addEventListener("click", enviarMensaje);
+    document.getElementById("mensaje").addEventListener("keyup", letrasRestantes);
 }
 
 var link = limpiarDireccion();
@@ -73,4 +74,12 @@ function enviarMensaje() {
 
     xhttp.open("GET", ip + "mensajes/enviarMensaje.php?emisor=" + emisor + "&receptor=" + receptor + "&mensaje=" + mensaje + "&titulo=" + titulo, true);
     xhttp.send();
+}
+
+function letrasRestantes() {
+    let tamanyo = document.getElementById("mensaje").value.length;
+    let contador = document.getElementById("letrasTotales");
+
+    contador.innerHTML = 200 - (tamanyo);
+
 }

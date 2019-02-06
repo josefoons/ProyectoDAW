@@ -23,7 +23,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="mensaje">Mensaje (Max. 200 letras.)</label>
+                                <label for="mensaje">Mensaje (<span id="letrasTotales">200</span>/200)</label>
                                 <textarea maxlength="200" class="form-control" id="mensaje" rows="3"></textarea>
                             </div>
 
