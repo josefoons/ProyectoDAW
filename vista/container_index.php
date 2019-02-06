@@ -4,7 +4,7 @@
             <div class="col-lg mb-4" style="height: 400px;">
                 <div class="card h-100">
                     <h4 class="card-header">Lista de Usuarios</h4>
-                    <div class="card-body"  style="overflow: auto;">
+                    <div class="card-body" style="overflow: auto;">
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
