@@ -1,7 +1,7 @@
 # ProyectoDAW
 
 ## Por hacer:
-- Cambiar los "banners_inferiores" por noticias sacadas de base de datos.
+- Sistema de reportes (Terminarlo)
 
 
 ## Terminado:
@@ -20,7 +20,7 @@
 - Like / dislike (Hecho)
 
 ## Posibles Ideas 
-- Sistema de reportes
+- NADA
 
 ## LINKS
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
