@@ -2,12 +2,7 @@ window.addEventListener("load", cargar, false);
 
 function cargar() {
     obtenerDatos();
-    document.getElementById("botonEditarPassword").addEventListener("click", function limpiarCampos() {
-        document.getElementById("notificacionPassword").innerHTML = "";
-        document.getElementById("newPassword").value = "";
-        document.getElementById("newPassword_2").value = "";
-        document.getElementById("oldPassword").value = "";
-    });
+    cargarPuntuacion();
 }
 
 var link = window.location.href;
@@ -17,6 +12,12 @@ var infoUsuario = "";
 var elo = "";
 var oldPass = "";
 
+function limpiarCampos() {
+    document.getElementById("notificacionPassword").innerHTML = "";
+    document.getElementById("newPassword").value = "";
+    document.getElementById("newPassword_2").value = "";
+    document.getElementById("oldPassword").value = "";
+}
 
 function obtenerDatos() {
     var xhttp = new XMLHttpRequest();
@@ -150,7 +151,7 @@ function actualizarPass() {
                     case "DIREFENTE-ANTIGUA":
                         alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Contraseña actual no correcta! </div>";
                         break;
-                        
+
                     case "NO-CUMPLE":
                         alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Debe contener 8 caracteres, un numero, y al menos una mayuscula y minuscula! </div>";
                         break;
@@ -164,4 +165,62 @@ function actualizarPass() {
     }
 
 
+}
+
+function cargarPuntuacion() {
+    let idUsuarioSesion = document.getElementById("upButton").value;
+    let botonUP = document.getElementById("upButton");
+    let botonDown = document.getElementById("downButton");
+    let textoPuntuacion = document.getElementById("puntuacion");
+    let concedido = document.getElementById("puntuacionConcedida");
+
+    botonUP.disabled = false;
+    botonDown.disabled = false;
+
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            switch (this.responseText) {
+                case "1":
+                botonUP.style.visibility = 'hidden';
+                botonDown.style.visibility = 'hidden';
+                concedido.innerHTML = "<FONT COLOR='green'>LIKE</FONT>";
+                textoPuntuacion.style.visibility = 'visible';
+                    break;
+                case "2":
+                botonUP.style.visibility = 'hidden';
+                botonDown.style.visibility = 'hidden';
+                concedido.innerHTML = "<FONT COLOR='red'>DISLIKE</FONT>";
+                textoPuntuacion.style.visibility = 'visible';
+                    break;
+            }
+        }
+    };
+
+    xhttp.open("GET", ip + "usuario/cargarPuntuacion.php?idPerfil=" + id + "&idSesion=" + idUsuarioSesion, true);
+    xhttp.send();
+
+}
+
+function crearPuntuacion(boton) {
+    let idUsuarioSesion = document.getElementById("upButton").value;
+    let nota = boton.id;
+
+    if(nota == "upButton"){
+        nota = "1";
+    } else {
+        nota = "2";
+    }
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            cargarPuntuacion();
+        }
+    };
+
+    xhttp.open("GET", ip + "usuario/crearPuntuacion.php?idPerfil=" + id + "&idSesion=" + idUsuarioSesion + "&nota=" + nota, true);
+    xhttp.send();
 }
