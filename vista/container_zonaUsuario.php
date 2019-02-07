@@ -3,7 +3,15 @@
         <div class="row">
             <div class="col-lg mb-6">
                 <div class="card h-100">
-                    <h4 class="card-header">Perfil de <span id="nickPerfilHeader"></span></h4>
+                    <h4 class="card-header">Perfil de <span id="nickPerfilHeader"></span>
+                    <?php
+                        if(!empty($_SESSION) && $_SESSION['id'] != $_GET['id']){
+                        ?>
+                            <button style="float:right;" type="button" class="btn btn-danger" data-toggle="modal" data-target="#reporteModal"><i class="fa fa-flag" aria-hidden="true"></i></button>
+                        <?php
+                        }
+                    ?>
+                    </h4>
                     <div class="card-body" id="panelUsuarioGeneral">
                         <div id="rango">
                             <img id="rangoImagen" src="">
@@ -134,6 +142,43 @@
         </div>
       <div class="modal-footer">
         <button type="button" onclick="actualizarPass()" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="reporteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Reportar a <span id="nickReporte"></span></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+            <p>El abuso del sistema de reportes sera castigado con el borrado de la cuenta. <br>Gracias.</p>
+            <hr>
+            <div id="notificacionPassword"></div>
+            <div class="form-group">
+                <label for="oldPassword">ID Usuario</label>
+                <input type="text" class="form-control" value="<?php echo $usuario->getId(); ?>" id="nickUSuarioReportando" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="razonReporte">Razón</label>
+                <select class="form-control" id="razonReporte">
+                    <option selected>Selecciona</option>
+                    <option value="insultos">Insultos</option>
+                    <option value="trollDuoQ">Troll en DuoQ</option>
+                    <option value="perfilRobado">Perfil Robado</option>
+                    <option value="perfilTroll">Perfil Troll</option>
+                </select>
+            </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" onclick="crearReporte()" class="btn btn-danger">Reportar</button>
       </div>
     </div>
   </div>

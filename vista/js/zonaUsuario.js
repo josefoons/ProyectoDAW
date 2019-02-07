@@ -46,6 +46,9 @@ function colocarDatos() {
     document.getElementById("rolBuscadoPerfil").value = infoUsuario[0].rolBuscado;
     document.getElementById("regionPerfil").value = infoUsuario[0].region;
     document.getElementById("mensajePerfil").value = infoUsuario[0].mensaje;
+
+    //ZONA REPORTE 
+    document.getElementById("nickReporte").innerText = infoUsuario[0].nick;
 }
 
 /* CAMBIOS EN EL PERFIL */
@@ -223,4 +226,24 @@ function crearPuntuacion(boton) {
 
     xhttp.open("GET", ip + "usuario/crearPuntuacion.php?idPerfil=" + id + "&idSesion=" + idUsuarioSesion + "&nota=" + nota, true);
     xhttp.send();
+}
+
+function crearReporte() {
+    
+    let nickUsuario = document.getElementById("nickUSuarioReportando").value;
+    let razon = document.getElementById("razonReporte").value;
+    let idUsuarioReportado = id;
+
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            location.reload();
+        }
+    };
+
+    xhttp.open("GET", ip + "usuario/crearReporte.php?nickUsuario=" + nickUsuario + "&idUsuarioReportado=" + idUsuarioReportado + "&razon=" + razon, true);
+    xhttp.send();
+
 }
