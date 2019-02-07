@@ -40,9 +40,22 @@ if (limpiar() == "enviarMensaje.php") {
 }
 
 if (limpiar() == "listarMensaje.php") {
-    if(empty($_SESSION) && !isset($_GET["id"]) || $_GET['id'] == ""){
+    if(empty($_SESSION) || !isset($_GET["id"]) || $_GET['id'] == ""){
         header("Location: index.php");
     }
 } 
+
+if (limpiar() == "listaReportes.php") {
+    if (empty($_SESSION)) {
+        header("Location: index.php");
+    } else {
+        $conex = new Conexion();
+        $usuario = unserialize($_SESSION['claseUsuario']);
+        $rolWeb = $conex->getRolWeb($usuario->getNick());
+        if ($rolWeb != 1) {
+            header('location: index.php');
+        }
+    }
+}
 
 ?>

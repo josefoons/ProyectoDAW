@@ -29,6 +29,12 @@
         <?php
     }
 
+    if(limpiar() == "listaReportes.php"){
+        ?>
+        <script src="vista/js/listaReportes.js"></script>
+        <?php
+    }
+
     if(limpiar() == "registro.php"){
         ?>
         <script src="vista/js/registro.js"></script>
