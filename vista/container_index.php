@@ -1,12 +1,13 @@
 <div class="container">
         <hr>
         <div class="row">
-            <div class="col-lg mb-4" style="height: 400px;">
+            <div class="col-lg mb-4" style="height: 750px;">
                 <div class="card h-100">
                     <h4 class="card-header">Lista de Usuarios</h4>
                     <div class="card-body" style="overflow: auto;">
                         <div class="table-responsive">
-                            <table class="table table-hover">
+                        <!-- class="table table-hover" -->
+                            <table  class="table table-hover table-fixed">
                                 <thead>
                                     <tr>
                                         <th>Nick</th>
@@ -20,6 +21,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="listaUsuarios">
+
                                 </tbody>
                             </table>
                         </div>

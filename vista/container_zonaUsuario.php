@@ -5,36 +5,33 @@
                 <div class="card h-100">
                     <h4 class="card-header">Perfil de <span id="nickPerfilHeader"></span></h4>
                     <div class="card-body" id="panelUsuarioGeneral">
-                    
                         <div id="rango">
                             <img id="rangoImagen" src="">
                             <div id="listadoPaises"></div>
+                            <div id="zonaBotonEliminar"></div>
                             <?php
                                 if(!empty($_SESSION)){
-                            ?>
-                                <center>
-                                    <div id="zonaBotonEliminar"></div>
-                                    <div class="btn-group">
-                                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gear"></i> OPCIONES</button>
-                                    <div class="dropdown-menu">
+                                    if($_SESSION['id'] == $_GET['id']){
+                                        ?>
+                                        <center>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gear"></i> OPCIONES</button>
+                                            <div class="dropdown-menu">
+                                                <button id="botonEditarDatos" onclick="abrirCampos()" type="button" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i>  CAMBIAR DATOS</button>
+                                                <button id="botonEditarPassword" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambiarPasswordModal"><i class="fa fa-key" aria-hidden="true"></i>  CAMBIAR PASSWORD</button>
+                                            </div>
+                                        </div>
+                                        </center>
                                         <?php
-                                        if(!empty($_SESSION) && $_SESSION['id'] == $_GET['id']){
-                                            ?>
-                                            <button id="botonEditarDatos" onclick="abrirCampos()" type="button" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i>  CAMBIAR DATOS</button>
-                                            <button id="botonEditarPassword" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambiarPasswordModal"><i class="fa fa-key" aria-hidden="true"></i>  CAMBIAR PASSWORD</button>
-                                            <?php
-                                        }
+                                    }
 
-                                        if(!empty($_SESSION) && $_SESSION['id'] != $_GET['id']){
-                                        ?>
-                                            <a id="enviarCorreo" href="enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>" class="dropdown-item"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</a>
-                                        <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    </div>
-                                </center>
-                            <?php
+                                    if($_SESSION['id'] != $_GET['id']){
+                                    ?>  
+                                        <center>
+                                        <button id="enviarCorreo" class="btn btn-success" onclick="location.href='enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>'"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</button>
+                                        </center>
+                                    <?php
+                                    }
                                 }
                             ?>
                         </div>

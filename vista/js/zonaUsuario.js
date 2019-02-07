@@ -51,11 +51,11 @@ function colocarDatos() {
 
 
 function bloquearCampos() {
+    actualizarDatos();
     document.getElementById("mensajePerfil").readOnly = true;
     document.getElementById("mailPerfil").readOnly = true;
     document.getElementById("listadoPaises").innerHTML = "";
     document.getElementById("zonaBotonEliminar").innerHTML = "";
-    actualizarDatos();
 }
 
 function abrirCampos() {
@@ -64,7 +64,7 @@ function abrirCampos() {
     document.getElementById("alertaConfirmacion").innerHTML = "";
     document.getElementById("mensajePerfil").readOnly = false;
     document.getElementById("mailPerfil").readOnly = false;
-    document.getElementById("zonaBotonEliminar").innerHTML = "<button onclick='bloquearCampos()' type='button' class='btn btn-success'>GUARDAR</button>";
+    document.getElementById("zonaBotonEliminar").innerHTML = "<center><button onclick='bloquearCampos()' type='button' class='btn btn-success'>GUARDAR</button></center>";
 }
 
 function actualizarDatos() {
