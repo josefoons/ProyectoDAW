@@ -20,7 +20,7 @@
 - Like / dislike (Hecho)
 
 ## Posibles Ideas 
-
+- Sistema de reportes
 
 ## LINKS
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
