@@ -1,7 +1,7 @@
 # ProyectoDAW
 
 ## Por hacer:
-  - Cambiar los "banners_inferiores" por noticias sacadas de base de datos.
+- Cambiar los "banners_inferiores" por noticias sacadas de base de datos.
 
 
 ## Terminado:
@@ -17,9 +17,10 @@
 - Adaptar todo de variables de sesion, clase de usuario (Hecho)
 - Mensajes privados (Hecho)
 - Modificar datos (Hecho)
+- Like / dislike (Hecho)
 
 ## Posibles Ideas 
-  - Like / dislike
+
 
 ## LINKS
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
