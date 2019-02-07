@@ -13,18 +13,23 @@ if(empty($_SESSION)){
     $usuario = unserialize($_SESSION['claseUsuario']);
     $rolWeb = $miconexion->getRolWeb($usuario->getNick());
     ?>
-        <div style="color: white; margin-right: 10px; line-height: 25px;"><p style="margin-top: 5px;">Hola, <?php echo /* $_SESSION['nick'] */ $usuario->getNick(); ?>.</p><div>
+        <div style="color: white; margin-right: 10px; line-height: 25px;"><p style="margin-top: 5px;">Hola, <?php echo $usuario->getNick(); ?>.</p><div>
         <button type="button" id="home_button" class="btn btn-info" onclick="window.location='index.php';">HOME</button>
-        <button type="button" id="usuario_button" class="btn btn-info" onclick="window.location='zonaUsuario.php?id=<?php echo $usuario->getId() ?>';">PERFIL</button>
+        <div class="btn-group">
+            <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaUsuario.php?id=<?php echo $usuario->getId() ?>';">PERFIL</button>
+            <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <div class="dropdown-menu">
+                <a id="leerMensaje" href="listarMensaje.php?id=<?php echo $_GET['id'] ?>" class="dropdown-item"><i class="fa fa-envelope" aria-hidden="true"></i> LEER MAIL</a>
+            </div>
+        </div>
     <?php
         if($rolWeb == 1){
             ?>
-                <!-- <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button> -->
                 <div class="btn-group">
                     <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="noticias.php">Noticias</a>
+                        <a class="dropdown-item" href="#">PROXIMAMENTE</a>
                     </div>
                 </div>
             <?php

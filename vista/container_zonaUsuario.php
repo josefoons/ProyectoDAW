@@ -20,9 +20,8 @@
                                         <?php
                                         if(!empty($_SESSION) && $_SESSION['id'] == $_GET['id']){
                                             ?>
-                                            <button id="botonEditarDatos" onclick="abrirCampos()" type="button" class="dropdown-item">CAMBIAR DATOS</button>
-                                            <button id="botonEditarPassword" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambiarPasswordModal">CAMBIAR PASSWORD</button>
-                                            <a id="leerMensaje" href="listarMensaje.php?id=<?php echo $_GET['id'] ?>" class="dropdown-item"><i class="fa fa-envelope" aria-hidden="true"></i> LEER MAIL</a>
+                                            <button id="botonEditarDatos" onclick="abrirCampos()" type="button" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i>  CAMBIAR DATOS</button>
+                                            <button id="botonEditarPassword" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambiarPasswordModal"><i class="fa fa-key" aria-hidden="true"></i>  CAMBIAR PASSWORD</button>
                                             <?php
                                         }
 
