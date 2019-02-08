@@ -19,7 +19,7 @@ if(empty($_SESSION)){
             <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaUsuario.php?id=<?php echo $usuario->getId() ?>';">PERFIL</button>
             <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
             <div class="dropdown-menu">
-                <a id="leerMensaje" href="listarMensaje.php?id=<?php echo $_GET['id'] ?>" class="dropdown-item"><i class="fa fa-envelope" aria-hidden="true"></i> LEER MAIL</a>
+                <a id="leerMensaje" href="listarMensaje.php?id=<?php echo $usuario->getId(); ?>" class="dropdown-item"><i class="fa fa-envelope" aria-hidden="true"></i> LEER MAIL</a>
             </div>
         </div>
     <?php
