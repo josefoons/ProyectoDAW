@@ -34,7 +34,7 @@
                                     }
 
                                     if($_SESSION['id'] != $_GET['id']){
-                                    ?>  
+                                    ?>
                                         <center>
                                         <div id="puntuacion" style="visibility: hidden;">Puntuacion concedida: <span id="puntuacionConcedida"></span>.</div>
                                         <div id="outer">
@@ -163,7 +163,13 @@
             <div id="notificacionPassword"></div>
             <div class="form-group">
                 <label for="oldPassword">ID Usuario</label>
-                <input type="text" class="form-control" value="<?php echo $usuario->getId(); ?>" id="nickUSuarioReportando" disabled>
+                <?php
+                if(!empty($_SESSION)){
+                    ?>
+                    <input type="text" class="form-control" value="<?php echo $usuario->getId(); ?>" id="nickUSuarioReportando" disabled>
+                    <?php
+                }
+                ?>
             </div>
 
             <div class="form-group">
