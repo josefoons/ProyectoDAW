@@ -15,7 +15,9 @@
                     <div class="card-body" id="panelUsuarioGeneral">
                         <div id="rango">
                             <img id="rangoImagen" src="">
-                            <div id="listadoPaises"></div>
+                        </div>
+                        <div id="botones">
+                        <div id="listadoPaises" class="col-md-4 col-lg-2"></div>
                             <div id="zonaBotonEliminar"></div>
                             <?php
                                 if(!empty($_SESSION)){
@@ -184,7 +186,7 @@
             </div>
 
             <div class="form-group">
-                <label for="comentarioReporte">Example textarea</label>
+                <label for="comentarioReporte">Comentario</label>
                 <textarea class="form-control" id="comentarioReporte" maxlength="120"></textarea>
             </div>
         </div>
