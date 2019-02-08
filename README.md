@@ -1,7 +1,7 @@
 # ProyectoDAW
 
 ## Por hacer:
-- Sistema de reportes (Terminarlo)
+- NADA
 
 
 ## Terminado:
@@ -18,6 +18,7 @@
 - Mensajes privados (Hecho)
 - Modificar datos (Hecho)
 - Like / dislike (Hecho)
+- Sistema de reportes (Hecho)
 
 ## Posibles Ideas 
 - NADA
