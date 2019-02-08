@@ -233,7 +233,7 @@ function crearReporte() {
     let nickUsuario = document.getElementById("nickUSuarioReportando").value;
     let razon = document.getElementById("razonReporte").value;
     let idUsuarioReportado = id;
-
+    let comentario = document.getElementById("comentarioReporte").value;
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -243,7 +243,7 @@ function crearReporte() {
         }
     };
 
-    xhttp.open("GET", ip + "usuario/crearReporte.php?nickUsuario=" + nickUsuario + "&idUsuarioReportado=" + idUsuarioReportado + "&razon=" + razon, true);
+    xhttp.open("GET", ip + "usuario/crearReporte.php?nickUsuario=" + nickUsuario + "&idUsuarioReportado=" + idUsuarioReportado + "&razon=" + razon + "&comentario=" + comentario, true);
     xhttp.send();
 
 }

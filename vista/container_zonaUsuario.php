@@ -176,6 +176,11 @@
                     <option value="perfilTroll">Perfil Troll</option>
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="comentarioReporte">Example textarea</label>
+                <textarea class="form-control" id="comentarioReporte" maxlength="120"></textarea>
+            </div>
         </div>
       <div class="modal-footer">
         <button type="button" onclick="crearReporte()" class="btn btn-danger">Reportar</button>
