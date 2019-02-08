@@ -31,5 +31,15 @@ https://owlcation.com/stem/Simple-search-PHP-MySQL
 http://www.webestools.com/scripts_tutorials-code-source-15-personal-message-system-in-php-mysql-pm-system-private-message-discussion.html
 
 https://startbootstrap.com/templates/bare/
+
 ## Cosas usadas
 Github, JSON, MVC, POO, Bootstrap, HTML, CSS, Grid, Responsive, AJAX, PHP, MYSQL, JS
+
+## MIRAR
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
