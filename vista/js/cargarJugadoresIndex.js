@@ -14,7 +14,8 @@ function cargarJugadores() {
             colocarUsuarios(infoUsuarios);            
         }
     };
-
+    //xhttp.withCredentials = true;
+    
     xhttp.open("GET", ip + "index/cargarDatosUsuario.php", true);
     xhttp.send();
 }
@@ -50,10 +51,6 @@ function colocarUsuarios(informacionUsuarios) {
             + " <td><a target='_blank' href='http://" + informacionUsuarios[k].region + ".op.gg/summoner/userName=" + informacionUsuarios[k].nick + "'><img style='height: 35px;' src='vista/img/opgg_icon.png'></a>  <a href='zonaUsuario.php?id=" + informacionUsuarios[k].id + "' class='btn btn-light'><i class='fa fa-user' aria-hidden='true'></i></a><td>";
             + "</tr>";
         }
-        //console.log(k, informacionUsuarios[k]);
     }
 }
 
-function listarMensajes(boton, idUsuario) {
-    alert(boton.id);   
-}

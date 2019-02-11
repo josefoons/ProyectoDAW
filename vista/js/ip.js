@@ -1,3 +1,4 @@
 // localhost/ProyectoDAW
 // josefons.es
-var ip = "http://localhost/ProyectoDAW/vista/ajax/";
+// 192.168.4.12
+var ip = "http://192.168.4.12/ProyectoDAW/vista/ajax/";
