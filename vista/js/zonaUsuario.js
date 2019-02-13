@@ -186,16 +186,16 @@ function cargarPuntuacion() {
         if (this.readyState == 4 && this.status == 200) {
             switch (this.responseText) {
                 case "1":
-                botonUP.style.visibility = 'hidden';
-                botonDown.style.visibility = 'hidden';
-                concedido.innerHTML = "<FONT COLOR='green'>LIKE</FONT>";
-                textoPuntuacion.style.visibility = 'visible';
+                    botonUP.style.visibility = 'hidden';
+                    botonDown.style.visibility = 'hidden';
+                    concedido.innerHTML = "<FONT COLOR='green'>LIKE</FONT>";
+                    textoPuntuacion.style.visibility = 'visible';
                     break;
                 case "2":
-                botonUP.style.visibility = 'hidden';
-                botonDown.style.visibility = 'hidden';
-                concedido.innerHTML = "<FONT COLOR='red'>DISLIKE</FONT>";
-                textoPuntuacion.style.visibility = 'visible';
+                    botonUP.style.visibility = 'hidden';
+                    botonDown.style.visibility = 'hidden';
+                    concedido.innerHTML = "<FONT COLOR='red'>DISLIKE</FONT>";
+                    textoPuntuacion.style.visibility = 'visible';
                     break;
             }
         }
@@ -210,7 +210,7 @@ function crearPuntuacion(boton) {
     let idUsuarioSesion = document.getElementById("upButton").value;
     let nota = boton.id;
 
-    if(nota == "upButton"){
+    if (nota == "upButton") {
         nota = "1";
     } else {
         nota = "2";
@@ -229,8 +229,10 @@ function crearPuntuacion(boton) {
 }
 
 function crearReporte() {
-    
+
     let nickUsuario = document.getElementById("nickUSuarioReportando").value;
+    let split = nickUsuario.split(" - ");
+    let idUsuario = split[0];
     let razon = document.getElementById("razonReporte").value;
     let idUsuarioReportado = id;
     let comentario = document.getElementById("comentarioReporte").value;
@@ -239,11 +241,25 @@ function crearReporte() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-            location.reload();
+            //location.reload();
         }
     };
 
-    xhttp.open("GET", ip + "usuario/crearReporte.php?nickUsuario=" + nickUsuario + "&idUsuarioReportado=" + idUsuarioReportado + "&razon=" + razon + "&comentario=" + comentario, true);
+    xhttp.open("GET", ip + "usuario/crearReporte.php?nickUsuario=" + idUsuario + "&idUsuarioReportado=" + idUsuarioReportado + "&razon=" + razon + "&comentario=" + comentario, true);
     xhttp.send();
 
+}
+
+function getNick(idUsuarioReporte) {
+    let campo = document.getElementById("nickUSuarioReportando").value;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("nickUSuarioReportando").value = idUsuarioReporte + " - " + this.responseText;
+        }
+    };
+
+    xhttp.open("GET", ip + "mensajes/getNick.php?id=" + idUsuarioReporte, true);
+    xhttp.send();
 }

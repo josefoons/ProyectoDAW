@@ -7,7 +7,7 @@
                     <?php
                         if(!empty($_SESSION) && $_SESSION['id'] != $_GET['id']){
                         ?>
-                            <button style="float:right;" type="button" class="btn btn-danger" data-toggle="modal" data-target="#reporteModal"><i class="fa fa-flag" aria-hidden="true"></i></button>
+                            <button style="float:right;" onclick="getNick(<?php echo $usuario->getId(); ?>)" type="button" class="btn btn-danger" data-toggle="modal" data-target="#reporteModal"><i class="fa fa-flag" aria-hidden="true"></i></button>
                         <?php
                         }
                     ?>
@@ -168,7 +168,7 @@
                 <?php
                 if(!empty($_SESSION)){
                     ?>
-                    <input type="text" class="form-control" value="<?php echo $usuario->getId(); ?>" id="nickUSuarioReportando" disabled>
+                    <input type="text" class="form-control" value="" id="nickUSuarioReportando" disabled>
                     <?php
                 }
                 ?>
