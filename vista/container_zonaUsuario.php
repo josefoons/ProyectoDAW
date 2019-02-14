@@ -41,7 +41,7 @@
                                     if($_SESSION['id'] != $_GET['id']){
                                     ?>
                                         <center>
-                                        <div id="puntuacion" style="visibility: hidden;">Puntuacion concedida: <span id="puntuacionConcedida"></span>.</div>
+                                        <div id="puntuacion" style="visibility: hidden;">Puntuación concedida: <span id="puntuacionConcedida"></span>.</div>
                                         <div id="outer">
                                             <div class="inner"><button onclick="crearPuntuacion(this)" value="<?php echo $usuario->getId() ?>" type="button" id="upButton" class="btn btn-success"><i class="fa fa-thumbs-o-up"></i></button></div>
                                             <div class="inner"><button onclick="crearPuntuacion(this)" value="<?php echo $usuario->getId() ?>" type="button" id="downButton" class="btn btn-danger"><i class="fa fa-thumbs-o-down"></i></button></div>
