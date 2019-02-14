@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 08, 2019 at 04:00 PM
+-- Generation Time: Feb 14, 2019 at 08:05 PM
 -- Server version: 5.7.24-0ubuntu0.18.04.1
 -- PHP Version: 7.2.10-0ubuntu0.18.04.1
 
@@ -111,7 +111,8 @@ CREATE TABLE `mensajesPrivados` (
 
 INSERT INTO `mensajesPrivados` (`id`, `idEmisor`, `idReceptor`, `titulo`, `mensaje`, `fecha`) VALUES
 (24, 8, 12, 'adfasf', 'adfasfd', '2019-02-05 17:35:02'),
-(25, 8, 12, 'adfasf', 'adfasfd', '2019-02-05 17:35:14');
+(25, 8, 12, 'adfasf', 'adfasfd', '2019-02-05 17:35:14'),
+(26, 11, 8, 'gvaf', 'asdfasfd', '2019-02-14 14:44:25');
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,12 @@ INSERT INTO `puntuacion` (`idPuntuacion`, `idPerfil`, `idUsuario`, `puntuacion`)
 (5, 13, 8, 1),
 (6, 14, 8, 2),
 (7, 14, 16, 1),
-(8, 8, 16, 1);
+(8, 8, 16, 1),
+(9, 12, 11, 1),
+(10, 18, 8, 2),
+(11, 16, 8, 1),
+(13, 20, 8, 2),
+(14, 17, 8, 2);
 
 -- --------------------------------------------------------
 
@@ -210,6 +216,14 @@ CREATE TABLE `reporte` (
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `reporte`
+--
+
+INSERT INTO `reporte` (`idReporte`, `idUsuarioReportado`, `idUsuarioCreado`, `razon`, `comentario`, `fecha`) VALUES
+(8, 16, 8, 'trollDuoQ', 'CABRON', '2019-02-08 16:48:30'),
+(9, 11, 8, 'trollDuoQ', 'sdagfzx', '2019-02-13 19:28:24');
+
 -- --------------------------------------------------------
 
 --
@@ -251,6 +265,7 @@ CREATE TABLE `usuario` (
   `rolBuscado` varchar(64) CHARACTER SET latin1 NOT NULL,
   `region` char(8) NOT NULL,
   `mensaje` text CHARACTER SET latin1 NOT NULL,
+  `imgPerfil` varchar(16) DEFAULT NULL,
   `rolWeb` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -258,16 +273,17 @@ CREATE TABLE `usuario` (
 -- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nick`, `password`, `mail`, `pais`, `idioma`, `elo`, `rolPreferido`, `rolBuscado`, `region`, `mensaje`, `rolWeb`) VALUES
-(8, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@josefons.es', 'CN', 'DE', 'gold_4', 'ADC', 'ADC', 'BR', 'pass: admin', 1),
-(10, 'Straxy', 'f3b0c7503c0f48e689bef6be6882e01c', 'straxy@josefons.es', 'ES', 'ESP', 'bronze_3', 'SUPP', 'ADC', 'EUW', 'pass: Straxy111', 0),
-(11, '7Rogue', 'e9974a62f6638820e2079173859c9ff3', 'prueba1@josefons.es', 'ES', 'ESP', 'bronze_3', 'MID', 'JUNG', 'EUW', 'pass: PruebaPrueba2', 0),
-(12, 'SGladiator', 'd6ca16872a9fce6cdea5d9b1d8ce8476', 'sgladiator@josefons.es', 'ES', 'ESP', 'gold_4', 'ADC', 'JUNG', 'EUW', 'pass: Passbasura1', 0),
-(13, 'Hide on bush', 'd6ca16872a9fce6cdea5d9b1d8ce8476', 'safasf@dsfai.com', 'KR', 'KR', 'diamond_1', 'MID', 'JUNG', 'KR', 'pass Passbasura1', 0),
-(14, 'sfasf', '6ffbeffcdee43e01aa7323b6593b061e', 'nosequefd@josefons.es', 'GB', 'EN', 'silver_2', 'TOP', 'TOP', 'BR', 'pass: ContraseÃ±aFalsa1', 0),
-(16, 'kjbdnfi', 'c0df3576cfb9d843f03cd52ac0d02052', 'ofna@gmail.com', 'GB', 'EN', 'iron_4', 'TOP', 'TOP', 'BR', 'pass: PassFalsa1', 0),
-(17, 'dafdsf', '30bf2e5a9a84427f09c1ec2358e38f2e', 'fans@josefons.es', 'GB', 'EN', 'iron_4', 'TOP', 'TOP', 'BR', 'pass: PatatasConQueso1', 0),
-(18, 'prueba23', 'f67b12b20866938a84507796fe1f22d6', 'fsaf@josefons.es', 'GB', 'EN', 'iron_4', 'TOP', 'TOP', 'BR', 'pass: PatatasSinQueso1', 0);
+INSERT INTO `usuario` (`id`, `nick`, `password`, `mail`, `pais`, `idioma`, `elo`, `rolPreferido`, `rolBuscado`, `region`, `mensaje`, `imgPerfil`, `rolWeb`) VALUES
+(8, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@josefons.es', 'CN', 'DE', 'diamond_4', 'ADC', 'ADC', 'BR', 'pass: admin', '8_imgPerfil.jpg', 1),
+(10, 'Straxy', 'f3b0c7503c0f48e689bef6be6882e01c', 'straxy@josefons.es', 'ES', 'ESP', 'challenger_1', 'SUPP', 'ADC', 'EUW', 'pass: Straxy111', '10_imgPerfil.jpg', 0),
+(11, '7Rogue', 'e9974a62f6638820e2079173859c9ff3', 'prueba1@josefons.es', 'ES', 'ESP', 'bronze_3', 'MID', 'JUNG', 'EUW', 'pass: PruebaPrueba2', 'no_pic.jpg', 0),
+(12, 'SGladiator', 'd6ca16872a9fce6cdea5d9b1d8ce8476', 'sgladiator@josefons.es', 'ES', 'ESP', 'gold_4', 'ADC', 'SUPP', 'EUW', 'pass: Passbasura1', 'no_pic.jpg', 0),
+(13, 'Hide on bush', 'd6ca16872a9fce6cdea5d9b1d8ce8476', 'safasf@dsfai.com', 'KR', 'KR', 'diamond_1', 'MID', 'JUNG', 'KR', 'pass Passbasura1', 'no_pic.jpg', 0),
+(14, 'sfasf', '6ffbeffcdee43e01aa7323b6593b061e', 'nosequefd@josefons.es', 'GB', 'EN', 'silver_2', 'TOP', 'TOP', 'BR', 'pass: ContraseÃ±aFalsa1', 'no_pic.jpg', 0),
+(16, 'kjbdnfi', 'c0df3576cfb9d843f03cd52ac0d02052', 'ofna@gmail.com', 'GB', 'EN', 'iron_4', 'TOP', 'TOP', 'BR', 'pass: PassFalsa1', 'no_pic.jpg', 0),
+(17, 'dafdsf', '30bf2e5a9a84427f09c1ec2358e38f2e', 'fans@josefons.es', 'GB', 'EN', 'iron_4', 'TOP', 'TOP', 'BR', 'pass: PatatasConQueso1', 'no_pic.jpg', 0),
+(18, 'prueba23', 'f67b12b20866938a84507796fe1f22d6', 'fsaf@josefons.es', 'GB', 'EN', 'iron_4', 'TOP', 'TOP', 'BR', 'pass: PatatasSinQueso1', 'no_pic.jpg', 0),
+(20, 'dnfasfo', '14ac218c41b454fe0fe5ccc6f191f2d9', 'fasdfasfaf@josefons.es', 'GB', 'EN', 'iron_4', 'TOP', 'TOP', 'BR', 'pass: OtroUsuarioMas1', 'no_pic.jpg', 0);
 
 --
 -- Indexes for dumped tables
@@ -304,8 +320,8 @@ ALTER TABLE `pais`
 --
 ALTER TABLE `puntuacion`
   ADD PRIMARY KEY (`idPuntuacion`),
-  ADD KEY `idPerfil` (`idPerfil`),
-  ADD KEY `idUsuario` (`idUsuario`);
+  ADD KEY `idUsuario` (`idUsuario`),
+  ADD KEY `idPerfil` (`idPerfil`);
 
 --
 -- Indexes for table `region`
@@ -347,22 +363,22 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `mensajesPrivados`
 --
 ALTER TABLE `mensajesPrivados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `puntuacion`
 --
 ALTER TABLE `puntuacion`
-  MODIFY `idPuntuacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idPuntuacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `reporte`
 --
 ALTER TABLE `reporte`
-  MODIFY `idReporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idReporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- Constraints for dumped tables
 --
@@ -378,7 +394,7 @@ ALTER TABLE `mensajesPrivados`
 -- Constraints for table `puntuacion`
 --
 ALTER TABLE `puntuacion`
-  ADD CONSTRAINT `idPerfil` FOREIGN KEY (`idPerfil`) REFERENCES `usuario` (`id`),
+  ADD CONSTRAINT `idPerfil` FOREIGN KEY (`idPerfil`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`);
 
 --
