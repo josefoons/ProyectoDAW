@@ -35,7 +35,6 @@ function obtenerDatos() {
 
 function colocarDatos() {
 
-    //console.log(infoUsuario[0]);
     document.getElementById("eloImagenPerfil").src = "vista/img/ranks/" + infoUsuario[0].elo + ".png";
     document.getElementById("imagenUsuario").style.backgroundImage = "url('vista/img/imgUsuarios/" + infoUsuario[0].imgPerfil + "')";
     document.getElementById("nickPerfilHeader").innerText = infoUsuario[0].nick;
@@ -79,7 +78,6 @@ function actualizarDatos() {
     let mail = document.getElementById("mailPerfil").value;
     elo = document.getElementById("nuevoEloPerfil").value;
 
-
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText == "OK") {
@@ -106,7 +104,7 @@ function activarAlerta(respuesta) {
 
     if (respuesta == "si") {
         alerta.innerHTML = "<div class='alert alert-success' role='alert'> Datos actualizados correctamente! </div>";
-        document.getElementById("rangoImagen").src = "vista/img/ranks/" + elo + ".png";
+        document.getElementById("eloImagenPerfil").src = "vista/img/ranks/" + elo + ".png";
     } else {
         alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Error al actualizar datos! </div>";
     }

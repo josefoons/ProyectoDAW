@@ -15,7 +15,7 @@
                     <div class="card-body" id="panelUsuarioGeneral">
                         <div id="rango">
                             <div id="imagenUsuario">
-                                <img src="vista/img/ranks/bronze_1.png" id="eloImagenPerfil" />
+                                <img src="vista/img/ranks/unranked.png" id="eloImagenPerfil" />
                             </div>
                         </div>
                         <div id="botones">
