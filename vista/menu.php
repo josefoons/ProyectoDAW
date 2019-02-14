@@ -29,7 +29,7 @@ if(empty($_SESSION)){
                     <button type="button" id="panel_button" class="btn btn-info" onclick="window.location='zonaAdmin.php';">PANEL</button>
                     <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="listaReportes.php">Reportes</a>
+                        <a class="dropdown-item" href="listaReportes.php"><i class="fa fa-flag" aria-hidden="true"></i>  Reportes</a>
                     </div>
                 </div>
             <?php
