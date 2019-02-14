@@ -20,8 +20,10 @@
 - Like / dislike (Hecho)
 - Sistema de reportes (Hecho)
 
+
 ## Posibles Ideas 
 - NADA
+
 
 ## LINKS
 http://codewithawa.com/posts/complete-user-registration-system-using-php-and-mysql-database
@@ -34,12 +36,3 @@ https://startbootstrap.com/templates/bare/
 
 ## Cosas usadas
 Github, JSON, MVC, POO, Bootstrap, HTML, CSS, Grid, Responsive, AJAX, PHP, MYSQL, JS
-
-## MIRAR
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
