@@ -36,12 +36,27 @@
     margin-bottom: 5px; 
 }
 
-#outer
-{
+#outer {
     width:100%;
     text-align: center;
 }
-.inner
-{
+
+.inner {
     display: inline-block;
+}
+
+
+#imagenUsuario {
+    height:100%;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#eloImagenPerfil{
+    position: absolute;
+    bottom: -30px;
+    right: -10px;
+    height: 100px;
 }

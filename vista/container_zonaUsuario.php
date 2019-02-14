@@ -14,7 +14,9 @@
                     </h4>
                     <div class="card-body" id="panelUsuarioGeneral">
                         <div id="rango">
-                            <img id="rangoImagen" src="">
+                            <div id="imagenUsuario">
+                                <img src="vista/img/ranks/bronze_1.png" id="eloImagenPerfil" />
+                            </div>
                         </div>
                         <div id="botones">
                         <div id="listadoPaises" class="col-md-4 col-lg-2"></div>
@@ -29,6 +31,7 @@
                                             <div class="dropdown-menu">
                                                 <button id="botonEditarDatos" onclick="abrirCampos()" type="button" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i>  CAMBIAR DATOS</button>
                                                 <button id="botonEditarPassword" onclick="limpiarCampos()" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambiarPasswordModal"><i class="fa fa-key" aria-hidden="true"></i>  CAMBIAR PASSWORD</button>
+                                                <button id="botonSubirImagen" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambioFotoModal"><i class="fa fa-picture-o" aria-hidden="true"></i>  SUBIR FOTO</button>
                                             </div>
                                         </div>
                                         </center>
@@ -192,6 +195,26 @@
         </div>
       <div class="modal-footer">
         <button type="button" onclick="crearReporte()" class="btn btn-danger">Reportar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="cambioFotoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Actualiza tu imagen de perfil (JPG/PNG)</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="file" id="imagenAvatarSubida" name="avatar" accept="image/png, image/jpeg">
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="subirImagen()" class="btn btn-primary">Actualizar</button>
       </div>
     </div>
   </div>

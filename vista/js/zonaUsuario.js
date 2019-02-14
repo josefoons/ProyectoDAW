@@ -36,7 +36,8 @@ function obtenerDatos() {
 function colocarDatos() {
 
     //console.log(infoUsuario[0]);
-    document.getElementById("rangoImagen").src = "vista/img/ranks/" + infoUsuario[0].elo + ".png";
+    document.getElementById("eloImagenPerfil").src = "vista/img/ranks/" + infoUsuario[0].elo + ".png";
+    document.getElementById("imagenUsuario").style.backgroundImage = "url('vista/img/imgUsuarios/" + infoUsuario[0].imgPerfil + "')";
     document.getElementById("nickPerfilHeader").innerText = infoUsuario[0].nick;
     document.getElementById("nickPerfil").value = infoUsuario[0].nick;
     document.getElementById("mailPerfil").value = infoUsuario[0].mail;

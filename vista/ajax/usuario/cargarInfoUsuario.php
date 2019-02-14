@@ -4,7 +4,7 @@ $miconexion = new Conexion();
 $conn = $miconexion->getConexion();
 
 $id = $_GET['id'];
-$result = mysqli_query($conn, "SELECT id,nick,mail,pais,idioma,elo,rolPreferido,rolBuscado,region,mensaje FROM usuario WHERE id='$id';");
+$result = mysqli_query($conn, "SELECT id,nick,mail,pais,idioma,elo,rolPreferido,rolBuscado,region,mensaje,imgPerfil FROM usuario WHERE id='$id';");
 
 $data = array();
 
