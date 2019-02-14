@@ -210,12 +210,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <input type="file" id="imagenAvatarSubida" name="avatar" accept="image/png, image/jpeg">
-      </div>
-      <div class="modal-footer">
-        <button type="button" onclick="subirImagen()" class="btn btn-primary">Actualizar</button>
-      </div>
+        <form action="vista/php/upload.php" method="post" enctype="multipart/form-data">
+            <div class="modal-body">
+                <input type="file" name="avatar" id="imagenAvatarSubida" accept="image/png, image/jpeg">
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="ACTUALIZAR" name="submit"></button>
+            </div>
+        </form>
     </div>
   </div>
 </div>
