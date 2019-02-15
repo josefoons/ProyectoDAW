@@ -23,6 +23,8 @@
 <link href="vista/css/footer.css" rel="stylesheet">
 <script src="vista/js/ip.js"></script>
 
+<link rel="icon" type="image/svg+xml" href="vista/img/favicon.png" sizes="any">
+
 <?php
     if(limpiar() == "zonaAdmin.php"){
         ?>
