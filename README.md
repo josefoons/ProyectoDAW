@@ -1,7 +1,7 @@
 # ProyectoDAW
 
 ## Por hacer:
-- NADA
+- Rehacer funciones y diseño perfil
 
 
 ## Terminado:
