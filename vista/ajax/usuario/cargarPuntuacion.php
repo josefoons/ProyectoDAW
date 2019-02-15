@@ -7,16 +7,13 @@ $idPerfil = $_GET['idPerfil'];
 $idUsuario = $_GET['idSesion'];
 
 $query = "SELECT * FROM puntuacion WHERE idPerfil='$idPerfil' AND idUsuario='$idUsuario'";
+$resultado = mysqli_query($conn, $query);
 
-if(mysqli_num_rows($query) > 0){
-    echo "0";
-} else {
+if(mysqli_num_rows($resultado) > 0){
     $result = mysqli_query($conn, $query);
-    while ($fila = mysqli_fetch_array($result)) {
-     
-        echo $fila["puntuacion"];
-    
-    }
+    $fila = mysqli_fetch_array($result);
+    echo $fila["puntuacion"];
+
 }
 
 ?>

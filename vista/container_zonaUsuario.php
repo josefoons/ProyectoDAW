@@ -8,6 +8,7 @@
                         if(!empty($_SESSION) && $_SESSION['id'] != $_GET['id']){
                         ?>
                             <button style="float:right;" onclick="getNick(<?php echo $usuario->getId(); ?>)" type="button" class="btn btn-danger" data-toggle="modal" data-target="#reporteModal"><i class="fa fa-flag" aria-hidden="true"></i></button>
+                            <button style="margin-right: 5px; float:right;" id="enviarCorreo" class="btn btn-success" onclick="location.href='enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>'"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</button>
                         <?php
                         }
 
@@ -37,27 +38,30 @@
                                 <div id="botones">
                                     <div id="listadoPaises" class="col-md-4 col-lg-2"></div>
                                     <div id="zonaBotonEliminar"></div>
+                                    <h4>Comentario</h4><hr>
+                                    <div class="card bg-light mb-3" style="max-width: 100%;">
+                                        <div class="card-body" id="mensajeUsuarioPerfil">
+                                        </div>
+                                    </div>
+                                    <div id="divIDUsuario" style="visibility: hidden; display:inline;"> <?php echo $usuario->getId() ?> </div>
                                     <?php
                                         if(!empty($_SESSION)){
                                              if($_SESSION['id'] != $_GET['id']){
                                             ?>
-                                                <center>
-                                                <div id="puntuacion" style="visibility: hidden;">Puntuación concedida: <span id="puntuacionConcedida"></span>.</div>
-                                                <div id="outer">
-                                                    <div class="inner"><button onclick="crearPuntuacion(this)" value="<?php echo $usuario->getId() ?>" type="button" id="upButton" class="btn btn-success"><i class="fa fa-thumbs-o-up"></i></button></div>
-                                                    <div class="inner"><button onclick="crearPuntuacion(this)" value="<?php echo $usuario->getId() ?>" type="button" id="downButton" class="btn btn-danger"><i class="fa fa-thumbs-o-down"></i></button></div>
-                                                </div> 
-                                                <button id="enviarCorreo" class="btn btn-success" onclick="location.href='enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>'"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</button>
-                                                </center>
+                                            <h4>Puntuación</h4><hr>
+                                            <div class="card bg-light mb-3" style="max-width: 100%;">
+                                                <div class="card-body">  
+                                                    <div id="outer">
+                                                        <div class="inner"><button onclick="crearPuntuacion(this)" type="button" id="upButton" class="btn btn-success"><i class="fa fa-thumbs-o-up"></i></button></div>
+                                                        <div class="inner"><button onclick="crearPuntuacion(this)" type="button" id="downButton" class="btn btn-danger"><i class="fa fa-thumbs-o-down"></i></button></div>
+                                                    </div> 
+                                                </div>
+                                            </div>
                                             <?php
                                             }
                                         }
                                     ?>
-                                    <div class="card bg-light mb-3" style="max-width: 100%;">
-                                        <div class="card-header">Biografia</div>
-                                        <div class="card-body" id="mensajeUsuarioPerfil">
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <!-- /ZONA DE LA IMAGEN -->
                             </div>
@@ -65,39 +69,48 @@
                                 <!-- Zona de los datos -->
                                 <div id="info">
                                     <div id="alertaConfirmacion"></div>
-                                    <h1>Informacion Usuario</h1>
+                                    <h1>Información de usuario</h1>
                                     <table class="table">
                                         <tr>
-                                            <td class="col-3">Nick</td>
+                                            <td scope="row">Nick</td>
                                             <td id="nickUsuarioPerfil"></td>
                                         </tr>
+                                        <?php
+                                            if($usuario->getRolWeb() == 1 || $usuario->getId() == $_GET['id']){
+                                                ?>
+                                                    <tr>
+                                                        <td scope="row">Correo <?php if($usuario->getId() != $_GET['id']){  ?><FONT COLOR='red'><b>[SOLO ADMIN]</b></FONT><?php } ?> </td>
+                                                        <td id="mailUsuarioPerfil"></td>
+                                                    </tr>
+                                                <?php
+                                            }
+                                        ?>
                                         <tr>
-                                            <td class="col-3">Correo</td>
-                                            <td id="mailUsuarioPerfil"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">Pais</td>
+                                            <td scope="row">Pais</td>
                                             <td id="paisUsuarioPerfil"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-3">Idioma Usado</td>
+                                            <td scope="row">Idioma Usado</td>
                                             <td id="idiomaUsadoPerfil"></td>
                                         </tr>
                                         <tr>
-                                            <td class="col-3">Rol Preferido</td>
-                                            <td id="rolPreferidoPerfil"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">Rol Buscado</td>
-                                            <td id="rolBuscadoPerfil"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">Region</td>
+                                            <td scope="row">Region</td>
                                             <td id="regionUsuarioPerfil"></td>
                                         </tr>
                                     </table>
                                 </div>
                                 <!-- /Zona de los datos -->
+                                <h1>Información Roles</h1>
+                                <table class="table">
+                                    <tr>
+                                        <td style="text-align: center;" scope="row">Buscando</td>
+                                        <td style="text-align: center;" scope="row">Preferido</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center;"><img id="rolBuscadoPerfil" src="vista/img/posiciones/ADC.png"></td>
+                                        <td style="text-align: center;"><img id="rolPreferidoPerfil" src="vista/img/posiciones/SUPP.png"></td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>

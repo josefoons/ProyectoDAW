@@ -9,10 +9,12 @@ $puntuacion = $_GET['nota'];
 
 $query = "INSERT INTO puntuacion (idPuntuacion, idPerfil, idUsuario, puntuacion) VALUES (DEFAULT, '$idPerfil', '$idUsuario', '$puntuacion')";
 
-if ($conn->query($query) === TRUE) {
+$result = mysqli_query($conn, $query);
+if($result) {
     echo "OK";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
 
 ?>

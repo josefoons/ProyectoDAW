@@ -2,7 +2,9 @@ window.addEventListener("load", cargar, false);
 
 function cargar() {
     obtenerDatos();
-    cargarPuntuacion();
+    if(document.getElementById("outer")){
+        cargarPuntuacion();
+    }
 }
 
 var link = window.location.href;
@@ -39,11 +41,13 @@ function colocarDatos() {
     document.getElementById("imagenUsuario").style.backgroundImage = "url('vista/img/imgUsuarios/" + infoUsuario[0].imgPerfil + "')";
     document.getElementById("nickPerfilHeader").innerText = infoUsuario[0].nick;
     document.getElementById("nickUsuarioPerfil").innerText = infoUsuario[0].nick;
-    document.getElementById("mailUsuarioPerfil").innerText = infoUsuario[0].mail;
+    if(document.getElementById("mailUsuarioPerfil")){
+        document.getElementById("mailUsuarioPerfil").innerText = infoUsuario[0].mail;
+    }
     document.getElementById("paisUsuarioPerfil").innerText = traducirCodigos(infoUsuario[0].pais, "pais");
     document.getElementById("idiomaUsadoPerfil").innerText = traducirCodigos(infoUsuario[0].idioma, "idioma");
-    document.getElementById("rolPreferidoPerfil").innerText = infoUsuario[0].rolPreferido;
-    document.getElementById("rolBuscadoPerfil").innerText = infoUsuario[0].rolBuscado;
+    document.getElementById("rolPreferidoPerfil").src = "vista/img/posiciones/" + infoUsuario[0].rolPreferido + ".png";
+    document.getElementById("rolBuscadoPerfil").src = "vista/img/posiciones/" + infoUsuario[0].rolBuscado + ".png";
     document.getElementById("regionUsuarioPerfil").innerText = traducirCodigos(infoUsuario[0].region, "region");
     document.getElementById("mensajeUsuarioPerfil").innerText = infoUsuario[0].mensaje;
 
@@ -64,16 +68,19 @@ function bloquearCampos() {
 function abrirCampos() {
     cargarElo();
     let mail = document.getElementById("mailUsuarioPerfil").innerText;
+    let comentario = document.getElementById("mensajeUsuarioPerfil").innerText;
+
     document.getElementById("alertaConfirmacion").innerHTML = "";
     document.getElementById("zonaBotonEliminar").innerHTML = "<center><button onclick='bloquearCampos()' type='button' class='btn btn-success'>GUARDAR</button></center>";
     document.getElementById("mailUsuarioPerfil").innerHTML = "<input type='text' class='form-control' id='mailUsuarioPerfilInput' value='" + mail + "'>";
-}
+    document.getElementById("mensajeUsuarioPerfil").innerHTML = "<textarea class='form-control' id='mensajeUsuarioPerfilArea' rows='3' maxlength='300'>" + comentario + "</textarea>";
 
+}
 
 function actualizarDatos() {
     var xhttp = new XMLHttpRequest();
 
-    let mensaje = "pass Admin";
+    let mensaje = document.getElementById("mensajeUsuarioPerfilArea").value;
     let mail = document.getElementById("mailUsuarioPerfilInput").value;
     elo = document.getElementById("nuevoEloPerfil").value;
 
@@ -118,7 +125,7 @@ function cargarElo() {
         if (this.readyState == 4 && this.status == 200) {
             var xmlRol = this.responseText;
             let zonaElo = document.getElementById("listadoPaises");
-            zonaElo.innerHTML = "<div class='form-group'><select style='width: 310px;' id='nuevoEloPerfil'><option value='igual' selected>Selecciona</option>" + xmlRol + "</select></div>";
+            zonaElo.innerHTML = "<div class='form-group'><select class='form-control' style='width: 310px;' id='nuevoEloPerfil'><option value='igual' selected>Selecciona</option>" + xmlRol + "</select></div>";
         }
     };
 
@@ -169,15 +176,13 @@ function actualizarPass() {
 }
 
 function cargarPuntuacion() {
-    let idUsuarioSesion = document.getElementById("upButton").value;
+    let idUsuarioSesion = document.getElementById("divIDUsuario").innerText;
     let botonUP = document.getElementById("upButton");
     let botonDown = document.getElementById("downButton");
-    let textoPuntuacion = document.getElementById("puntuacion");
-    let concedido = document.getElementById("puntuacionConcedida");
+    let zonaDePuntuacion = document.getElementById("outer");
 
     botonUP.disabled = false;
     botonDown.disabled = false;
-
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -186,14 +191,12 @@ function cargarPuntuacion() {
                 case "1":
                     botonUP.style.visibility = 'hidden';
                     botonDown.style.visibility = 'hidden';
-                    concedido.innerHTML = "<FONT COLOR='green'>LIKE</FONT>";
-                    textoPuntuacion.style.visibility = 'visible';
+                    zonaDePuntuacion.innerHTML = "<FONT COLOR='green'>POSITIVA</FONT>";
                     break;
                 case "2":
                     botonUP.style.visibility = 'hidden';
                     botonDown.style.visibility = 'hidden';
-                    concedido.innerHTML = "<FONT COLOR='red'>DISLIKE</FONT>";
-                    textoPuntuacion.style.visibility = 'visible';
+                    zonaDePuntuacion.innerHTML = "<FONT COLOR='red'>NEGATIVA</FONT>";
                     break;
             }
         }
