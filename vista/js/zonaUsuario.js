@@ -119,7 +119,7 @@ function cargarElo() {
         if (this.readyState == 4 && this.status == 200) {
             var xmlRol = this.responseText;
             let zonaElo = document.getElementById("listadoPaises");
-            zonaElo.innerHTML = "<div class='form-group'><select id='nuevoEloPerfil'><option <option value='igual' selected>Selecciona</option>" + xmlRol + "</select></div>";
+            zonaElo.innerHTML = "<div class='form-group'><select style='width: 310px;' id='nuevoEloPerfil'><option value='igual' selected>Selecciona</option>" + xmlRol + "</select></div>";
         }
     };
 

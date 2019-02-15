@@ -10,109 +10,116 @@
                             <button style="float:right;" onclick="getNick(<?php echo $usuario->getId(); ?>)" type="button" class="btn btn-danger" data-toggle="modal" data-target="#reporteModal"><i class="fa fa-flag" aria-hidden="true"></i></button>
                         <?php
                         }
+
+                        if(!empty($_SESSION) && $_SESSION['id'] == $_GET['id']){
+                            ?>
+                            <div class="btn-group" style="float: right;">
+                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gear"></i></button>
+                                <div class="dropdown-menu">
+                                    <button id="botonEditarDatos" onclick="abrirCampos()" type="button" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i>  CAMBIAR DATOS</button>
+                                    <button id="botonEditarPassword" onclick="limpiarCampos()" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambiarPasswordModal"><i class="fa fa-key" aria-hidden="true"></i>  CAMBIAR PASSWORD</button>
+                                    <button id="botonSubirImagen" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambioFotoModal"><i class="fa fa-picture-o" aria-hidden="true"></i>  SUBIR FOTO</button>
+                                </div>
+                            </div>
+                            <?php
+                        }
                     ?>
                     </h4>
                     <div class="card-body" id="panelUsuarioGeneral">
-                        <div id="rango">
-                            <div id="imagenUsuario">
-                                <img src="vista/img/ranks/unranked.png" id="eloImagenPerfil" />
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <!-- ZONA DE LA IMAGEN -->
+                                <div id="rango">
+                                    <div class="img-thumbnail rounded" id="imagenUsuario">
+                                        <img src="vista/img/ranks/unranked.png" id="eloImagenPerfil" />
+                                    </div>
+                                </div>
+                                <div id="botones">
+                                    <div id="listadoPaises" class="col-md-4 col-lg-2"></div>
+                                    <div id="zonaBotonEliminar"></div>
+                                    <?php
+                                        if(!empty($_SESSION)){
+                                             if($_SESSION['id'] != $_GET['id']){
+                                            ?>
+                                                <center>
+                                                <div id="puntuacion" style="visibility: hidden;">Puntuación concedida: <span id="puntuacionConcedida"></span>.</div>
+                                                <div id="outer">
+                                                    <div class="inner"><button onclick="crearPuntuacion(this)" value="<?php echo $usuario->getId() ?>" type="button" id="upButton" class="btn btn-success"><i class="fa fa-thumbs-o-up"></i></button></div>
+                                                    <div class="inner"><button onclick="crearPuntuacion(this)" value="<?php echo $usuario->getId() ?>" type="button" id="downButton" class="btn btn-danger"><i class="fa fa-thumbs-o-down"></i></button></div>
+                                                </div> 
+                                                <button id="enviarCorreo" class="btn btn-success" onclick="location.href='enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>'"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</button>
+                                                </center>
+                                            <?php
+                                            }
+                                        }
+                                    ?>
+                                </div>
+                                <!-- /ZONA DE LA IMAGEN -->
                             </div>
-                        </div>
-                        <div id="botones">
-                        <div id="listadoPaises" class="col-md-4 col-lg-2"></div>
-                            <div id="zonaBotonEliminar"></div>
-                            <?php
-                                if(!empty($_SESSION)){
-                                    if($_SESSION['id'] == $_GET['id']){
-                                        ?>
-                                        <center>
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gear"></i> OPCIONES</button>
-                                            <div class="dropdown-menu">
-                                                <button id="botonEditarDatos" onclick="abrirCampos()" type="button" class="dropdown-item"><i class="fa fa-user" aria-hidden="true"></i>  CAMBIAR DATOS</button>
-                                                <button id="botonEditarPassword" onclick="limpiarCampos()" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambiarPasswordModal"><i class="fa fa-key" aria-hidden="true"></i>  CAMBIAR PASSWORD</button>
-                                                <button id="botonSubirImagen" type="button" class="dropdown-item" data-toggle="modal" data-target="#cambioFotoModal"><i class="fa fa-picture-o" aria-hidden="true"></i>  SUBIR FOTO</button>
+                            <div class="col-sm-8">
+                                <!-- Zona de los datos -->
+                                <div id="info">
+                                    <div id="alertaConfirmacion"></div>
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="nickPerfil" class="col-sm-2 col-form-label">Nick</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="nickPerfil" value="">
                                             </div>
                                         </div>
-                                        </center>
-                                        <?php
-                                    }
+                                        
+                                        <div class="form-group row">
+                                            <label for="mailPerfil" class="col-sm-2 col-form-label">Correo</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="mailPerfil" value="">
+                                            </div>
+                                        </div>
 
-                                    if($_SESSION['id'] != $_GET['id']){
-                                    ?>
-                                        <center>
-                                        <div id="puntuacion" style="visibility: hidden;">Puntuación concedida: <span id="puntuacionConcedida"></span>.</div>
-                                        <div id="outer">
-                                            <div class="inner"><button onclick="crearPuntuacion(this)" value="<?php echo $usuario->getId() ?>" type="button" id="upButton" class="btn btn-success"><i class="fa fa-thumbs-o-up"></i></button></div>
-                                            <div class="inner"><button onclick="crearPuntuacion(this)" value="<?php echo $usuario->getId() ?>" type="button" id="downButton" class="btn btn-danger"><i class="fa fa-thumbs-o-down"></i></button></div>
-                                        </div> 
-                                        <button id="enviarCorreo" class="btn btn-success" onclick="location.href='enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>'"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</button>
-                                        </center>
-                                    <?php
-                                    }
-                                }
-                            ?>
-                        </div>
-                        <div id="linea"></div>
-                        <div id="info">
-                            <div id="alertaConfirmacion"></div>
-                            <form>
-                                <div class="form-group row">
-                                    <label for="nickPerfil" class="col-sm-2 col-form-label">Nick</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control" id="nickPerfil" value="">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group row">
-                                    <label for="mailPerfil" class="col-sm-2 col-form-label">Correo</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control" id="mailPerfil" value="">
-                                    </div>
-                                </div>
+                                        <div class="form-group row">
+                                            <label for="paisPerfil" class="col-sm-2 col-form-label">Pais</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="paisPerfil" value="">
+                                            </div>
+                                        </div>
 
-                                <div class="form-group row">
-                                    <label for="paisPerfil" class="col-sm-2 col-form-label">Pais</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control" id="paisPerfil" value="">
-                                    </div>
-                                </div>
+                                        <div class="form-group row">
+                                            <label for="idiomaPerfil" class="col-sm-2 col-form-label">Idioma Usado</label>
+                                            <div class="col-sm-10" id="controlIdioma">
+                                                <input type="text" readonly class="form-control" id="idiomaPerfil" value="">
+                                            </div>
+                                        </div>
 
-                                <div class="form-group row">
-                                    <label for="idiomaPerfil" class="col-sm-2 col-form-label">Idioma Usado</label>
-                                    <div class="col-sm-10" id="controlIdioma">
-                                        <input type="text" readonly class="form-control" id="idiomaPerfil" value="">
-                                    </div>
-                                </div>
+                                        <div class="form-group row">
+                                            <label for="rolPrefePerfil" class="col-sm-2 col-form-label">Rol Preferido</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="rolPrefePerfil" value="">
+                                            </div>
+                                        </div>
 
-                                <div class="form-group row">
-                                    <label for="rolPrefePerfil" class="col-sm-2 col-form-label">Rol Preferido</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control" id="rolPrefePerfil" value="">
-                                    </div>
-                                </div>
+                                        <div class="form-group row">
+                                            <label for="rolBuscadoPerfil" class="col-sm-2 col-form-label">Rol Buscado</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="rolBuscadoPerfil" value="">
+                                            </div>
+                                        </div>
 
-                                <div class="form-group row">
-                                    <label for="rolBuscadoPerfil" class="col-sm-2 col-form-label">Rol Buscado</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control" id="rolBuscadoPerfil" value="">
-                                    </div>
-                                </div>
+                                        <div class="form-group row">
+                                            <label for="regionPerfil" class="col-sm-2 col-form-label">Region</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="regionPerfil" value="">
+                                            </div>
+                                        </div>
 
-                                <div class="form-group row">
-                                    <label for="regionPerfil" class="col-sm-2 col-form-label">Region</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control" id="regionPerfil" value="">
-                                    </div>
+                                        <div class="form-group row">
+                                            <label for="mensajePerfil" class="col-sm-2 col-form-label">Mensaje</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="mensajePerfil" maxlength="40" value="">
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label for="mensajePerfil" class="col-sm-2 col-form-label">Mensaje</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control" id="mensajePerfil" maxlength="40" value="">
-                                    </div>
-                                </div>
-                            </form>
+                                <!-- /Zona de los datos -->
+                            </div>
                         </div>
                     </div>
                 </div>
