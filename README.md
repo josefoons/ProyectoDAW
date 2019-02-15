@@ -1,7 +1,7 @@
 # ProyectoDAW
 
 ## Por hacer:
-- Rehacer funciones y diseño perfil
+- Corregir informacion de perfil cuando no tienes usuario logueado
 
 
 ## Terminado:
