@@ -1,7 +1,7 @@
 # ProyectoDAW
 
 ## Por hacer:
-- Corregir informacion de perfil cuando no tienes usuario logueado
+- NADA
 
 
 ## Terminado:
@@ -19,6 +19,7 @@
 - Modificar datos (Hecho)
 - Like / dislike (Hecho)
 - Sistema de reportes (Hecho)
+- Zona Usuario V2 (Hecho)
 
 
 ## Posibles Ideas 
