@@ -1,5 +1,4 @@
 window.addEventListener("load", cargar, false);
-
 function cargar() {
     obtenerDatos();
     if(document.getElementById("outer")){
@@ -23,7 +22,6 @@ function limpiarCampos() {
 
 function obtenerDatos() {
     var xhttp = new XMLHttpRequest();
-
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             infoUsuario = JSON.parse(this.responseText);
@@ -50,6 +48,10 @@ function colocarDatos() {
     document.getElementById("rolBuscadoPerfil").src = "vista/img/posiciones/" + infoUsuario[0].rolBuscado + ".png";
     document.getElementById("regionUsuarioPerfil").innerText = traducirCodigos(infoUsuario[0].region, "region");
     document.getElementById("mensajeUsuarioPerfil").innerText = infoUsuario[0].mensaje;
+
+    document.getElementById("nombreRolBuscado").innerText = traducirCodigos(infoUsuario[0].rolBuscado, "rol")
+    document.getElementById("nombreRolPreferido").innerText = traducirCodigos(infoUsuario[0].rolPreferido, "rol")
+
 
     //ZONA REPORTE 
     document.getElementById("nickReporte").innerText = infoUsuario[0].nick;
@@ -270,6 +272,8 @@ function traducirCodigos(item, tipo) {
     let paises = { "CN": "China", "DE": "Alemania", "ES":"España", "FR": "Francia", "GB": "Reino Unido", "IT": "Italia", "KR": "Corea del Sud" };
     let idioma = { "DE": "Aleman", "EN": "Ingles", "ESP":"Español", "FR": "Frances", "IT": "Italiano", "KR": "Coreano", "ZH": "Chino" };
     let region = { "BR": "Brasil", "CN": "China", "EUNE":"Europa Este", "EUW":"Europa Oeste", "JP":"Japon", "KR":"Corea", "LAN":"Latinoamerica Norte", "LAS":"Latinoamerica Sur", "NA":"America del Norte", "OCE":"Oceania", "RU":"Rusia", "SEA":"Sudeste Asia", "TR":"Turquia" };
+    let rol = { "TOP": "Top Laner", "JUNG": "Jungler", "MID":"Mid Laner", "ADC": "AD Carry", "SUPP": "Support"};
+
     switch (tipo) {
         case "pais":
             return paises[item];
@@ -279,6 +283,9 @@ function traducirCodigos(item, tipo) {
             break;
         case "region":
             return region[item];
+            break;
+        case "rol":
+            return rol[item];
             break;
     }
 }

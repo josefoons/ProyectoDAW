@@ -61,7 +61,6 @@
                                             }
                                         }
                                     ?>
-
                                 </div>
                                 <!-- /ZONA DE LA IMAGEN -->
                             </div>
@@ -75,16 +74,10 @@
                                             <td scope="row">Nick</td>
                                             <td id="nickUsuarioPerfil"></td>
                                         </tr>
-                                        <?php
-                                            if($usuario->getRolWeb() == 1 || $usuario->getId() == $_GET['id']){
-                                                ?>
-                                                    <tr>
-                                                        <td scope="row">Correo <?php if($usuario->getId() != $_GET['id']){  ?><FONT COLOR='red'><b>[SOLO ADMIN]</b></FONT><?php } ?> </td>
-                                                        <td id="mailUsuarioPerfil"></td>
-                                                    </tr>
-                                                <?php
-                                            }
-                                        ?>
+                                        <tr>
+                                            <td scope="row">Correo</td>
+                                            <td id="mailUsuarioPerfil"></td>
+                                        </tr>
                                         <tr>
                                             <td scope="row">Pais</td>
                                             <td id="paisUsuarioPerfil"></td>
@@ -107,9 +100,10 @@
                                         <td style="text-align: center;" scope="row">Preferido</td>
                                     </tr>
                                     <tr>
-                                        <td style="text-align: center;"><img id="rolBuscadoPerfil" src="vista/img/posiciones/ADC.png"></td>
-                                        <td style="text-align: center;"><img id="rolPreferidoPerfil" src="vista/img/posiciones/SUPP.png"></td>
+                                        <td style="text-align: center;"><img id="rolBuscadoPerfil" src=""><br><i id="nombreRolBuscado"></i></td>
+                                        <td style="text-align: center;"><img id="rolPreferidoPerfil" src=""><br><i id="nombreRolPreferido"></i></td>
                                     </tr>
+
                                 </table>
                             </div>
                         </div>
