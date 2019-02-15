@@ -35,4 +35,4 @@ http://www.webestools.com/scripts_tutorials-code-source-15-personal-message-syst
 https://startbootstrap.com/templates/bare/
 
 ## Cosas usadas
-Github, JSON, MVC, POO, Bootstrap, HTML, CSS, Grid, Responsive, AJAX, PHP, MYSQL, JS
+Github, JSON, MVC, POO, Bootstrap, HTML, CSS, Responsive, AJAX, PHP, MYSQL, JS
