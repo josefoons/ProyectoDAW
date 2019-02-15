@@ -40,11 +40,11 @@ function colocarDatos() {
     document.getElementById("nickPerfilHeader").innerText = infoUsuario[0].nick;
     document.getElementById("nickPerfil").value = infoUsuario[0].nick;
     document.getElementById("mailPerfil").value = infoUsuario[0].mail;
-    document.getElementById("paisPerfil").value = infoUsuario[0].pais;
-    document.getElementById("idiomaPerfil").value = infoUsuario[0].idioma;
+    document.getElementById("paisPerfil").value = traducirCodigos(infoUsuario[0].pais, "pais");
+    document.getElementById("idiomaPerfil").value = traducirCodigos(infoUsuario[0].idioma, "idioma");
     document.getElementById("rolPrefePerfil").value = infoUsuario[0].rolPreferido;
     document.getElementById("rolBuscadoPerfil").value = infoUsuario[0].rolBuscado;
-    document.getElementById("regionPerfil").value = infoUsuario[0].region;
+    document.getElementById("regionPerfil").value = traducirCodigos(infoUsuario[0].region, "region");
     document.getElementById("mensajePerfil").value = infoUsuario[0].mensaje;
 
     //ZONA REPORTE 
@@ -261,4 +261,22 @@ function getNick(idUsuarioReporte) {
 
     xhttp.open("GET", ip + "mensajes/getNick.php?id=" + idUsuarioReporte, true);
     xhttp.send();
+}
+
+function traducirCodigos(item, tipo) {
+
+    let paises = { "CN": "China", "DE": "Alemania", "ES":"España", "FR": "Francia", "GB": "Reino Unido", "IT": "Italia", "KR": "Corea del Sud" };
+    let idioma = { "DE": "Aleman", "EN": "Ingles", "ESP":"Español", "FR": "Frances", "IT": "Italiano", "KR": "Coreano", "ZH": "Chino" };
+    let region = { "BR": "Brasil", "CN": "China", "EUNE":"Europa Este", "EUW":"Europa Oeste", "JP":"Japon", "KR":"Corea", "LAN":"Latinoamerica Norte", "LAS":"Latinoamerica Sur", "NA":"America del Norte", "OCE":"Oceania", "RU":"Rusia", "SEA":"Sudeste Asia", "TR":"Turquia" };
+    switch (tipo) {
+        case "pais":
+            return paises[item];
+            break;
+        case "idioma":
+            return idioma[item];
+            break;
+        case "region":
+            return region[item];
+            break;
+    }
 }
