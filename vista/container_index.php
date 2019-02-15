@@ -1,5 +1,5 @@
 <div class="container">
-        <hr>
+        <br>
         <div class="row">
             <div class="col-lg mb-4" style="height: 750px;">
                 <div class="card h-100">
