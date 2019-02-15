@@ -53,11 +53,6 @@
                                             }
                                         }
                                     ?>
-                                    <div class="card bg-light mb-3" style="max-width: 100%;">
-                                        <div class="card-header">Biografia</div>
-                                        <div class="card-body" id="mensajeUsuarioPerfil">
-                                        </div>
-                                    </div>
                                 </div>
                                 <!-- /ZONA DE LA IMAGEN -->
                             </div>
@@ -65,37 +60,63 @@
                                 <!-- Zona de los datos -->
                                 <div id="info">
                                     <div id="alertaConfirmacion"></div>
-                                    <h1>Informacion Usuario</h1>
-                                    <table class="table">
-                                        <tr>
-                                            <td class="col-3">Nick</td>
-                                            <td id="nickUsuarioPerfil"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">Correo</td>
-                                            <td id="mailUsuarioPerfil"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">Pais</td>
-                                            <td id="paisUsuarioPerfil"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">Idioma Usado</td>
-                                            <td id="idiomaUsadoPerfil"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">Rol Preferido</td>
-                                            <td id="rolPreferidoPerfil"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">Rol Buscado</td>
-                                            <td id="rolBuscadoPerfil"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">Region</td>
-                                            <td id="regionUsuarioPerfil"></td>
-                                        </tr>
-                                    </table>
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="nickPerfil" class="col-sm-2 col-form-label">Nick</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="nickPerfil" value="">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group row">
+                                            <label for="mailPerfil" class="col-sm-2 col-form-label">Correo</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="mailPerfil" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="paisPerfil" class="col-sm-2 col-form-label">Pais</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="paisPerfil" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="idiomaPerfil" class="col-sm-2 col-form-label">Idioma Usado</label>
+                                            <div class="col-sm-10" id="controlIdioma">
+                                                <input type="text" readonly class="form-control" id="idiomaPerfil" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="rolPrefePerfil" class="col-sm-2 col-form-label">Rol Preferido</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="rolPrefePerfil" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="rolBuscadoPerfil" class="col-sm-2 col-form-label">Rol Buscado</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="rolBuscadoPerfil" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="regionPerfil" class="col-sm-2 col-form-label">Region</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="regionPerfil" value="">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="mensajePerfil" class="col-sm-2 col-form-label">Mensaje</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" readonly class="form-control" id="mensajePerfil" maxlength="40" value="">
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 <!-- /Zona de los datos -->
                             </div>

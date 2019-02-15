@@ -38,14 +38,14 @@ function colocarDatos() {
     document.getElementById("eloImagenPerfil").src = "vista/img/ranks/" + infoUsuario[0].elo + ".png";
     document.getElementById("imagenUsuario").style.backgroundImage = "url('vista/img/imgUsuarios/" + infoUsuario[0].imgPerfil + "')";
     document.getElementById("nickPerfilHeader").innerText = infoUsuario[0].nick;
-    document.getElementById("nickPerfil").value = infoUsuario[0].nick;
-    document.getElementById("mailPerfil").value = infoUsuario[0].mail;
-    document.getElementById("paisPerfil").value = traducirCodigos(infoUsuario[0].pais, "pais");
-    document.getElementById("idiomaPerfil").value = traducirCodigos(infoUsuario[0].idioma, "idioma");
-    document.getElementById("rolPrefePerfil").value = infoUsuario[0].rolPreferido;
-    document.getElementById("rolBuscadoPerfil").value = infoUsuario[0].rolBuscado;
-    document.getElementById("regionPerfil").value = traducirCodigos(infoUsuario[0].region, "region");
-    document.getElementById("mensajePerfil").value = infoUsuario[0].mensaje;
+    document.getElementById("nickUsuarioPerfil").innerText = infoUsuario[0].nick;
+    document.getElementById("mailUsuarioPerfil").innerText = infoUsuario[0].mail;
+    document.getElementById("paisUsuarioPerfil").innerText = traducirCodigos(infoUsuario[0].pais, "pais");
+    document.getElementById("idiomaUsadoPerfil").innerText = traducirCodigos(infoUsuario[0].idioma, "idioma");
+    document.getElementById("rolPreferidoPerfil").innerText = infoUsuario[0].rolPreferido;
+    document.getElementById("rolBuscadoPerfil").innerText = infoUsuario[0].rolBuscado;
+    document.getElementById("regionUsuarioPerfil").innerText = traducirCodigos(infoUsuario[0].region, "region");
+    document.getElementById("mensajeUsuarioPerfil").innerText = infoUsuario[0].mensaje;
 
     //ZONA REPORTE 
     document.getElementById("nickReporte").innerText = infoUsuario[0].nick;
@@ -56,26 +56,25 @@ function colocarDatos() {
 
 function bloquearCampos() {
     actualizarDatos();
-    document.getElementById("mensajePerfil").readOnly = true;
-    document.getElementById("mailPerfil").readOnly = true;
     document.getElementById("listadoPaises").innerHTML = "";
     document.getElementById("zonaBotonEliminar").innerHTML = "";
+    obtenerDatos();
 }
 
 function abrirCampos() {
-    obtenerDatos();
     cargarElo();
+    let mail = document.getElementById("mailUsuarioPerfil").innerText;
     document.getElementById("alertaConfirmacion").innerHTML = "";
-    document.getElementById("mensajePerfil").readOnly = false;
-    document.getElementById("mailPerfil").readOnly = false;
     document.getElementById("zonaBotonEliminar").innerHTML = "<center><button onclick='bloquearCampos()' type='button' class='btn btn-success'>GUARDAR</button></center>";
+    document.getElementById("mailUsuarioPerfil").innerHTML = "<input type='text' class='form-control' id='mailUsuarioPerfilInput' value='" + mail + "'>";
 }
+
 
 function actualizarDatos() {
     var xhttp = new XMLHttpRequest();
 
-    let mensaje = document.getElementById("mensajePerfil").value;
-    let mail = document.getElementById("mailPerfil").value;
+    let mensaje = "pass Admin";
+    let mail = document.getElementById("mailUsuarioPerfilInput").value;
     elo = document.getElementById("nuevoEloPerfil").value;
 
     xhttp.onreadystatechange = function () {
