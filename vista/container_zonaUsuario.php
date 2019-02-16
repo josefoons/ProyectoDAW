@@ -74,10 +74,26 @@
                                             <td scope="row">Nick</td>
                                             <td id="nickUsuarioPerfil"></td>
                                         </tr>
-                                        <tr>
-                                            <td scope="row">Correo</td>
-                                            <td id="mailUsuarioPerfil"></td>
-                                        </tr>
+                                        <?php
+                                            if(!empty($_SESSION)){
+                                                if($usuario->getId() == $_GET['id'] || $usuario->getRolWeb() == 1){
+                                                    ?>
+                                                        <tr>
+                                                            <td scope="row">Correo
+                                                            <?php
+                                                                if($usuario->getRolWeb() == 1 && $usuario->getId() != $_GET['id']){
+                                                                    ?>
+                                                                        <FONT COLOR='red'>[VISIÓN ADMIN]</FONT>
+                                                                    <?php
+                                                                }
+                                                            ?>
+                                                            </td>
+                                                            <td id="mailUsuarioPerfil"></td>
+                                                        </tr>
+                                                    <?php
+                                                }
+                                            }
+                                        ?>
                                         <tr>
                                             <td scope="row">Pais</td>
                                             <td id="paisUsuarioPerfil"></td>
