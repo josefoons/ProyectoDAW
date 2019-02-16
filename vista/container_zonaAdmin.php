@@ -14,7 +14,7 @@
                 <div class="input-group">
                   <input type="text" class="form-control" id="inputNombreUsuarios" placeholder="Buscar Usuario">
                   <span class="input-group-btn">
-                    <button type="button" id="lupaBuscar" class="btn btn-info"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                    <button type="button" id="lupaBuscar" style="margin-left: 5px;" class="btn btn-info"><i class="fa fa-trash" aria-hidden="true"></i></button>
                   </span>
                 </div>
                 <hr>

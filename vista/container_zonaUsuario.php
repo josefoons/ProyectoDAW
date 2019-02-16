@@ -5,14 +5,14 @@
                 <div class="card w-150">
                     <h4 class="card-header">Perfil de <span id="nickPerfilHeader"></span>
                     <?php
-                        if(!empty($_SESSION) && $_SESSION['id'] != $_GET['id']){
+                        if(!empty($_SESSION) && $usuario->getId() != $_GET['id']){
                         ?>
                             <button style="float:right;" onclick="getNick(<?php echo $usuario->getId(); ?>)" type="button" class="btn btn-danger" data-toggle="modal" data-target="#reporteModal"><i class="fa fa-flag" aria-hidden="true"></i></button>
                             <button style="margin-right: 5px; float:right;" id="enviarCorreo" class="btn btn-success" onclick="location.href='enviarMensaje.php?idEmisor=<?php echo $_SESSION['id'] ?>&idReceptor=<?php echo $_GET['id'] ?>'"><i class="fa fa-envelope" aria-hidden="true"></i> ENVIAR MAIL</button>
                         <?php
                         }
 
-                        if(!empty($_SESSION) && $_SESSION['id'] == $_GET['id']){
+                        if(!empty($_SESSION) && $usuario->getId() == $_GET['id']){
                             ?>
                             <div class="btn-group" style="float: right;">
                                 <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gear"></i></button>
@@ -45,7 +45,7 @@
                                     </div>                                    
                                     <?php
                                         if(!empty($_SESSION)){
-                                             if($_SESSION['id'] != $_GET['id']){
+                                             if($usuario->getId() != $_GET['id']){
                                             ?>
                                             <div id="divIDUsuario" style="visibility: hidden; display:inline;"> <?php echo $usuario->getId() ?> </div>
                                             <h4>Puntuación</h4><hr>

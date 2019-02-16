@@ -1,12 +1,16 @@
 <?php
 session_start();
-require_once("../../../modelo/conexionNEW.php");
+require_once "../../../modelo/conexionNEW.php";
+require_once "../../../modelo/claseUsuario.php";
+
 $miconexion = new Conexion();
 $conn = $miconexion->getConexion();
+$usuario = unserialize($_SESSION['claseUsuario']);
+
 $id = $_GET['id'];
 $nueva = $_GET['nueva'];
 $old = $_GET['old'];
-$correo = $_SESSION['email'];
+$correo = $usuario->getMail();
 
 $uppercase = preg_match('@[A-Z]@', $nueva);
 $lowercase = preg_match('@[a-z]@', $nueva);

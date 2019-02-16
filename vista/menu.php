@@ -9,7 +9,7 @@ if(empty($_SESSION)){
         <button type="button" id="login" class="btn btn-info" onclick="window.location='login.php';">ENTRAR</button>
         <button type="button" id="registro" class="btn btn-info" onclick="window.location='registro.php';">REGISTRARSE</button>
     <?php
-} else/*if( $_SESSION['nick'] != ""  )*/ {
+} else {
     $usuario = unserialize($_SESSION['claseUsuario']);
     $rolWeb = $miconexion->getRolWeb($usuario->getNick());
     ?>
