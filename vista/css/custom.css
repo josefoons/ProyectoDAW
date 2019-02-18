@@ -16,21 +16,20 @@ body {
 #textoImagenPrincipal {
     color: white;
     position: absolute;
-    height: 100%;
     width: auto;
     right: 5%;
-    top: 50%;
+    top: 40%;
 }
 
 #imagenBannerPrincipal {
     background: url("../img/banner_principal.jpg");
     background-size: cover;
+    height: 10px;
 }
 
 #listaUsuarios {
     width: auto;
     height: auto;
-    /* Cambiar a auto mas alante */
 }
 
 .bannerPrincipal {
@@ -69,4 +68,3 @@ body {
     height: 50px;
     width: auto;
 }
-
