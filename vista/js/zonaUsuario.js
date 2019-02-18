@@ -178,7 +178,7 @@ function actualizarPass() {
 }
 
 function cargarPuntuacion() {
-    let idUsuarioSesion = document.getElementById("divIDUsuario").innerText;
+    let idUsuarioSesion = document.getElementById("divIDUsuario").innerHTML;
     let botonUP = document.getElementById("upButton");
     let botonDown = document.getElementById("downButton");
     let zonaDePuntuacion = document.getElementById("outer");
@@ -210,7 +210,7 @@ function cargarPuntuacion() {
 }
 
 function crearPuntuacion(boton) {
-    let idUsuarioSesion = document.getElementById("upButton").value;
+    let idUsuarioSesion = document.getElementById("divIDUsuario").innerHTML;
     let nota = boton.id;
 
     if (nota == "upButton") {

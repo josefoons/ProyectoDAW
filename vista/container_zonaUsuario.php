@@ -47,7 +47,7 @@
                                         if(!empty($_SESSION)){
                                              if($usuario->getId() != $_GET['id']){
                                             ?>
-                                            <div id="divIDUsuario" style="visibility: hidden; display:inline;"> <?php echo $usuario->getId() ?> </div>
+                                            <div id="divIDUsuario" style="visibility: hidden; display:inline;"><?php echo $usuario->getId() ?></div>
                                             <h4>Puntuación</h4><hr>
                                             <div class="card bg-light mb-3" style="max-width: 100%;">
                                                 <div class="card-body">  
