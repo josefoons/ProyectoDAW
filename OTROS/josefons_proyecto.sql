@@ -2,10 +2,10 @@
 -- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 14, 2019 at 08:05 PM
--- Server version: 5.7.24-0ubuntu0.18.04.1
--- PHP Version: 7.2.10-0ubuntu0.18.04.1
+-- Servidor: localhost:3306
+-- Tiempo de generación: 18-02-2019 a las 18:43:43
+-- Versión del servidor: 5.7.24-0ubuntu0.18.04.1
+-- Versión de PHP: 7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `proyectoDAW`
+-- Base de datos: `proyectoDAW`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `elo`
+-- Estructura de tabla para la tabla `elo`
 --
 
 CREATE TABLE `elo` (
@@ -33,7 +33,7 @@ CREATE TABLE `elo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `elo`
+-- Volcado de datos para la tabla `elo`
 --
 
 INSERT INTO `elo` (`id`, `nombre`, `nombreArchivo`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `elo` (`id`, `nombre`, `nombreArchivo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `idioma`
+-- Estructura de tabla para la tabla `idioma`
 --
 
 CREATE TABLE `idioma` (
@@ -78,7 +78,7 @@ CREATE TABLE `idioma` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `idioma`
+-- Volcado de datos para la tabla `idioma`
 --
 
 INSERT INTO `idioma` (`id`, `codigoIdioma`, `nombreIdioma`) VALUES
@@ -93,20 +93,20 @@ INSERT INTO `idioma` (`id`, `codigoIdioma`, `nombreIdioma`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mensajesPrivados`
+-- Estructura de tabla para la tabla `mensajesPrivados`
 --
 
 CREATE TABLE `mensajesPrivados` (
   `id` int(11) NOT NULL,
   `idEmisor` int(11) NOT NULL,
   `idReceptor` int(11) NOT NULL,
-  `titulo` varchar(64) NOT NULL,
-  `mensaje` text NOT NULL,
+  `titulo` varchar(64) CHARACTER SET latin1 NOT NULL,
+  `mensaje` text CHARACTER SET latin1 NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `mensajesPrivados`
+-- Volcado de datos para la tabla `mensajesPrivados`
 --
 
 INSERT INTO `mensajesPrivados` (`id`, `idEmisor`, `idReceptor`, `titulo`, `mensaje`, `fecha`) VALUES
@@ -117,7 +117,7 @@ INSERT INTO `mensajesPrivados` (`id`, `idEmisor`, `idReceptor`, `titulo`, `mensa
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pais`
+-- Estructura de tabla para la tabla `pais`
 --
 
 CREATE TABLE `pais` (
@@ -127,7 +127,7 @@ CREATE TABLE `pais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `pais`
+-- Volcado de datos para la tabla `pais`
 --
 
 INSERT INTO `pais` (`id`, `codigoPais`, `nombrePais`) VALUES
@@ -142,18 +142,18 @@ INSERT INTO `pais` (`id`, `codigoPais`, `nombrePais`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `puntuacion`
+-- Estructura de tabla para la tabla `puntuacion`
 --
 
 CREATE TABLE `puntuacion` (
   `idPuntuacion` int(11) NOT NULL,
   `idPerfil` int(11) NOT NULL,
   `idUsuario` int(11) NOT NULL,
-  `puntuacion` int(11) NOT NULL COMMENT '0 - NADA // 1 - LIKE // 2 - DISLIKE'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `puntuacion` int(11) NOT NULL COMMENT '1 - LIKE // 2 - DISLIKE'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `puntuacion`
+-- Volcado de datos para la tabla `puntuacion`
 --
 
 INSERT INTO `puntuacion` (`idPuntuacion`, `idPerfil`, `idUsuario`, `puntuacion`) VALUES
@@ -168,12 +168,14 @@ INSERT INTO `puntuacion` (`idPuntuacion`, `idPerfil`, `idUsuario`, `puntuacion`)
 (10, 18, 8, 2),
 (11, 16, 8, 1),
 (13, 20, 8, 2),
-(14, 17, 8, 2);
+(15, 17, 8, 1),
+(16, 11, 8, 1),
+(17, 11, 8, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `region`
+-- Estructura de tabla para la tabla `region`
 --
 
 CREATE TABLE `region` (
@@ -183,7 +185,7 @@ CREATE TABLE `region` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `region`
+-- Volcado de datos para la tabla `region`
 --
 
 INSERT INTO `region` (`id`, `codigoRegion`, `nombreRegion`) VALUES
@@ -204,30 +206,31 @@ INSERT INTO `region` (`id`, `codigoRegion`, `nombreRegion`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `reporte`
+-- Estructura de tabla para la tabla `reporte`
 --
 
 CREATE TABLE `reporte` (
   `idReporte` int(11) NOT NULL,
   `idUsuarioReportado` int(11) NOT NULL,
   `idUsuarioCreado` int(11) NOT NULL,
-  `razon` varchar(64) NOT NULL,
-  `comentario` text NOT NULL,
+  `razon` varchar(64) CHARACTER SET latin1 NOT NULL,
+  `comentario` text CHARACTER SET latin1 NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `reporte`
+-- Volcado de datos para la tabla `reporte`
 --
 
 INSERT INTO `reporte` (`idReporte`, `idUsuarioReportado`, `idUsuarioCreado`, `razon`, `comentario`, `fecha`) VALUES
 (8, 16, 8, 'trollDuoQ', 'CABRON', '2019-02-08 16:48:30'),
-(9, 11, 8, 'trollDuoQ', 'sdagfzx', '2019-02-13 19:28:24');
+(9, 11, 8, 'trollDuoQ', 'sdagfzx', '2019-02-13 19:28:24'),
+(10, 11, 8, 'trollDuoQ', 'xfg', '2019-02-15 15:47:19');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rol`
+-- Estructura de tabla para la tabla `rol`
 --
 
 CREATE TABLE `rol` (
@@ -237,7 +240,7 @@ CREATE TABLE `rol` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `rol`
+-- Volcado de datos para la tabla `rol`
 --
 
 INSERT INTO `rol` (`id`, `codigoRol`, `rolNombre`) VALUES
@@ -250,7 +253,7 @@ INSERT INTO `rol` (`id`, `codigoRol`, `rolNombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -270,14 +273,14 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`id`, `nick`, `password`, `mail`, `pais`, `idioma`, `elo`, `rolPreferido`, `rolBuscado`, `region`, `mensaje`, `imgPerfil`, `rolWeb`) VALUES
-(8, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@josefons.es', 'CN', 'DE', 'diamond_4', 'ADC', 'ADC', 'BR', 'pass: admin', '8_imgPerfil.jpg', 1),
-(10, 'Straxy', 'f3b0c7503c0f48e689bef6be6882e01c', 'straxy@josefons.es', 'ES', 'ESP', 'challenger_1', 'SUPP', 'ADC', 'EUW', 'pass: Straxy111', '10_imgPerfil.jpg', 0),
+(8, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@josefons.es', 'CN', 'DE', 'bronze_2', 'ADC', 'ADC', 'BR', 'pass Admin', '8_imgPerfil.jpg', 1),
+(10, 'Straxy', 'f3b0c7503c0f48e689bef6be6882e01c', 'straxy@josefons.es', 'ES', 'ESP', 'challenger_1', 'SUPP', 'ADC', 'EUW', 'pass: Straxy111', 'no_pic.jpg', 0),
 (11, '7Rogue', 'e9974a62f6638820e2079173859c9ff3', 'prueba1@josefons.es', 'ES', 'ESP', 'bronze_3', 'MID', 'JUNG', 'EUW', 'pass: PruebaPrueba2', 'no_pic.jpg', 0),
-(12, 'SGladiator', 'd6ca16872a9fce6cdea5d9b1d8ce8476', 'sgladiator@josefons.es', 'ES', 'ESP', 'gold_4', 'ADC', 'SUPP', 'EUW', 'pass: Passbasura1', 'no_pic.jpg', 0),
+(12, 'SGladiator', 'd6ca16872a9fce6cdea5d9b1d8ce8476', 'sgladiator@josefons.es', 'ES', 'ESP', 'gold_3', 'ADC', 'SUPP', 'EUW', 'pass: Passbasura1', '12_imgPerfil.jpg', 0),
 (13, 'Hide on bush', 'd6ca16872a9fce6cdea5d9b1d8ce8476', 'safasf@dsfai.com', 'KR', 'KR', 'diamond_1', 'MID', 'JUNG', 'KR', 'pass Passbasura1', 'no_pic.jpg', 0),
 (14, 'sfasf', '6ffbeffcdee43e01aa7323b6593b061e', 'nosequefd@josefons.es', 'GB', 'EN', 'silver_2', 'TOP', 'TOP', 'BR', 'pass: ContraseÃ±aFalsa1', 'no_pic.jpg', 0),
 (16, 'kjbdnfi', 'c0df3576cfb9d843f03cd52ac0d02052', 'ofna@gmail.com', 'GB', 'EN', 'iron_4', 'TOP', 'TOP', 'BR', 'pass: PassFalsa1', 'no_pic.jpg', 0),
@@ -286,23 +289,23 @@ INSERT INTO `usuario` (`id`, `nick`, `password`, `mail`, `pais`, `idioma`, `elo`
 (20, 'dnfasfo', '14ac218c41b454fe0fe5ccc6f191f2d9', 'fasdfasfaf@josefons.es', 'GB', 'EN', 'iron_4', 'TOP', 'TOP', 'BR', 'pass: OtroUsuarioMas1', 'no_pic.jpg', 0);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `elo`
+-- Indices de la tabla `elo`
 --
 ALTER TABLE `elo`
   ADD PRIMARY KEY (`nombreArchivo`);
 
 --
--- Indexes for table `idioma`
+-- Indices de la tabla `idioma`
 --
 ALTER TABLE `idioma`
   ADD PRIMARY KEY (`codigoIdioma`);
 
 --
--- Indexes for table `mensajesPrivados`
+-- Indices de la tabla `mensajesPrivados`
 --
 ALTER TABLE `mensajesPrivados`
   ADD PRIMARY KEY (`id`),
@@ -310,13 +313,13 @@ ALTER TABLE `mensajesPrivados`
   ADD KEY `idEmisor` (`idEmisor`);
 
 --
--- Indexes for table `pais`
+-- Indices de la tabla `pais`
 --
 ALTER TABLE `pais`
   ADD PRIMARY KEY (`codigoPais`);
 
 --
--- Indexes for table `puntuacion`
+-- Indices de la tabla `puntuacion`
 --
 ALTER TABLE `puntuacion`
   ADD PRIMARY KEY (`idPuntuacion`),
@@ -324,13 +327,13 @@ ALTER TABLE `puntuacion`
   ADD KEY `idPerfil` (`idPerfil`);
 
 --
--- Indexes for table `region`
+-- Indices de la tabla `region`
 --
 ALTER TABLE `region`
   ADD PRIMARY KEY (`codigoRegion`);
 
 --
--- Indexes for table `reporte`
+-- Indices de la tabla `reporte`
 --
 ALTER TABLE `reporte`
   ADD PRIMARY KEY (`idReporte`),
@@ -338,74 +341,74 @@ ALTER TABLE `reporte`
   ADD KEY `idUsuarioCreador` (`idUsuarioCreado`);
 
 --
--- Indexes for table `rol`
+-- Indices de la tabla `rol`
 --
 ALTER TABLE `rol`
   ADD PRIMARY KEY (`codigoRol`);
 
 --
--- Indexes for table `usuario`
+-- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`),
   ADD KEY `region` (`region`),
-  ADD KEY `pais` (`pais`),
   ADD KEY `idioma` (`idioma`),
   ADD KEY `rolBuscado` (`rolBuscado`),
   ADD KEY `rolPreferido` (`rolPreferido`),
-  ADD KEY `elo` (`elo`);
+  ADD KEY `elo` (`elo`),
+  ADD KEY `pais` (`pais`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `mensajesPrivados`
+-- AUTO_INCREMENT de la tabla `mensajesPrivados`
 --
 ALTER TABLE `mensajesPrivados`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
--- AUTO_INCREMENT for table `puntuacion`
+-- AUTO_INCREMENT de la tabla `puntuacion`
 --
 ALTER TABLE `puntuacion`
-  MODIFY `idPuntuacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idPuntuacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
--- AUTO_INCREMENT for table `reporte`
+-- AUTO_INCREMENT de la tabla `reporte`
 --
 ALTER TABLE `reporte`
-  MODIFY `idReporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idReporte` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `mensajesPrivados`
+-- Filtros para la tabla `mensajesPrivados`
 --
 ALTER TABLE `mensajesPrivados`
   ADD CONSTRAINT `idEmisor` FOREIGN KEY (`idEmisor`) REFERENCES `usuario` (`id`),
   ADD CONSTRAINT `idReceptor` FOREIGN KEY (`idReceptor`) REFERENCES `usuario` (`id`);
 
 --
--- Constraints for table `puntuacion`
+-- Filtros para la tabla `puntuacion`
 --
 ALTER TABLE `puntuacion`
   ADD CONSTRAINT `idPerfil` FOREIGN KEY (`idPerfil`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `idUsuario` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`id`);
 
 --
--- Constraints for table `reporte`
+-- Filtros para la tabla `reporte`
 --
 ALTER TABLE `reporte`
   ADD CONSTRAINT `idUsuarioCreador` FOREIGN KEY (`idUsuarioCreado`) REFERENCES `usuario` (`id`),
   ADD CONSTRAINT `idUsuarioReportado` FOREIGN KEY (`idUsuarioReportado`) REFERENCES `usuario` (`id`);
 
 --
--- Constraints for table `usuario`
+-- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `elo` FOREIGN KEY (`elo`) REFERENCES `elo` (`nombreArchivo`),
