@@ -35,9 +35,15 @@
                <?php 
             }
 
-            if(limpiar() == "reportar.php"){
+            if(limpiar() == "listarMensaje.php"){
                ?>
-                <h1 id="textoImagenPrincipal">Reportar Usuario</h1>
+                <h1 id="textoImagenPrincipal">Listar Mensajes</h1>
+               <?php 
+            }
+
+            if(limpiar() == "listaReportes.php"){
+               ?>
+                <h1 id="textoImagenPrincipal">Listar Reportes</h1>
                <?php 
             }
           ?>
