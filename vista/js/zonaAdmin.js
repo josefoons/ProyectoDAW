@@ -1,12 +1,10 @@
 window.addEventListener("load", cargar, false);
 function cargar() {
     document.getElementById("inputNombreUsuarios").addEventListener("keyup", buscarUsuario);
-    document.getElementById("lupaBuscar").addEventListener("click", limpiar);
+    document.getElementById("lupaBuscar").addEventListener("click", limpiarLISTA);
 }
 
-
-
-function limpiar(){
+function limpiarLISTA(){
     document.getElementById("colocarUsuario").innerHTML = "";
 }
 
@@ -17,7 +15,12 @@ function buscarUsuario() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             let infoUsuario = JSON.parse(this.responseText);
-            colocarDatos(infoUsuario);            
+            document.getElementById("colocarUsuario").innerHTML = "";
+            let texto = document.getElementById("inputNombreUsuarios");
+
+            if(texto.value != ""){
+                colocarDatos(infoUsuario);  
+            }       
         }
     };
 
@@ -27,11 +30,29 @@ function buscarUsuario() {
 
 function colocarDatos(info) {
 
-    if(info[0].rolWeb == 0){
-        document.getElementById("colocarUsuario").innerHTML = "<div class='container'><div class='row'><div class='col-sm'>" + info[0].id + "</div><div class='col-sm'>" + info[0].nick + "</div><div class='col-sm'>" + info[0].mail + "</div><div class='col-sm'>" + info[0].mensaje + "</div><div class='col-sm'><button onclick='borrarUsuario(this)' type='button' id='" + info[0].id + "' class='btn btn-info'><i class='fa fa-trash' aria-hidden='true'></i></button>  <button onclick='crearAdmin(this)' type='button' id='" + info[0].id + "#0' class='btn btn-info'><i class='fa fa-star' aria-hidden='true'></i></button></div></div></div>";
+    let campo = document.getElementById("colocarUsuario");
+    for (let k in info) {
+        if(info[k].rolWeb == 0){
+            campo.innerHTML = campo.innerHTML + "<div class='container'><div class='row'><div class='col-sm'>" + info[k].id + "</div><div class='col-sm'>" + info[k].nick + "</div><div class='col-sm'>" + info[k].mail + "</div><div class='col-sm'><button onclick='borrarUsuario(this)' type='button' id='" + info[k].id + "' class='btn btn-info'><i class='fa fa-trash' aria-hidden='true'></i></button>  <button onclick='crearAdmin(this)' type='button' id='" + info[k].id + "#0' class='btn btn-info'><i class='fa fa-star' aria-hidden='true'></i></button></div></div></div>";
+        } else {
+            campo.innerHTML = campo.innerHTML + "<div class='container'><div class='row'><div class='col-sm'>" + info[k].id + "</div><div class='col-sm'>" + info[k].nick + "</div><div class='col-sm'>" + info[k].mail + "</div><div class='col-sm'><button onclick='borrarUsuario(this)' type='button' id='" + info[k].id + "' class='btn btn-info'><i class='fa fa-trash' aria-hidden='true'></i></button>  <button onclick='crearAdmin(this)' type='button' id='" + info[k].id + "#1' class='btn btn-danger'><i class='fa fa-star' aria-hidden='true'></i></button></div></div></div>";
+        }
+    };
+
+
+}
+
+function activarAlerta(respuesta) {
+    let alerta = document.getElementById("zonaAlertas");
+
+    if (respuesta == "OK") {
+        alerta.innerHTML = "<div class='alert alert-success' role='alert'> Admin actualizado correctamente! </div>";
     } else {
-        document.getElementById("colocarUsuario").innerHTML = "<div class='container'><div class='row'><div class='col-sm'>" + info[0].id + "</div><div class='col-sm'>" + info[0].nick + "</div><div class='col-sm'>" + info[0].mail + "</div><div class='col-sm'>" + info[0].mensaje + "</div><div class='col-sm'><button onclick='borrarUsuario(this)' type='button' id='" + info[0].id + "' class='btn btn-info'><i class='fa fa-trash' aria-hidden='true'></i></button>  <button onclick='crearAdmin(this)' type='button' id='" + info[0].id + "#1' class='btn btn-danger'><i class='fa fa-star' aria-hidden='true'></i></button></div></div></div>";
+        alerta.innerHTML = "<div class='alert alert-danger' role='alert'> Error al actualizar datos!</div>";
     }
+
+    document.getElementById("inputNombreUsuarios").value = "";
+    document.getElementById("colocarUsuario").innerHTML = "";
 }
 
 function borrarUsuario(boton) {
@@ -63,14 +84,7 @@ function crearAdmin(boton) {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            if (this.responseText == "OK") {
-                alert("Accion Realizada.");
-            } else {
-                if(this.responseText == "ERROR"){
-                    alert("ERROR! Admin no creado!");   
-                }
-            }
-            location.reload(); 
+            activarAlerta(this.responseText);
         }
     };
 

@@ -33,10 +33,10 @@ function colocarReportes(reportes) {
             "<tr>"
             + "<td><a href='zonaUsuario.php?id=" + reportes[k].idUsuarioReportado + "'>" + reportes[k].idUsuarioReportado + "</a></td>"
             + "<td><a href='zonaUsuario.php?id=" + reportes[k].idUsuarioCreado + "'>" + reportes[k].idUsuarioCreado + "</a></td>"
-            + "<td>" + reportes[k].razon  + "</td>"
-            + "<td><button type='button' id=" + k + " onclick='leerComentario(this)' class='btn btn-info' data-toggle='modal' data-target='#comentarioModal'><i class='fa fa-comments' aria-hidden='true'></i></button></td>"
+            + "<td>" + traducirReporte(reportes[k].razon)  + "</td>"
+            + "<td style='text-align: center;'><button type='button' id=" + k + " onclick='leerComentario(this)' class='btn btn-info' data-toggle='modal' data-target='#comentarioModal'><i class='fa fa-comments' aria-hidden='true'></i></button></td>"
             + "<td>" + reportes[k].fecha  + "</td>"
-            + "<td><button onclick='borrarReporte(" + reportes[k].idReporte + ")' type='button' class='btn btn-danger'><i class='fa fa-trash' aria-hidden='true'></i></button><td>"
+            + "<td style='text-align: center;'><button onclick='borrarReporte(" + reportes[k].idReporte + ")' type='button' class='btn btn-danger'><i class='fa fa-trash' aria-hidden='true'></i></button><td>"
             + "</tr>";
     }
 
@@ -67,4 +67,10 @@ function borrarReporte(idReporte) {
     xhttp.open("GET", ip + "admin/borrarReporte.php?idReporte=" + idReporte, true);
     xhttp.send();
 
+}
+
+function traducirReporte(tipo) {
+    let tipoReporte = { "insultos": "Insultos", "trollDuoQ": "Troll en DuoQ", "perfilRobado":"Perfil Robado", "perfilTroll":"Perfil Troll"};  
+
+    return tipoReporte[tipo];
 }

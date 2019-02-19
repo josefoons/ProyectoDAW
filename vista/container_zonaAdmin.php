@@ -10,7 +10,8 @@
                   } 
                 ?>
               </h4>
-              <div class="card-body" id="zonaAdmin">
+              <div class="card-body" id="zonaAdmin"  style="overflow: auto;">
+              <div id="zonaAlertas"></div>
                 <div class="input-group">
                   <input type="text" class="form-control" id="inputNombreUsuarios" placeholder="Buscar Usuario">
                   <span class="input-group-btn">
@@ -28,9 +29,6 @@
                     </div>
                     <div class="col">
                       Mail
-                    </div>
-                    <div class="col">
-                      Comentario
                     </div>
                     <div class="col">
                       Opciones
