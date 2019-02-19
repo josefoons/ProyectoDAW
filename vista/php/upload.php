@@ -46,13 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 mysqli_query($conn, $query);
                 header("Location: ./../../zonaUsuario.php?id=" . $idUsuario);
             } else {
-                echo "Not uploaded because of error #" . $_FILES["avatar"]["error"];
+                //echo "Not uploaded because of error #" . $_FILES["avatar"]["error"];
             }
         } else {
-            echo "Error: There was a problem uploading your file. Please try again.";
+            //echo "Error: There was a problem uploading your file. Please try again.";
         }
     } else {
-        echo "Error: " . $_FILES["avatar"]["error"];
+        //echo "Error: " . $_FILES["avatar"]["error"];
     }
 }
 
