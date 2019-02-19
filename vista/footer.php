@@ -1,8 +1,3 @@
-<!-- <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Jose Fons</p>
-    </div>
-  </footer> -->
   <footer id="myFooter">
         <div class="container">
             <div class="row">
@@ -13,9 +8,25 @@
                   <center>
                     <h5>Enlaces Utiles</h5>
                       <ul>
-                          <li><a href="index.php">Home</a></li>
-                          <li><a href="registro.php">Registro</a></li>
-                          <li><a href="login.php">Login</a></li>
+                      <?php
+                        if(!empty($_SESSION)){
+                            ?>
+                                <li><a href="zonaUsuario.php?id=<?php echo $usuario->getId(); ?>">Perfil</a></li>
+                                <li><a href="listarMensaje.php?id=<?php echo $usuario->getId(); ?>">Ver Mail</a></li>
+                            <?php
+                            if($usuario->getRolWeb() == 1){
+                                ?>
+                                <li><a href="zonaAdmin.php">PANEL ADMINISTRADOR</a></li>
+                                <?php
+                            }
+                        } else {
+                            ?>
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="registro.php">Registro</a></li>
+                                <li><a href="login.php">Login</a></li>
+                            <?php
+                        }
+                      ?>
                       </ul>
                     </center>
                 </div>
