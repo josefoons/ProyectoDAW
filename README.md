@@ -1,7 +1,7 @@
 # ProyectoDAW
 
 ## Por hacer:
-- Corregir vision de usuario sin log de la zona de perfil
+- NADA
 
 
 ## Terminado:
