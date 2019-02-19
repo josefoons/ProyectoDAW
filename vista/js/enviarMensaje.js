@@ -64,7 +64,7 @@ function enviarMensaje() {
 
             document.getElementById("enviarMensaje").disabled = true;
             setTimeout(function() {
-                //window.location.href = ip + "../../index.php";
+                window.location.href = "index.php";
                 document.getElementById("titulo").value = "";
                 document.getElementById("mensaje").value = "";
                 document.getElementById("areaAlerta").innerHTML = "";
